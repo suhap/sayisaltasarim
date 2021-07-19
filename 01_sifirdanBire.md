@@ -18,10 +18,23 @@ Mikromimari(Microarchitecture), lojik cihazların kullanıldığı devre mimaris
 
 Mimarinin bir üst seviyesi olan İşletim Sistemi, sabit bir sürücüye erişim veya bellek yönetimi gibi düşük düzeyli ayrıntıları ele almaktadır. Son olarak Uygulama katmanı, kullanıcının ihtiyaç duyduğu programları işletim sistemi marifeti ile sunmaktadır. Soyutlama sayesinde annelerimiz kuantum fizik bilgisi veya bilgisayar organizasyon bilgisine ihtiyaç duymadan internette gezinebilmektedir.
 
+Bu ders bilgisayar mimarisinin oluşturan sayısal devre soyutlama sevyesine odaklanacaktır. Bir soyutlama düzeyinde çalışırken, çalıştığınız yerin hemen üstündeki ve altındaki soyutlama düzeyleri hakkında bir şeyler bilmek iyidir. Örneğin bir bilgisayar mühendisi yazdığı programın çalışacağı mimariyi anlamadan optimize kod yazması mümkün değildir. 
 
+# 1.2.2 Disiplin
 
+Yüksek soyutlama sevyelerinden efektif çalışmak için tasarım seçimlerinin biliçli olarak kısıtlamaktır. Değiştirilebilir parçaların kullanılması, bilinen bir disiplin uygulamasıdır. Değiştirilebilir parçaların ilk örneklerinden biri çakmaklı tüfek imalatıdır. 19. yüzyılın başlarına kadar tüfekler tek tek elle yapılmaktaydı. Birçok farklı ustadan satın alınan parçalar, yetenekli bir silah ustası tarafından dikkatlice bir araya getirilmektedi. Değiştirilebilir parçaların kullanımı endüstride devrim yarattı. Tüfek parçalarının iyi tanımlanmış standartlarla sınırlandırılması sayesinde tüfekler çok daha hızlı ve daha az beceriyle monte edilebilir ve onarılabilir oldular. Bu sayede silah ustaları tek bir namlu veya dipçiğin şekil ile ilgilenmek gibi daha düşük soyutlama sevyeleri ile ilgilenmez oldular. 
 
+# 1.2.3 Karmasıklıgın için Üc Y
 
+Soyutlama ve disipline ek olarak, tasarımcılar karmaşıklığı yönetmek için üç "-y(hierarchy, modularity, regularity)"yi kullanır: hiyerarşi, modülerlik ve düzenlilik. Bu ilkeler hem yazılım hem de donanım sistemleri için geçerlidir.
+
+- Hiyerarşi, bir sistemi parçalara bölmeyi ve ardından bu parçalarn her birini kolay anlaşılır hale gelene kadar alt parçalara ayırmayı içerir.
+- Modülarite, modüllerin iyi tanımlanmış fonksiyonlara ve arayüzlere sahip olduğunu ve böylece beklenmedik bir etki olmadan kolayca birbirine iletişim kurmalarını garanti eder.
+- Düzenlilik, modüller arasında tekdüzelik arar. Ortak modüller birçok kez yeniden kullanılır, bu da tasarlanması gereken farklı modüllerin sayısını azaltır.
+
+![cakmakliTufek](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/1.png)
+
+Bu "-y'leri" göstermek için tüfek imalatı örneğine dönüyoruz. Bir çakmaklı tüfek, 19. yüzyılın başlarında yaygın olarak kullanılan en karmaşık nesnelerden biriydi. Hiyerarşi ilkesini kullanarak, onu Şekil 1.2'de gösterilen bileşenlere ayırabiliriz: kilit, dipçik ve namlu.
 
 
 
