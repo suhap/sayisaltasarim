@@ -32,7 +32,7 @@ Soyutlama ve disipline ek olarak, tasarımcılar karmaşıklığı yönetmek iç
 - Modülarite, modüllerin iyi tanımlanmış fonksiyonlara ve arayüzlere sahip olduğunu ve böylece beklenmedik bir etki olmadan kolayca birbirine iletişim kurmalarını garanti eder.
 - Düzenlilik, modüller arasında tekdüzelik arar. Ortak modüller birçok kez yeniden kullanılır, bu da tasarlanması gereken farklı modüllerin sayısını azaltır.
 
-![cakmakliTufek](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/1.png)
+![cakmakliTufek](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2.png)
 
 Bu "-y'leri" göstermek için tüfek imalatı örneğine dönüyoruz. Bir çakmaklı tüfek, 19. yüzyılın başlarında yaygın olarak kullanılan en karmaşık nesnelerden biriydi. Hiyerarşi ilkesini kullanarak, onu Şekil 1.2'de gösterilen bileşenlere ayırabiliriz: kilit, dipçik ve namlu.
 
