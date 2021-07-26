@@ -42,7 +42,7 @@ Modülerlik kavramında her bileşen iyi tanımlanmış bir işleve ve arayüze 
 
 Düzenlilik, değiştirilebilir parçaların iyi bir fikir olduğunu öğretir. Hasarlanan herhangi bir parça diğeri ile kolayca değiştirilebilmelidir. Bu sayede parçalar el yapımı olmak yerine montaj hattında üretilebilir olmaktadır. 
 
-# 1.2 Sayısal Soyutlama
+# 1.3 Sayısal Soyutlama
 
 
 
