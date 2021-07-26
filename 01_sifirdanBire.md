@@ -34,8 +34,15 @@ Soyutlama ve disipline ek olarak, tasarımcılar karmaşıklığı yönetmek iç
 
 ![cakmakliTufek](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2.png)
 
-Bu "-y'leri" göstermek için tüfek imalatı örneğine dönüyoruz. Bir çakmaklı tüfek, 19. yüzyılın başlarında yaygın olarak kullanılan en karmaşık nesnelerden biriydi. Hiyerarşi ilkesini kullanarak, onu Şekil 1.2'de gösterilen bileşenlere ayırabiliriz: kilit, dipçik ve namlu.
+Üç "-y" kavramını göstermek için tüfek imalatı örneğine dönülecektir. 19. yüzyılın başlarında yaygın olarak kullanılan en karmaşık nesnelerden biri olan çakmaklı tüfek, hiyerarşi ilkesi kullanılarak şekilde gösterilen tetik, dipçik ve namlu şeklinde üç parçaya ayrılabilir. 
 
+Namlu, içinden merminin ateşlendiği uzun metal borudur. Kilit, ateşleme mekanizmasıdır. Dipçik ise parçaları bir arada tutan ve kullanıcıya güvenli bir tutuş sağlayan ahşap gövdedir. Kilit mekanizması, tetik, horoz, çakmaktaşı, çakmak taşını tutan parça, çakmak taşının vurduğu ve bir miktar barut bulunduran çelik zemin; tava. Bu bileşenlerin her biri daha ayrıntılı olarak hiyerarşik olarak açıklanabilir.
+
+Modülerlik kavramında her bileşen iyi tanımlanmış bir işleve ve arayüze sahip olması gerekmektedir. Dipçiğin görevi kilit mekanizmasını ve namluyu birleştirmektir. Dipçiğin diğer parçalarla ilişkisi arayüzü montaj pimlerinden ve konumlanmasından oluşmaktadır. Dolayısıyla, modüler bir tüfek tasarımında, dipçik ve namlu doğru uzunlukta olduğu ve uygun montaj mekanizmasına sahip olduğu sürece, birçok farklı üreticinin tüfek parçaları bir arada kullanılarak tüfek montajı yapılabilir. Modülerlik, paçaların birbilerinin işlevlerini engellemelerini önlemeyi garanti etmektedir: dipçiğin tasarımı namlunun mermiye dönüş verme işlevini etkilememesi gerekmektedir. 
+
+Düzenlilik, değiştirilebilir parçaların iyi bir fikir olduğunu öğretir. Hasarlanan herhangi bir parça diğeri ile kolayca değiştirilebilmelidir. Bu sayede parçalar el yapımı olmak yerine montaj hattında üretilebilir olmaktadır. 
+
+# 1.2 Sayısal Soyutlama
 
 
 
