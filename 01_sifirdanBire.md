@@ -43,7 +43,10 @@ Modülerlik kavramında her bileşen iyi tanımlanmış bir işleve ve arayüze 
 Düzenlilik, değiştirilebilir parçaların iyi bir fikir olduğunu öğretir. Hasarlanan herhangi bir parça diğeri ile kolayca değiştirilebilmelidir. Bu sayede parçalar el yapımı olmak yerine montaj hattında üretilebilir olmaktadır. 
 
 # 1.3 Sayısal Soyutlama
+Çoğu fiziksel değişken süreklidir. Örneğin, bir tel üzerindeki voltaj, bir salınımın frekansı veya bir kütlenin konumu sürekli niceliklerdir. Öte yandan dijital sistemlerde bilgi, ayrık değerli değişkenlerle, yani sonlu sayıda farklı değere sahip değişkenlerle temsil edilir.
 
+![Babbage Analitik Motor](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3.png)
 
+İlk sayısal sistem olan Charles Babbage'ın Analitik Motoru on ayrık değere sahip olabilen değişkenleri  kullanmaktaydı. Babbage, 1834'ten 1871'e kadar bu mekanik bilgisayarı tasarlamak ve inşa etmek için çalıştı. Analitik Motor, bir arabadaki mekanik kilometre sayacına çok benzer şekilde, on konumlu (0 ila 9) vites kutusuna bezer şekilde çalışmaktadır. Yukarıdaki şekilde, her satırda bir rakamın işlendiği Analitik Motorun bir prototipini göstermektedir. Babbage 25 sıra dişli seçti, bu nedenle makine 25 basamaklı hassasiyete sahiptir.
 
 
