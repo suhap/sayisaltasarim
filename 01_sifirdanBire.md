@@ -53,8 +53,8 @@ Babbage'ın makinesinden farklı olarak, çoğu elektronik bilgisayar, yüksek v
 
 N farklı duruma sahip ayrık değerli bir değişkendeki bilgi(D) miktarı, şu şekilde ölçülür:
 
-![Denklem1](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/4.png)
+D= log<sub>2</sub> N bits
 
-İkili değişken, log<sub>2</sub>2 = 1 bit bilgi taşır. Aslında, bit kelimesi ikili rakamın kısaltmasıdır. Babbage’ın dişlilerinden her biri log210 = 3.322 bit bilgi taşıyordu çünkü bu 23.322 = 10 benzersiz konumdan birinde olabilirdi. Sürekli bir sinyal teorik olarak sonsuz miktarda bilgi içerir çünkü sonsuz sayıda değer alabilir. Uygulamada gürültü ve ölçüm hatası, çoğu sürekli sinyal için bilgiyi yalnızca 10 ila 16 bit ile sınırlar. Ölçümün hızlı bir şekilde yapılması gerekiyorsa, bilgi içeriği daha düşüktür (örneğin, 8 bit).
+İkili değişken, log<sub>2</sub> 2 = 1 bit bilgi taşır. Aslında, bit kelimesi ikili rakamın kısaltmasıdır. Babbage’ın dişlilerinden her biri log210 = 3.322 bit bilgi taşıyordu çünkü bu 23.322 = 10 benzersiz konumdan birinde olabilirdi. Sürekli bir sinyal teorik olarak sonsuz miktarda bilgi içerir çünkü sonsuz sayıda değer alabilir. Uygulamada gürültü ve ölçüm hatası, çoğu sürekli sinyal için bilgiyi yalnızca 10 ila 16 bit ile sınırlar. Ölçümün hızlı bir şekilde yapılması gerekiyorsa, bilgi içeriği daha düşüktür (örneğin, 8 bit).
 
 
