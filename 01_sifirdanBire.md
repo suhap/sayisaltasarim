@@ -49,4 +49,11 @@ Düzenlilik, değiştirilebilir parçaların iyi bir fikir olduğunu öğretir. 
 
 İlk sayısal sistem olan Charles Babbage'ın Analitik Motoru on ayrık değere sahip olabilen değişkenleri  kullanmaktaydı. Babbage, 1834'ten 1871'e kadar bu mekanik bilgisayarı tasarlamak ve inşa etmek için çalıştı. Analitik Motor, bir arabadaki mekanik kilometre sayacına çok benzer şekilde, on konumlu (0 ila 9) vites kutusuna bezer şekilde çalışmaktadır. Yukarıdaki şekilde, her satırda bir rakamın işlendiği Analitik Motorun bir prototipini göstermektedir. Babbage 25 sıra dişli seçti, bu nedenle makine 25 basamaklı hassasiyete sahiptir.
 
+Babbage'ın makinesinden farklı olarak, çoğu elektronik bilgisayar, yüksek voltajın '1' ve düşük voltajın '0'ı gösterdiği ikili (iki değerli) bir gösterim kullanır, çünkü iki değerli alan voltajı on deger alan voltajdan ayır etmek daha kolaydır.
+
+N farklı duruma sahip ayrık değerli bir değişkendeki bilgi(D) miktarı, şu şekilde ölçülür:
+
+![Denkelem1](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/4.png)
+D = log2 N bit
+
 
