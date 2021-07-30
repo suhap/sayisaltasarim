@@ -73,6 +73,8 @@ Alışkın olunana ondalık sayı sistemlerinin aksine; 1’lerden ve 0’lardan
 
 N basamaklı bir ondalık sayı, 10 <sup>N</sup> olasılıktan birini temsil eder: 0, 1, 2, 3, ..., 10 <sup>N</sup> - 1. Buna sayı aralığı denir. Örneğin, üç basamaklı bir ondalık sayı, 0 ila 999 aralığındaki 1000 olasılıktan birini temsil eder.
 
+# 1.4.2 İkilik Sayı Sistemleri
+
 Bitler, 0 veya 1 gibi iki değerden birini temsil eder ve ikili sayılar oluşturmak üzere birleştirilir. İkili sayının her sütunu, önceki sütunun iki katı ağırlığa sahiptir, bu nedenle ikili sayılar taban 2'dir. İkili olarak, sütun ağırlıkları (yine sağdan sola) 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768 vb.
 
 N-bit ikili sayı 2 <sup>N</sup> olasılıktan birini temsil eder: 0, 1, 2, 3, …, 2 <sup>N</sup> − 1. Aşağıdaki Tablo, 1, 2, 3 ve 4-bit ikili sayıları ve ondalık eşdeğerlerini göstermektedir.
@@ -83,5 +85,11 @@ N-bit ikili sayı 2 <sup>N</sup> olasılıktan birini temsil eder: 0, 1, 2, 3, �
 
 ![cevrim](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/6.png)
 
+ÖRNEK 1.2 Onluk tabandaki 84 <sub>10</sub> sayısını ikilik tabana ceviriniz.
 
+Soldan başlayarak, sayıya eşit veya küçük 2'nin en büyük kuvvetiyle başlanır (bu durumda, 64). 84 ≥ 64, yani 64'ün sütununda 1 var ve 84 − 64 = 20 kalır. 20 < 32, yani 32'ler sütununda 0 var. 20 ≥ 16, yani 16'nın sütununda 1 var ve geriye 20 − 16 = 4 kalır. 4 < 8, yani 8'ler sütununda 0 var. 4 ≥ 4, yani 4'ün sütununda 1 var ve 4− 4 = 0 kalır. Bu nedenle 2'ler ve 1'ler sütununda 0'lar olmalıdır. Bunların hepsini bir araya getirirsek, 84 <sub>10</sub> = 1010100 <sub>2</sub>.
+
+Sağdan çalışarak sayıyı art arda 2'ye bölün. Geri kalan her sütuna gider. 84/2 = 42, yani 0, 1'in sütununa girer. 42/2 = 21, yani 0, 2'nin sütununa girer. 21/2 = 10, kalan 1 ise 4'ün sütununda. 10/2 = 5, yani 0, 8'ler sütununa girer. 5/2 = 2, kalan 1 16'lar sütununda olur. 2/2 = 1, yani 0, 32'ler sütununa girer. Son olarak, 64'ün sütununda 1'in kalan kısmı ile 1/2 = 0. Sonuç: 84 <sub>10</sub> = 1010100 <sub>2</sub>.
+
+# 1.4.1 ONaltılık Sayı Sistemleri
 
