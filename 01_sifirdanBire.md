@@ -57,6 +57,11 @@ D= log<sub>2</sub> N bits
 
 İkili değişken, log<sub>2</sub> 2 = 1 bit bilgi taşır. Aslında, bit kelimesi ikili rakamın kısaltmasıdır. Babbage’ın dişlilerinden her biri log<sub>2</sub> 10 = 3.322 bit bilgi taşıyordu çünkü bu 2<sup>3.322</sup> = 10 benzersiz konumdan birinde olabilirdi. Sürekli bir sinyal teorik olarak sonsuz miktarda bilgi içerir çünkü sonsuz sayıda değer alabilir. Uygulamada gürültü ve ölçüm hatası, çoğu sürekli sinyal için bilgiyi yalnızca 10 ila 16 bit ile sınırlar. Ölçümün hızlı bir şekilde yapılması gerekiyorsa, bilgi içeriği daha düşüktür (örneğin, 8 bit).
 
+Bu derste, ikili değişkenleri kullanan sayısal devrelere odaklanmaktadır: 1'ler ve 0'lar. George Boole, artık Boole mantığı olarak bilinen ikili değişkenler üzerinde çalışan bir mantık sistemi geliştirdi. Boole değişkenlerinin her biri DOĞRU veya YANLIŞ olabilir. Elektronik bilgisayarlar genellikle '1'i temsil etmek için pozitif voltaj ve' 0'ı temsil etmek için sıfır volt kullanır. Bu kitapta '1', DOĞRU ve YÜKSEK terimlerini eşanlamlı olarak kullanılırken; benzer şekilde, '0', YANLIŞ ve DÜŞÜK'ü birbirinin yerine kullanılacaktır.
+
+Sayısal soyutlamanın güzelliği, sayısal tasarımcıların Boole değişkenlerinin fiziksel olarak belirli voltajlarla, dönen dişlilerle ve hatta hidrolik sıvı seviyeleriyle temsil edilip edilmediğini görmezden gelerek 1’lere ve 0’lara odaklanabilmesidir. Bir bilgisayar programcısı, bilgisayar donanımının özel ayrıntılarını bilmesine gerek kalmadan çalışabilir. Öte yandan, donanımın ayrıntılarını anlamak, programcının yazılımı o belirli bilgisayar için daha iyi optimize etmesini sağlar.
+
+Tek bir bit fazla bilgi taşımaz. Bir sonraki bölümde, bit gruplarının sayıları temsil etmek için nasıl kullanılabileceğini incelenecektir. Daha sonraki bölümlerde, harfleri ve programları temsil etmek için bit grupları da kullanılacaktır.
 
 
 
