@@ -91,5 +91,5 @@ Soldan başlayarak, sayıya eşit veya küçük 2'nin en büyük kuvvetiyle baş
 
 Sağdan çalışarak sayıyı art arda 2'ye bölün. Geri kalan her sütuna gider. 84/2 = 42, yani 0, 1'in sütununa girer. 42/2 = 21, yani 0, 2'nin sütununa girer. 21/2 = 10, kalan 1 ise 4'ün sütununda. 10/2 = 5, yani 0, 8'ler sütununa girer. 5/2 = 2, kalan 1 16'lar sütununda olur. 2/2 = 1, yani 0, 32'ler sütununa girer. Son olarak, 64'ün sütununda 1'in kalan kısmı ile 1/2 = 0. Sonuç: 84 <sub>10</sub> = 1010100 <sub>2</sub>.
 
-# 1.4.1 ONaltılık Sayı Sistemleri
+# 1.4.1 Onaltılık Sayı Sistemleri
 
