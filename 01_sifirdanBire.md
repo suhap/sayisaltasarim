@@ -63,6 +63,15 @@ Sayısal soyutlamanın güzelliği, sayısal tasarımcıların Boole değişkenl
 
 Tek bir bit fazla bilgi taşımaz. Bir sonraki bölümde, bit gruplarının sayıları temsil etmek için nasıl kullanılabileceğini incelenecektir. Daha sonraki bölümlerde, harfleri ve programları temsil etmek için bit grupları da kullanılacaktır.
 
+# 1.4 Sayı Sistemleri
+Alışkın olunana ondalık sayı sistemlerinin aksine; 1’lerden ve 0’lardan oluşan sayısal sistemlerde, ikili veya onaltılı sayılar genellikle daha uygundur. 
+
+# 1.4.1 Ondalık Sayı Sistemleri
+İlkokulda, sayma ve matematiksel işlemlerin ondalık olarak yapmak öğretilmektedir. Muhtemelen on parmağınız olduğu gibi, on ondalık basamak vardır: 0, 1, 2, ..., 9. Ondalık basamaklar, daha uzun ondalık sayılar oluşturmak için birleştirilir. Ondalık sayının her sütunu, önceki sütunun on katı ağırlığa sahiptir. Sağdan sola, sütun ağırlıkları 1, 10, 100, 1000 vb. Şeklindedir. Ondalık sayılar, taban 10 olarak adlandırılır. Birden fazla tabda çalışılırsa karışıklığı önlemek için çalışılan taban sayıdan sonra bir alt simge ile gösterilir. Aşağıdaki şekil 9742 <sub>10</sub> ondalık sayısının nasıl her bir basamağının toplamı olarak karşılık gelen sütunun ağırlığıyla çarpılarak yazıldığını göstermektedir.
+
+![OndalıkGosterim](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/4.png)
+
+N basamaklı bir ondalık sayı, 10N olasılıktan birini temsil eder: 0, 1, 2, 3, ..., 10N - 1. Buna sayı aralığı denir. Örneğin, üç basamaklı bir ondalık sayı, 0 ila 999 aralığındaki 1000 olasılıktan birini temsil eder.
 
 
 
