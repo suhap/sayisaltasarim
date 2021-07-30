@@ -71,7 +71,7 @@ Alışkın olunana ondalık sayı sistemlerinin aksine; 1’lerden ve 0’lardan
 
 ![OndalıkGosterim](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/4.png)
 
-N basamaklı bir ondalık sayı, 10N olasılıktan birini temsil eder: 0, 1, 2, 3, ..., 10N - 1. Buna sayı aralığı denir. Örneğin, üç basamaklı bir ondalık sayı, 0 ila 999 aralığındaki 1000 olasılıktan birini temsil eder.
+N basamaklı bir ondalık sayı, 10 <sub>N</sub> olasılıktan birini temsil eder: 0, 1, 2, 3, ..., 10 <sub>N</sub> - 1. Buna sayı aralığı denir. Örneğin, üç basamaklı bir ondalık sayı, 0 ila 999 aralığındaki 1000 olasılıktan birini temsil eder.
 
 
 
