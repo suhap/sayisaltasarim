@@ -73,6 +73,15 @@ Alışkın olunana ondalık sayı sistemlerinin aksine; 1’lerden ve 0’lardan
 
 N basamaklı bir ondalık sayı, 10 <sup>N</sup> olasılıktan birini temsil eder: 0, 1, 2, 3, ..., 10 <sup>N</sup> - 1. Buna sayı aralığı denir. Örneğin, üç basamaklı bir ondalık sayı, 0 ila 999 aralığındaki 1000 olasılıktan birini temsil eder.
 
+Bitler, 0 veya 1 gibi iki değerden birini temsil eder ve ikili sayılar oluşturmak üzere birleştirilir. İkili sayının her sütunu, önceki sütunun iki katı ağırlığa sahiptir, bu nedenle ikili sayılar taban 2'dir. İkili olarak, sütun ağırlıkları (yine sağdan sola) 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768 vb.
+
+N-bit ikili sayı 2 <sup>N</sup> olasılıktan birini temsil eder: 0, 1, 2, 3, …, 2 <sup>N</sup> − 1. Aşağıdaki Tablo, 1, 2, 3 ve 4-bit ikili sayıları ve ondalık eşdeğerlerini göstermektedir.
+
+![ikiliktaban](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/5.png)
+
+ÖRNEK 1.1 İkilik tabandaki 10110 <sub>2</sub> sayısını onluk tabana ceviriniz.
+
+![cevrim](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/6.png)
 
 
 
