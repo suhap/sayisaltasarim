@@ -92,4 +92,4 @@ Soldan başlayarak, sayıya eşit veya küçük 2'nin en büyük kuvvetiyle baş
 Sağdan çalışarak sayıyı art arda 2'ye bölün. Geri kalan her sütuna gider. 84/2 = 42, yani 0, 1'in sütununa girer. 42/2 = 21, yani 0, 2'nin sütununa girer. 21/2 = 10, kalan 1 ise 4'ün sütununda. 10/2 = 5, yani 0, 8'ler sütununa girer. 5/2 = 2, kalan 1 16'lar sütununda olur. 2/2 = 1, yani 0, 32'ler sütununa girer. Son olarak, 64'ün sütununda 1'in kalan kısmı ile 1/2 = 0. Sonuç: 84 <sub>10</sub> = 1010100 <sub>2</sub>.
 
 # 1.4.1 Onaltılık Sayı Sistemleri
-
+Uzun ikili sayılarla çalışmak hata yapma olasılığını artırmaktadır. Dolayısıyla ikilik tabandaki sayıları dört bitlik gruplara ayrabiliriz. Dört bitlik bir grup 2 <sub>4</sub> = 16 olasılıktan birini temsil eder. İkilik tabandaki sayıların 4 bitlik gösterimine onaltılık olarak adlandırılan 16 taban denilmektedir ve bu tabanda çalışmak daha kolaydır.  Onaltılık sayılar, aşağıdali tabloda gösterildiği gibi, A'dan F'ye harflerle birlikte 0'dan 9'a kadar olan rakamları kullanır. 16 tabanındaki sütunlar 1, 16, 16 <sup>2</sup> (veya 256), 16 <sup>3</sup> (veya 4096) vb. ağırlıklara sahiptir.
