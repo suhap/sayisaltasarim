@@ -94,5 +94,12 @@ Sağdan çalışarak sayıyı art arda 2'ye bölün. Geri kalan her sütuna gide
 # 1.4.1 Onaltılık Sayı Sistemleri
 Uzun ikili sayılarla çalışmak hata yapma olasılığını artırmaktadır. Dolayısıyla ikilik tabandaki sayıları dört bitlik gruplara ayrabiliriz. Dört bitlik bir grup 2 <sub>4</sub> = 16 olasılıktan birini temsil eder. İkilik tabandaki sayıların 4 bitlik gösterimine onaltılık olarak adlandırılan 16 taban denilmektedir ve bu tabanda çalışmak daha kolaydır.  Onaltılık sayılar, aşağıdali tabloda gösterildiği gibi, A'dan F'ye harflerle birlikte 0'dan 9'a kadar olan rakamları kullanır. 16 tabanındaki sütunlar 1, 16, 16 <sup>2</sup> (veya 256), 16 <sup>3</sup> (veya 4096) vb. ağırlıklara sahiptir.
 
-![onluk](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/7.png)
+![OnaltilikSistem](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/7.PNG)
 
+Örnek 1.3 2ED <sub>16</sub>'yı ikiliye ve ondalık sayıya dönüştürün.
+
+Çözüm: Onaltılık ve ikili arasında dönüşüm kolaydır çünkü her bir onaltılık basamak doğrudan dört ikili basamağa karşılık gelir.
+
+2 <sub>16</sub> = 0010 <sub>2</sub>, E <sub>16</sub> = 1110 <sub>2</sub> ve D <sub>16</sub> = 1101 <sub>2</sub>, yani 2ED <sub>16</sub> = 001011101101 <sub>2</sub>.
+
+Onluk sayıya dönüştürme, aşağıdaki şekilde gösterilen aritmetiği gerektirmektedir.
