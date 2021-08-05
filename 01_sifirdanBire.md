@@ -122,3 +122,26 @@ Soldan başlayarak, sayıya eşit veya ondan küçük 16'nın en büyük gücüy
 Sağdan çalışarak, sayıyı art arda 16'ya bölün. Kalan her sütuna gider. 333/16 = 20, kalan 13 <sub>10</sub> = D <sub>16</sub> 1 sütununa giriyor. 20/16 = 1, kalan 4 ise 16'lar sütununa giriyor. 1/16 = 0, geriye kalan 1 256'lar sütununa giriyor. Sonuç yine 14D <sub>16</sub>.
 
 # 1.4.4 Byte, Nibble
+ 2 <sup>8</sup> = 256 olasılıktan birini temsil eden sekiz tane bite bayt denir. eder. Bilgisayar belleklerinde depolanan nesnelerin boyutu, alışılmış olarak bit yerine bayt olarak ifade edilmektedir. 
+ 
+Dört bitlik veya yarım baytlık bir gruba nibble denir. 2 <sup>4</sup> = 16 olasılıktan birini temsil eder. Onaltılık tabanda bir basamak yarım bayt depolar ve iki basamak ise bir bayt depolar. Sevimli olmasına rağmen Nibble kavramı artık yaygın olarak kullanılan bir birim değildir.
+
+Mikroişlemciler, verileri kelime adı verilen parçalar halinde işler. Bir kelimenin boyutu, mikroişlemcinin mimarisine bağlıdır. 2012 yılında, çoğu bilgisayardaki 64 bit işlemciler 64 bit kelimeler üzerinde çalıştımaktaydılar. O zamanlar, 32 bit sözcükleri işleyen eski bilgisayarlar da yaygın olarak mevcuttu. Daha basit mikroişlemciler, özellikle ekmek kızartma makinesi gibi cihazlarda kullanılanlar, 8 veya 16 bit sözcükler kullanırlar. 
+
+Bir bit grubu içinde, 1 sütunundaki bit en az anlamlı bit (lsb) olarak adlandırılır ve diğer uçtaki bit, 6 bitlik bir ikili sayı için Şekil (a)'da gösterildiği gibi en anlamlı bit (msb) olarak adlandırılır. Benzer şekilde, bir sözcük içinde, baytlar, sekiz basamaklı onaltılık sayıda dört bayt için Şekil (b)'de gösterildiği gibi, en anlamlı bayt (MSB) aracılığıyla en az anlamlı bayt (LSB) olarak tanımlanır.
+
+![MSBLSB](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/9.PNG)
+
+Pratik bir tesadüf eseri, 2 <sup>10</sup> = 1024 ≈ 10 <sup>3</sup>. Dolayısıyla, kilo (Yunanca bin) terimi 2 <sup>10</sup>'u gösterir. Örneğin, 2 <sup>10</sup> bayt bir kilobayttır (1 KB). Benzer şekilde, mega (milyon) 2 <sup>20</sup> ≈ 10 <sup>6</sup> ve giga (milyar) 2 <sup>30</sup> ≈ 10 <sup>9</sup>'u gösterir. 2 <sup>10</sup> ≈ 1 bin, 2 <sup>20</sup> ≈ 1 milyon, 2 <sup>30</sup> ≈ 1 milyar olduğu bilindiğinde, 2 <sup>9</sup>'a kadar olan kuvvetlerini hatırlamak yeterli olacaktır. 
+
+Örnek 1.6 Hesap makinesi kullanmadan 2 <sup>24</sup>'ün yaklaşık değerini bulun.
+
+Çözüm: Üssü on'un katı ve kalanına bölün. 2 <sup>24</sup> = 2 <sup>20</sup> × 2 <sup>4</sup>.
+
+2 <sup>20</sup> ≈ 1 milyon. 2 <sup>4</sup> = 16. Yani 2 <sup>24</sup> ≈ 16 milyon. Teknik olarak 2 <sup>24</sup> = 16.777.216, ancak 16 milyon pazarlama amaçları için yeterince yakındır.
+
+1024 bayta kilobayt (KB) denir. 1024 bit, kilobit (Kb veya Kbit) olarak adlandırılır. Benzer şekilde MB, Mb, GB ve Gb, milyonlarca ve milyarlarca bayt ve bit için kullanılır. Bellek kapasitesi genellikle bayt cinsinden ölçülür. İletişim hızı genellikle bit / sn cinsinden ölçülür. Örneğin, bir çevirmeli modemin maksimum hızı genellikle 56 kbit / saniyedir.
+
+# 1.4.5 İkilik Tabanda Toplama İşlemi
+
+
