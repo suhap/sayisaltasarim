@@ -103,3 +103,5 @@ Uzun ikili sayılarla çalışmak hata yapma olasılığını artırmaktadır. D
 2 <sub>16</sub> = 0010 <sub>2</sub>, E <sub>16</sub> = 1110 <sub>2</sub> ve D <sub>16</sub> = 1101 <sub>2</sub>, yani 2ED <sub>16</sub> = 001011101101 <sub>2</sub>.
 
 Onluk sayıya dönüştürme, aşağıdaki şekilde gösterilen aritmetiği gerektirmektedir.
+
+![Onlukcevrim](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/8.PNG)
