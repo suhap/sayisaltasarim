@@ -105,3 +105,18 @@ Uzun ikili sayılarla çalışmak hata yapma olasılığını artırmaktadır. D
 Onluk sayıya dönüştürme, aşağıdaki şekilde gösterilen aritmetiği gerektirmektedir.
 
 ![Onlukcevrim](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/8.PNG)
+
+Örnek 1.4 1111010 <sub>2</sub> ikili sayısını onaltılık sayıya dönüştürün.
+Çözüm: Yine, dönüştürme kolaydır. Sağdan okumaya başlayın. En az anlamlı dört bit 1010 <sub>2</sub> = A <sub>16</sub>'dır. Sonraki bitler 111 <sub>2</sub> = 7 <sub>16</sub>'dır.
+
+Dolayısıyla 1111010 <sub>2</sub> = 7A <sub>16</sub>
+
+Örnek 1.5 333 <sub>10</sub> sayısını onaltılık ve ikili sayıya dönüştürün.
+
+Çözüm: Ondalıktan ikiliye dönüştürme gibi, ondalıktan onaltılığa dönüştürme de soldan veya sağdan yapılabilir.
+
+Soldan başlayarak, sayıya eşit veya ondan küçük 16'nın en büyük gücüyle başlayın (bu durumda, 256).
+
+256, 333'e bir tane var, yani 256'nın sütununda 1 vardır ve geriye 333 − 256 = 77 kalır. 16, 77'ye tane var, yani 16'lar sütununda 4 olur ve geriye 77 − 16 × 4 = 13 kalır 13 <sub>10</sub> = D <sub>16</sub>, yani 1'in sütununda bir D var. 333 <sub>10</sub> = 14D <sub>16</sub>. Örnek 1.3'te olduğu gibi onaltılıdan ikiliye dönüştürmek kolaydır. 14D <sub>16</sub> = 101001101 <sub>2</sub>. 
+
+Sağdan çalışarak, sayıyı art arda 16'ya bölün. Kalan her sütuna gider. 333/16 = 20, kalan 13 <sub>10</sub> = D <sub>16</sub> 1 sütununa giriyor. 20/16 = 1, kalan 4 ise 16'lar sütununa giriyor. 1/16 = 0, geriye kalan 1 256'lar sütununa giriyor. Sonuç yine 14D <sub>16</sub>.
