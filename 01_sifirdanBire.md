@@ -146,6 +146,22 @@ Pratik bir tesadüf eseri, 2 <sup>10</sup> = 1024 ≈ 10 <sup>3</sup>. Dolayıs�
 
 Aşağıdaki şekilde gösterilen ikilik tabanda toplama işlemi onluk tabandaki toplama işlemine çok benzemektedir. 
 
-![toplama](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/10.PNG)
+![toplama](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/10.png)
 
 Ondalık toplamada olduğu gibi, iki sayının toplamı tek bir basamağa sığan sayıdan büyükse, sonraki sütuna 1 taşınmaktadır. Yukarıdaki şekil onluk toplama ile ikilik toplamayı karşılaştırmaktadır. Yukarıdaki şekilde en sağdaki sütununda, 9'dan büyük olduğu için 7 + 9 = 16 sayısı tek haneye sığmamaktadır. Bu durumda 16 sayısının birler basamağı olan 6 ilgili basamağa konulurken bir onluk sonraki basamağa taşınmaktadır. Benzer şekilde, ikili sistemde, iki sayının toplamı 1'den büyükse, taşan kısım bir sonraki basamağa taşınır. Örneğin, yukarıdaki şekilde (b) en sağdaki sütununda, 1 + 1 = 2 <sub>10</sub> = 10 <sub>2</sub> toplamı tek bir ikili haneye sığamaz. Bu durumda ilgili basamağa (0) kaydedip bir ikilik sonraki sütuna taşınır. İkinci sütunda toplam 1 + 1 + 1 = 3 <sub>10</sub> = 11 <sub>2</sub>'dir. Yine ilgili basamağa (1) kaydedip  bir ikilik bir sonraki sütuna taşınır. Komşu sütuna taşınan bit, taşıma biti olarak adlandırılır. 
+
+Örnek 1.7 0111 <sub>2</sub> + 0101 <sub>2</sub>
+
+![toplamaikili](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/11.png)
+
+Dijital sistemler genellikle sabit sayıda basamak üzerinde çalışır. Sonuç, mevcut rakamlara sığmayacak kadar büyükse, toplamanın taştığı söylenir. Örneğin 4 bitlik bir sayı [0, 15] aralığına sahiptir. Sonuç 15'i aşarsa 4 bitlik ikili ekleme taşar. Beşinci bit atılır ve kalan dört bitte yanlış sonuç üretilir. Taşma, en önemli basamakta gerçekleşip gerçekleşmediği kontrol edilerek tespit edilebilir.
+
+Örnek 1.8 1101 <sub>2</sub> + 0101 <sub>2</sub> hesaplayın. Taşma oluyor mu?
+
+Çözüm: Aşağıdaki şekilde, toplamın 10010 <sub>2</sub> olduğunu göstermektedir. Bu sonuç, 4 bitlik ikili sayı aralığını aşmaktadır. Dört bit olarak saklanması gerekiyorsa, en önemli bit atılır ve 0010 <sub>2</sub>'nin yanlış sonucu bırakılır. Hesaplama, beş veya daha fazla bit içeren sayılar kullanılarak yapılmış olsaydı, sonuç 10010 <sub>2</sub> doğru olurdu.
+
+![tasma](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/12.png)
+
+
+
+
