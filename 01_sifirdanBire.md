@@ -144,4 +144,7 @@ Pratik bir tesadüf eseri, 2 <sup>10</sup> = 1024 ≈ 10 <sup>3</sup>. Dolayıs�
 
 # 1.4.5 İkilik Tabanda Toplama İşlemi
 
+Aşağıdaki şekilde gösterilen ikilik tabanda toplama işlemi onluk tabandaki toplama işlemine çok benzemektedir. 
+
+![toplama](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/10.PNG)
 
