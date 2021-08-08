@@ -162,6 +162,12 @@ Dijital sistemler genellikle sabit sayıda basamak üzerinde çalışır. Sonuç
 
 ![tasma](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/12.png)
 
+# 1.4.6 İşaretli İkilik Sayılar
+Şimdiye kadar, yalnızca pozitif büyüklükleri temsil eden işaretsiz ikili sayılar anlatıldı. Ancak genellikle hem pozitif hem de negatif sayılar kullanılmak istenirse? İşaretli ikili sayıları temsil etmek için çeşitli şemalar mevcuttur; en yaygın olarak kullanılanlar, işaret/büyüklük ve  ikiye tamlamadır.
+
+# işaret/büyüklük sistemi
+
+
 
 
 
