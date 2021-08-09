@@ -167,7 +167,53 @@ Dijital sistemler genellikle sabit sayıda basamak üzerinde çalışır. Sonuç
 
 # işaret/büyüklük sistemi
 
+İşaret / büyüklük sayıları sezgisel olarak çekicidir çünkü negatif sayılar yazma geleneğimizi bir eksi işaretiyle ve ardından büyüklükle eşleştirir. Bir N-bit işaret / büyüklük sayısı, işaret olarak en önemli biti ve büyüklük olarak (mutlak değer) kalan N-1 biti kullanır. 0 işaret biti pozitif ve 1 işaret biti negatiftir.
 
+Örnek 1.9  5 ve -5'i 4 bitlik işaret/büyüklük sayıları olarak yazın
+
+Çözüm: Her iki sayının da büyüklüğü 5 <sub>10</sub> = 101 <sub>2</sub>'dir.
+
+Dolayısıyla, 5 <sub>10</sub> = 0101 <sub>10</sub> ve
+            -5 <sub>10</sub> = 1101 <sub>2</sub>
+
+Ne yazık ki, sıradan ikili toplama, işaret/büyüklük sayıları için çalışmaz. Örneğin, −5 <sub>10</sub> + 5 <sub>10</sub>'da sıradan toplamanın kullanılması, 1101 <sub>2</sub> + 0101 <sub>2</sub> = 10010 <sub>2</sub>'yi verir ki bu saçmalıktır.
+
+N-bitlik bir işaret/büyüklük numarası [−2 <sup>N−1</sup> + 1, 2 <sup>N−1</sup> − 1] aralığını kapsar. İşaret/büyüklük sayıları hem +0 hem de −0 mevcut olduğundan biraz tuhaftır. İkisi de sıfırı gösteriyor. Tahmin edebileceğiniz gibi, aynı sayı için iki farklı gösterimin olması zahmetli olabilir.
+
+# İkiye tümleyen Sayılar
+
+İkinin tümleyen sayıları, en anlamlı bit konumunun 2<sup>N−1</sup> yerine -2<sup>N−1</sup> ağırlığına sahip olması dışında, işaretsiz ikili sayılarla aynıdır. İşaret/büyüklük sayılarının eksikliklerinin üstesinden gelirler: sıfırın tek bir temsili vardır ve sıradan toplama işleri yapılabilmektedir.
+
+İkinin tümleyen gösteriminde sıfır, tüm sıfırlar olarak yazılır: 00…000 <sub>2</sub>. En pozitif sayı, en anlamlı konumda 0 bulunmaktadır: 01…111 <sub>2</sub> = 2 <sup>N−1</sup> − 1. En negatif sayı, en anlamlı konumda 1 bulunmaktadır: 10…000<sub>2</sub> = -2<sup>N−1</sup> . Ve -1 hepsi birler olarak yazılır: 11…111 <sub>2</sub>.
+
+En anlamlı konumda pozitif sayıların 0'a ve bu konumda negatif sayıların 1'e sahip olduğuna dikkat edin, bu nedenle en anlamlı bit işaret biti olarak görülebilir. Bununla birlikte, kalan bitler, işaret/büyüklük sayılarından ziyade ikiye tümleyen sayılar için farklı yorumlanmaktadır.
+ 
+İkiye tümleyen sayılarının işareti, ikiye tümleyen alma adı verilen bir işlemde tersine çevrilebilmektedir. İşlem, sayıdaki tüm bitlerin ters çevrilmesini ve ardından en az anlamlı bit konumuna 1 eklenmesini içerir. Bu, negatif bir sayının temsilini bulmak veya negatif bir sayının büyüklüğünü belirlemek için kullanışlıdır.
+
+Örnek 1.10 −2 <sub>10</sub>'un 4 bitlik ikiye tümleyen sayı olarak gösterimini bulun.
+
+Çözüm: + 2 <sub>10</sub> = 0010 <sub>2</sub> ile başlayın. −2 <sub>10</sub>'u elde etmek için bitleri ters çevirin ve 1 ekleyin. 0010<sub>2</sub>'yi ters çevirmek 1101 <sub>2</sub> üretir. 1101 <sub>2</sub> + 1 = 1110 <sub>2</sub>. Yani −2 <sub>10</sub>, 1110 <sub>2</sub>'dir.
+
+Örnek 1.11 1001 <sub>2</sub> ikiye tümleyen sayısının onluk değerini bulun.
+
+Çözüm: 1001 <sub>2</sub>'nin başında 1 vardır, bu nedenle negatif olmalıdır. Büyüklüğünü bulmak için bitleri ters çevirin ve 1 ekleyin. 1001 <sub>2</sub> = 0110 <sub>2</sub>'yi ters çevirin. 0110 <sub>2</sub> + 1 = 0111 <sub>2</sub> = 7 <sub>10</sub>.
+
+Dolayısıyla, 1001 <sub>2</sub> = -7 <sub>10</sub>.
+
+İkinin tümleyen sayıları, toplama işleminin hem pozitif hem de negatif sayılar için düzgün çalışması gibi zorlayıcı bir avantaja sahiptir. N-bit sayıları eklerken, N'inci bitin (yani, N + 1'inci sonuç bitinin) yürütülmesinin atıldığını hatırlayın.
+
+Örnek 1.12 İkinin tümleyen sayılarını kullanarak (a) −2 <sub>10</sub> + 1 <sub>10</sub> ve (b) −7 <sub>10</sub> + 7 <sub>10</sub>'u hesaplayın.
+
+Çözüm: (a) −2 <sub>10</sub> + 1 <sub>10</sub> = 1110 <sub>2</sub> + 0001 <sub>2</sub> = 1111 <sub>2</sub> = −1 <sub>10</sub>. (b) −7 <sub>10</sub>+ 7 <sub>10</sub>= 1001 <sub>2</sub> + 0111 <sub>2</sub> = 10000 <sub>2</sub>. Beşinci bit atılır ve doğru 4 bitlik sonuç 0000 <sub>2</sub> bırakılır.
+
+Çıkarma, ikinci sayının ikisinin tümleyeni alınarak, ardından eklenerek gerçekleştirilir.
+
+Örnek 1.13 (a) 5 <sub>10</sub> − 3 <sub>10</sub> ve (b) 3 <sub>10</sub> − 5 <sub>10</sub>'u 4-bit ikinin tümleyen sayılarını kullanarak hesaplayın.
+
+Çözüm: (a) 3 <sub>10</sub> = 0011 <sub>2</sub>. −3 <sub>10</sub> = 1101 <sub>2</sub> olduğu için. Şimdi 510 + (−310) = 01012 + 11012 = 00102 = 210 ekleyin. sonuç dört bitte saklanır.
+(b) 510 = 1011'i elde etmek için ikisinin tümleyeni 510'u alın. Şimdi 310 + (−510) = 00112 + 10112 = 11102 = −210 ekleyin.
+
+İkinin 0 tümleyeni, tüm bitleri ters çevirerek (11…1112 üreterek) ve en önemli bit konumunun yürütülmesini göz ardı ederek tüm 0'ları üreten 1 ekleyerek bulunur. Bu nedenle, sıfır her zaman tüm 0'larla temsil edilir. İşaret/büyüklük sisteminden farklı olarak, ikisinin tamamlayıcı sisteminde ayrı -0 yoktur. Sıfır, işaret biti 0 olduğu için pozitif olarak kabul edilir.
 
 
 
