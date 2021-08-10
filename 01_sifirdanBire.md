@@ -210,10 +210,10 @@ Dolayısıyla, 1001 <sub>2</sub> = -7 <sub>10</sub>.
 
 Örnek 1.13 (a) 5 <sub>10</sub> − 3 <sub>10</sub> ve (b) 3 <sub>10</sub> − 5 <sub>10</sub>'u 4-bit ikinin tümleyen sayılarını kullanarak hesaplayın.
 
-Çözüm: (a) 3 <sub>10</sub> = 0011 <sub>2</sub>. −3 <sub>10</sub> = 1101 <sub>2</sub> olduğu için. Şimdi 510 + (−310) = 01012 + 11012 = 00102 = 210 ekleyin. sonuç dört bitte saklanır.
-(b) 510 = 1011'i elde etmek için ikisinin tümleyeni 510'u alın. Şimdi 310 + (−510) = 00112 + 10112 = 11102 = −210 ekleyin.
+Çözüm: (a) 3 <sub>10</sub> = 0011 <sub>2</sub>. −3 <sub>10</sub> = 1101 <sub>2</sub> olduğu için; 5 <sub>10</sub> + (−3 <sub>10</sub>) = 0101 <sub>2</sub> + 1101 <sub>2</sub> = 0010 <sub>2</sub> = 2 <sub>10</sub> sonuç dört bitte saklanır.
+(b) -5 <sub>10</sub> = 1011 ise; 3 <sub>10</sub> + (−5 <sub>10</sub>) = 0011 <sub>2</sub> + 1011 <sub>2</sub> = 1110 <sub>2</sub> = −2 <sub>10</sub> olmaktadır. 
 
-İkinin 0 tümleyeni, tüm bitleri ters çevirerek (11…1112 üreterek) ve en önemli bit konumunun yürütülmesini göz ardı ederek tüm 0'ları üreten 1 ekleyerek bulunur. Bu nedenle, sıfır her zaman tüm 0'larla temsil edilir. İşaret/büyüklük sisteminden farklı olarak, ikisinin tamamlayıcı sisteminde ayrı -0 yoktur. Sıfır, işaret biti 0 olduğu için pozitif olarak kabul edilir.
+0 sayısının ikiye tümleyen gösterimi için, tüm bitleri ters çevirilir (11…111 <sub>2</sub> ) 1 ekleyerek bulunur. İşaret/büyüklük sisteminden farklı olarak, ikisinin -0 yoktur. Sıfır, işaret biti 0 olduğu için pozitif olarak kabul edilir.
 
 
 
