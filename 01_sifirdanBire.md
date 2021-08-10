@@ -215,5 +215,25 @@ Dolayısıyla, 1001 <sub>2</sub> = -7 <sub>10</sub>.
 
 0 sayısının ikiye tümleyen gösterimi için, tüm bitleri ters çevirilir (11…111 <sub>2</sub> ) 1 ekleyerek bulunur. İşaret/büyüklük sisteminden farklı olarak, ikisinin -0 yoktur. Sıfır, işaret biti 0 olduğu için pozitif olarak kabul edilir.
 
+İşaretsiz sayılar gibi, N-bit ikiye tümleyen sayılar da  2N olası değerden birini temsil eder. Ancak değerler pozitif ve negatif sayılar arasında bölünür. Örneğin, 4 bitlik işaretsiz bir sayı 16 değeri temsil eder: 0 ila 15. 4 bitlik bir ikiye tümleyen sayı da 16 değeri temsil eder: -8 ila 7. Genel olarak, N-bit ikiye tümleyen sayısı aralığı [− 2 <sup>N-1</sup>, 2 <sup>N-1</sup> - 1]. Pozitif sayıların sayısına göre bir fazla negatif sayı vardır, çünkü -0 yoktur. En düşük negatif sayı 10…000 <sub>2</sub> = −2 <sup>N−1</sup> bazen garip sayı olarak adlandırılır. İkiye tümleyen, bitleri ters çevirerek (01…111 <sub>2</sub>) ve 1 ekleyerek bulunur:  10…000 <sub>2</sub>. Dolayısıyla, bu negatif sayının pozitif karşılığı yoktur.
 
+Sonuç 2 <sup>N−1</sup> − 1'den büyük veya −2 <sup>N−1</sup>'den küçükse, N-bit pozitif sayı veya negatif sayı eklemek taşmaya neden olabilir. Negatif bir sayıya pozitif bir sayı eklemek asla taşmaya neden olmaz. İşaretsiz sayıların aksine, en önemli sütun taşmayı göstermez. Bunun yerine, eklenen iki sayı aynı işaret bitine sahipse ve sonuç zıt işaret bitine sahipse taşma meydana gelir.
+
+4 Haziran 1996'da fırlatılan 7 milyar dolarlık Ariane 5 roketi, fırlatıldıktan 40 saniye sonra rotasından saptı, dağıldı ve patladı. Arıza, roketi kontrol eden bilgisayarın 16 bitlik aralığını aşması ve çökmesi sonucu meydana geldi.
+
+Kod, Ariane 4 roketinde kapsamlı bir şekilde test edilmişti. Ancak Ariane 5, kontrol bilgisayarı için daha büyük değerler üreten ve taşmaya yol açan daha hızlı bir motora sahipti.
+
+Örnek 1.14 4 bit ikinin tümleyen sayılarını kullanarak 4 <sub>10</sub> + 5 <sub>10</sub> sonucu nedir. Sonuç taşar mı?
+Çözüm: 4 <sub>10</sub> + 5 <sub>10</sub>= 0100 <sub>2</sub> + 0101 <sub>2</sub> = 1001 <sub>2</sub> = -7 <sub>10</sub>. Sonuç, 4 bitlik pozitif ikiye tümleyen sayıların aralığını aşarak yanlış bir negatif sonuç üretir. Hesaplama beş veya daha fazla bit kullanılarak yapılmış olsaydı, 01001 <sub>2</sub> = 9 <sub>10</sub> sonucu doğru olurdu.
+
+İkiye tümleyen sayısı daha fazla bite genişletildiğinde, işaret biti en anlamlı bit konumlarına kopyalanmalıdır. Bu işleme işaret uzantısı denir. Örneğin, 3 ve −3 sayıları sırasıyla 0011 ve 1101'in 4 bitlik ikinin tümleyen sayıları olarak yazılır. Sırasıyla 0000011 ve 1111101'i oluşturmak için işaret bitini üç yeni üst bite kopyalayarak yedi bite işaret genişletilirler.
+# Sayı sistemlerinin karşılaştırılması
+
+En yaygın olarak kullanılan üç ikili sayı sistemi, işaretsiz, ikiye tümleyen ve işaret/büyüklüktür. Aşağıdaki tabloda, bu üç sistem N-bit sayı aralığında karşılaştırılmaktadır. İkiye tümleyen sayıları hem pozitif hem de negatif tamsayıları temsil ettikleri ve sıradan toplamanın tüm sayılar için işe yaradığı için uygundur. Çıkarma, ikinci sayının olumsuzlanması (yani ikisinin tümleyeni alınarak) ve ardından eklenmesiyle gerçekleştirilir. Aksi belirtilmedikçe, tüm işaretli ikili sayıların ikiye tümleyen gösterimini kullandığını varsayılmaktadır.
+
+![sayisistemleri](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/13.PNG)
+
+Aşağıdaki şekilde, her sistemdeki 4 bitlik sayıların değerlerini gösteren bir sayı doğrusu göstermektedir. İşaretsiz sayılar normal ikili düzende [0, 15] aralığını kapsar. İkinin tümleyen sayıları [-8, 7] aralığını kapsar. Negatif olmayan sayılar [0, 7], işaretsiz sayılarla aynı kodlamaları paylaşır. Negatif sayılar [-8, -1], daha büyük bir işaretsiz ikili değer 0'a daha yakın bir sayıyı temsil edecek şekilde kodlanmıştır. Tuhaf sayı 1000'in -8'i temsil ettiğine ve pozitif bir karşılığı olmadığına dikkat edin. İşaret/büyüklük sayıları [−7, 7] aralığını kapsar. En önemli bit işaret bitidir. Pozitif sayılar [1, 7] işaretsiz sayılarla aynı kodlamaları paylaşır. Negatif sayılar simetriktir ancak işaret biti ayarlanmıştır. 0, hem 0000 hem de 1000 ile temsil edilir. Bu nedenle, N-bit işaret/büyüklük sayıları, 0'ın iki temsili nedeniyle yalnızca 2 <sup>N</sup> − 1 tamsayıları temsil eder.
+
+![sayisistemleridogru](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/14.PNG)
 
