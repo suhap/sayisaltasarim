@@ -237,3 +237,13 @@ Aşağıdaki şekilde, her sistemdeki 4 bitlik sayıların değerlerini göstere
 
 ![sayisistemleridogru](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/14.PNG)
 
+# 1.5. Lojik Kapılar
+Artık bilgiyi temsil etmek için ikili değişkenleri nasıl kullanacağımızı bildiğimize göre, bu ikili değişkenler üzerinde işlemler gerçekleştiren sayısal sistemleri keşfediyoruz. Mantık kapıları, bir veya daha fazla ikili girişi alan ve bir ikili çıktı üreten basit sayısal devrelerdir. Mantık kapıları, girişi (veya girişleri) ve çıkışı gösteren bir sembolle çizilir. Girişler genellikle solda (veya üstte) ve çıkışlar sağda (veya altta) çizilir. Sayısal tasarımcılar tipik olarak kapı girişleri için alfabenin başlangıcına yakın harfleri ve kapı çıkışı için Y harfini kullanır. Girişler ve çıkış arasındaki ilişki bir doğruluk tablosu veya Boole denklemi ile açıklanabilir. Doğruluk tablosu soldaki girişleri ve sağdaki ilgili çıktıları listeler. Her olası girdi kombinasyonu için bir satır vardır. Bir Boole denklemi, ikili değişkenler kullanan matematiksel bir ifadedir.
+
+# 1.5.1 NOT Kapısı
+Bir NOT geçidinin aşağıdaki şekilde gösterildiği gibi bir girişi, A ve bir çıkışı vardır. NOT geçidinin çıkışı, girişinin tersidir. A YANLIŞ ise, Y DOĞRUDUR. A DOĞRU ise, Y YANLIŞ demektir. Bu ilişki, şekildeki doğruluk tablosu ve Boole denklemi ile özetlenmiştir. Boole denkleminde A üzerindeki çizgi NOT olarak telaffuz edilir, bu nedenle Y = A’  "Y eşittir NOT A" olarak okunur. NOT geçidi ayrıca bir inverter olarak da adlandırılır. Diğer metinler NOT için Y = A ′, Y = ¬A, Y =! A veya Y = ~ A dahil olmak üzere çeşitli gösterimler kullanır. Yalnızca Y = A’   'yı kullanacağız, ancak başka bir yerde başka bir gösterimle karşılaşırsanız şaşırmayın.
+
+![NOT](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/15.png)
+
+<span style="text-decoration:overline">SIGNAL_ACTIVE_LOW</span>
+
