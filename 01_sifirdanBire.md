@@ -281,9 +281,26 @@ Aşağıdaki şekil diğer ortak iki girişli mantık kapılarını gösterir. X
 Üç veya daha fazla girişin birçok Boole işlevi mevcuttur. En yaygın olanları AND, OR, XOR, NAND, NOR ve XNOR'dur. Bir N-giriş AND geçidi, tüm N girişleri DOĞRU olduğunda bir DOĞRU çıkış üretir. Bir N-giriş VEYA geçidi, en az bir giriş DOĞRU olduğunda bir DOĞRU çıkış üretir.
 
 Örnek 1.16 Aşağıdaki şekilde üç girişli NOR geçidi için sembolü ve Boole denklemini gösterir. Doğruluk tablosunu tamamlayın.
-Çözüm: Şekil 1.20 doğruluk tablosunu göstermektedir. Çıkış, yalnızca girişlerden hiçbiri DOĞRU değilse TRUE olur.
 
 ![NOR3](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/22.PNG)
+
+Çözüm: Aşağıdaki şekil doğruluk tablosunu göstermektedir. Çıkış, yalnızca girişlerden hiçbiri DOĞRU değilse TRUE olur.
+
+![DogrulukT](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/23.PNG)
+
+# 1.6 Dijital Soyutlamaya Yakından Bakış
+Dijital bir sistem, ayrık değerli değişkenler kullanır. Bununla birlikte, değişkenler bir tel üzerindeki voltaj, bir dişlinin konumu veya bir silindirdeki sıvı seviyesi gibi sürekli fiziksel miktarlarla temsil edilir. Bu nedenle, tasarımcı sürekli değeri ayrık değerle ilişkilendirmek için bir yol seçmelidir.
+
+Örneğin, bir teldeki voltajla ikili bir sinyal A'yı temsil ettiğini düşünün. 0 volt (V) A = 0 ve 5 V ise A = 1 olsun. Herhangi bir gerçek sistem bir miktar gürültüye tolerans göstermelidir, bu nedenle 4,97 V muhtemelen A = 1 olarak yorumlanmalıdır. Peki ya 4.3V, 2.8 V veya 2.500000 V nasıl yorumlanır?
+
+## 1.6.1 Besleme Gerilim
+Sistemdeki en düşük voltajın, toprak veya GND olarak da adlandırılan 0 V olduğunu varsayalım. Sistemdeki en yüksek voltaj güç kaynağından gelir ve genellikle VDD olarak adlandırılır. 1970'lerde ve 1980'lerin teknolojisinde, VDD genellikle 5 V idi. Çipler daha küçük transistörlere doğru ilerledikçe, VDD 3,3 V'a düştü, Güç tasarrufu yapmak ve transistörlerin aşırı yüklenmesini önlemek için 2,5 V, 1,8 V, 1,5 V, 1,2 V veya daha da düşmektedir.
+
+## Lojik Seviye
+Sürekli bir değişkenin ayrı bir ikili değişkenle eşleştirilmesi, Şekil 1.23'te gösterildiği gibi mantık seviyeleri tanımlanarak yapılır. İlk kapıya sürücü adı verilir ve ikinci kapıya alıcı denir. Sürücünün çıkışı, alıcının girişine bağlanır. Sürücü, 0 ila VOL aralığında bir DÜŞÜK (0) çıkış veya VOH ila VDD aralığında bir YÜKSEK (1) çıkış üretir. Alıcı, 0 ila VIL aralığında bir giriş alırsa, girişi DÜŞÜK olarak değerlendirecektir. Alıcı, VIH ila VDD aralığında bir giriş alırsa, girişi HIGH olarak değerlendirecektir. Gürültü veya hatalı bileşenler gibi bir nedenle, alıcının girişi VIL ve VIH arasındaki yasak bölgeye düşerse, kapının davranışı tahmin edilemez. VOH, VOL, VIH ve VIL, çıkış ve giriş yüksek ve düşük mantık seviyeleri olarak adlandırılır.
+
+
+
 
 
 
