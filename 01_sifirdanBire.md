@@ -283,7 +283,7 @@ Aşağıdaki şekil diğer ortak iki girişli mantık kapılarını gösterir. X
 Örnek 1.16 Aşağıdaki şekilde üç girişli NOR geçidi için sembolü ve Boole denklemini gösterir. Doğruluk tablosunu tamamlayın.
 Çözüm: Şekil 1.20 doğruluk tablosunu göstermektedir. Çıkış, yalnızca girişlerden hiçbiri DOĞRU değilse TRUE olur.
 
-![NOR3](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/22.png)
+![NOR3](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/22.PNG)
 
 
 
