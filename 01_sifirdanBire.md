@@ -240,10 +240,44 @@ Aşağıdaki şekilde, her sistemdeki 4 bitlik sayıların değerlerini göstere
 # 1.5. Lojik Kapılar
 Artık bilgiyi temsil etmek için ikili değişkenleri nasıl kullanacağımızı bildiğimize göre, bu ikili değişkenler üzerinde işlemler gerçekleştiren sayısal sistemleri keşfediyoruz. Mantık kapıları, bir veya daha fazla ikili girişi alan ve bir ikili çıktı üreten basit sayısal devrelerdir. Mantık kapıları, girişi (veya girişleri) ve çıkışı gösteren bir sembolle çizilir. Girişler genellikle solda (veya üstte) ve çıkışlar sağda (veya altta) çizilir. Sayısal tasarımcılar tipik olarak kapı girişleri için alfabenin başlangıcına yakın harfleri ve kapı çıkışı için Y harfini kullanır. Girişler ve çıkış arasındaki ilişki bir doğruluk tablosu veya Boole denklemi ile açıklanabilir. Doğruluk tablosu soldaki girişleri ve sağdaki ilgili çıktıları listeler. Her olası girdi kombinasyonu için bir satır vardır. Bir Boole denklemi, ikili değişkenler kullanan matematiksel bir ifadedir.
 
-# 1.5.1 NOT Kapısı
+## 1.5.1 NOT Kapısı
 Bir NOT geçidinin aşağıdaki şekilde gösterildiği gibi bir girişi, A ve bir çıkışı vardır. NOT geçidinin çıkışı, girişinin tersidir. A YANLIŞ ise, Y DOĞRUDUR. A DOĞRU ise, Y YANLIŞ demektir. Bu ilişki, şekildeki doğruluk tablosu ve Boole denklemi ile özetlenmiştir. Boole denkleminde A üzerindeki çizgi NOT olarak telaffuz edilir, bu nedenle Y = A’  "Y eşittir NOT A" olarak okunur. NOT geçidi ayrıca bir inverter olarak da adlandırılır. Diğer metinler NOT için Y = A ′, Y = ¬A, Y =! A veya Y = ~ A dahil olmak üzere çeşitli gösterimler kullanır. Yalnızca Y = A’   'yı kullanacağız, ancak başka bir yerde başka bir gösterimle karşılaşırsanız şaşırmayın.
 
 ![NOT](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/15.png)
 
-<span style="text-decoration:overline">SIGNAL_ACTIVE_LOW</span>
+## 1.5.2 Buffer
+Diğer tek girişli mantık geçidi buffer olarak adlandırılır ve aşağıdaki şekilde gösterilmektedir. Sadece girdiyi çıktıya kopyalar.
+Mantıksal açıdan bakıldığında, bir tampon telden farklı değildir, bu yüzden işe yaramaz görünebilir. Bununla birlikte, analog bakış açısından, buffer, bir motora büyük miktarlarda akım verme yeteneği veya çıkışını birçok kapıya hızlı bir şekilde gönderme yeteneği gibi arzu edilen özelliklere sahip olabilir. Bu, bir sistemi tam olarak anlamak için neden birden çok soyutlama düzeyini dikkate almamız gerektiğinin bir örneğidir; sayısal soyutlama, bir tamponun gerçek amacını gizler.
+ Üçgen sembolü bir buffer i  gösterir. Çıktı üzerindeki bir daireye balon adı verilir ve üsteki şekilde gösterildiği gibi NOT kapısı sembolünde görüldüğü gibi ters çevirmeyi gösterir.
+ 
+![Buffer](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/16.png)
+
+## 1.5.3 AND Kapısı
+İki girişli mantık kapıları daha ilginçtir. Alttaki şekilde gösterilen AND geçidi, ancak ve ancak hem A hem de B TRUE ise, bir TRUE çıkışı, Y üretir. Aksi takdirde çıktı FALSE olur. Kural olarak, girişler sanki ikili olarak sayıyormuşsunuz gibi 00, 01, 10, 11 sırasına göre listelenir. Bir AND geçidi için Boole denklemi birkaç şekilde yazılabilir: Y = A • B, Y = AB veya Y = A ∩ B. ∩ sembolü “kesişme” olarak telaffuz edilir ve mantıkçılar tarafından tercih edilir. Y = AB'yi tercih ediyoruz, "Y eşittir A ve B" yi okuyoruz çünkü tembeliz.
+
+![And](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/17.png)
+
+## 1.5.4 OR Kapısı
+Aşağıdaki şekilde gösterilen OR geçidi, eğer A veya B (veya her ikisi) DOĞRU ise, Y, bir DOĞRU çıktı üretir. OR geçidi için Boole denklemi Y = A + B veya Y = A ∪ B olarak yazılır. ∪ sembolü birleşim olarak telaffuz edilir ve mantıkçılar tarafından tercih edilir. Dijital tasarımcılar normalde + gösterimini kullanır, Y = A + B, "Y eşittir A veya B" olarak telaffuz edilir.
+
+![OR](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/18.png)
+
+## 1.5.5 Diğer İki Girişli Kapılar
+Aşağıdaki şekil diğer ortak iki girişli mantık kapılarını gösterir. XOR (özel OR, "eski OR" olarak telaffuz edilir), eğer A veya B, ancak ikisi de DOĞRU ise, DOĞRUDUR. Herhangi bir kapıyı, çalışmasını tersine çevirmek için bir balon takip edebilir. NAND geçidi NOT AND gerçekleştirir. Her iki giriş TRUE olmadıkça çıkışı TRUE'dur. NOR geçidi NOT OR gerçekleştirir. Ne A ne de B DOĞRU değilse çıktısı DOĞRUDUR. Bir N-girişli XOR geçidi bazen bir eşlik geçidi olarak adlandırılır ve eğer tek sayıda giriş TRUE ise bir TRUE çıktı üretir. İki girişli geçitlerde olduğu gibi, doğruluk tablosundaki giriş kombinasyonları sayım sırasına göre listelenir.
+
+![Digerikigiris](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/19.png)
+
+Örnek 1.15 Aşağıdaki şekil XOR'un tersini gerçekleştiren iki girişli bir XNOR geçidi için sembolü ve Boole denklemini göstermektedir. Doğruluk tablosunu tamamlayın.
+
+![XOR](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/20.png)
+
+
+Çözüm: Aşağıdaki şekil doğruluk tablosunu göstermektedir. Her iki giriş de FALSE veya her iki giriş de TRUE ise XNOR çıkışı TRUE'dur. İki girişli XNOR geçidi bazen bir eşitlik kapısı olarak adlandırılır çünkü girişler eşit olduğunda çıkışı TRUE olur.
+
+![Dogruluktablo](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/21.png)
+
+
+
+
+
 
