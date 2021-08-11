@@ -276,6 +276,14 @@ Aşağıdaki şekil diğer ortak iki girişli mantık kapılarını gösterir. X
 
 ![Dogruluktablosu](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/21.png)
 
+## 1.5.6 Çok Girişli Kapılar
+
+Üç veya daha fazla girişin birçok Boole işlevi mevcuttur. En yaygın olanları AND, OR, XOR, NAND, NOR ve XNOR'dur. Bir N-giriş AND geçidi, tüm N girişleri DOĞRU olduğunda bir DOĞRU çıkış üretir. Bir N-giriş VEYA geçidi, en az bir giriş DOĞRU olduğunda bir DOĞRU çıkış üretir.
+
+Örnek 1.16 Aşağıdaki şekilde üç girişli NOR geçidi için sembolü ve Boole denklemini gösterir. Doğruluk tablosunu tamamlayın.
+Çözüm: Şekil 1.20 doğruluk tablosunu göstermektedir. Çıkış, yalnızca girişlerden hiçbiri DOĞRU değilse TRUE olur.
+
+![NOR3](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/22.png)
 
 
 
