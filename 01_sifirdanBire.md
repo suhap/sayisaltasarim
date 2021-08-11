@@ -274,7 +274,7 @@ Aşağıdaki şekil diğer ortak iki girişli mantık kapılarını gösterir. X
 
 Çözüm: Aşağıdaki şekil doğruluk tablosunu göstermektedir. Her iki giriş de FALSE veya her iki giriş de TRUE ise XNOR çıkışı TRUE'dur. İki girişli XNOR geçidi bazen bir eşitlik kapısı olarak adlandırılır çünkü girişler eşit olduğunda çıkışı TRUE olur.
 
-![Dogruluktablo](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/21.png)
+![Dogruluktablosu](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/21.png)
 
 
 
