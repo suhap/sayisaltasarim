@@ -296,10 +296,34 @@ Dijital bir sistem, ayrık değerli değişkenler kullanır. Bununla birlikte, d
 ## 1.6.1 Besleme Gerilim
 Sistemdeki en düşük voltajın, toprak veya GND olarak da adlandırılan 0 V olduğunu varsayalım. Sistemdeki en yüksek voltaj güç kaynağından gelir ve genellikle VDD olarak adlandırılır. 1970'lerde ve 1980'lerin teknolojisinde, VDD genellikle 5 V idi. Çipler daha küçük transistörlere doğru ilerledikçe, VDD 3,3 V'a düştü, Güç tasarrufu yapmak ve transistörlerin aşırı yüklenmesini önlemek için 2,5 V, 1,8 V, 1,5 V, 1,2 V veya daha da düşmektedir.
 
-## Lojik Seviye
+## 1.6.2 Lojik Seviye
 Sürekli bir değişkenin ikilik tabandaki bir sayıya dönüştürme işlemi, aşağıdaki şekilde gösterildiği gibi mantık seviyeleri tanımlanarak yapılır. İlk kapıya sürücü adı verilirken ikinci kapıya alıcı denir. Sürücünün çıkışı, alıcının girişine bağlanır. Sürücü, 0 ila V <sub>OL</sub> aralığında bir DÜŞÜK (0) çıkış veya V <sub>OH</sub> ila V <sub>DD</sub> aralığında bir YÜKSEK (1) çıkış üretir. Alıcı, 0 ila V <sub>IL</sub> aralığında bir giriş alırsa, girişi DÜŞÜK olarak değerlendirecektir. Alıcı, V <sub>IH</sub> ila V <sub>DD</sub> aralığında bir giriş alırsa, girişi HIGH olarak değerlendirecektir. Gürültü veya hatalı elemanlar gibi nedenlerle, alıcının girişi V <sub>IL</sub> ve V <sub>IH</sub> arasındaki yasak bölgeye düşerse, kapının davranışı tahmin edilemez. V <sub>OH</sub>, V <sub>OL</sub>, V <sub>IH</sub> ve V <sub>IL</sub>, çıkış ve giriş yüksek ve düşük mantık seviyeleri olarak adlandırılır.
 
+![Lojiksevye](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/24.PNG)
 
+## 1.6.3 Gürültü Aralıgı
+Sürücünün çıkışı alıcının girişi bağlandığında, V <sub>OL</sub> < V <sub>IL</sub> ve V <sub>OH</sub> > V <sub>IH</sub> seçmeliyiz. Bu nedenle, sürücünün çıkışı bir miktar gürültü ile kirlenmiş olsa bile, alıcının girişi yine de doğru mantık seviyesini tespit edecektir. Gürültü aralığı, sinyalin hala geçerli bir girdi olarak yorumlanabilmesi için en kötü durum çıkışına eklenebilecek gürültü miktarıdır. Aşağıdaki şekilde görülebileceği gibi, sırasıyla düşük ve yüksek gürültü aralıkları;
+
+![gurultuaralıgı](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/25.PNG)
+
+ 
+Örnek 1.18 Aşağıdaki şekildeki tersleyici devresini düşünün. V <sub>O1</sub>, inverter I <sub>1</sub>'in çıkış voltajıdır ve V <subI2</sub>, tersleyici I <sub>2</sub>'nin giriş voltajıdır. Her iki tersleyicide aşağıdaki özelliklere sahiptir: V <sub>DD</sub> = 5V, V <sub>IL</sub> = 1.35V, V <sub>IH</sub> = 3.15V, V <sub>OL</sub> = 0.33V ve V <sub>OH</sub> = 3.84V. Tersleyici düşük ve yüksek gürültü aralıkları nedir? Devre, V <sub>O1</sub> ve V <sub>I2</sub> arasındaki 1V gürültüyü tolere edebilir mi?
+
+![tersleyicidevresi](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/26.PNG)
+
+Çözüm: Sürücü gürültü marjları: NM <sub>L</sub> = V <sub>IL</sub> - V <sub>OL</sub> = (1,35V - 0,33V) = 1,02V, NM <sub>H</sub> = V <sub>OH</sub> - V <sub>IH</sub> = (3,84V - 3,15V) = 0,69V. Devre, çıkış LOW (NM <sub>L</sub> = 1,02 V) olduğunda 1V gürültüyü tolere edebilir, ancak çıkış YÜKSEK (NM <sub>H</sub> = 0,69 V) olduğunda bunu tolere edemez. Örneğin, I1 sürücüsünün en kötü durumdaki YÜKSEK değerini, V <sub>O1</sub> = V <sub>OH</sub> = 3,84 V verdiğini varsayalım. Gürültü, alıcının girişine ulaşmadan önce voltajın 1 V düşmesine neden oluyorsa, V <sub>I2</sub> = (3,84V - 1V) = 2,84V. Bu kabul edilebilir giriş YÜKSEK değerinden daha düşüktür, V <sub>IH</sub> = 3,15 V, bu nedenle alıcı uygun bir YÜKSEK girişi algılamayabilir.
+
+
+## 1.6.4 DC iletim karakteristigi
+Dijital soyutlamanın sınırlarını anlamak için, bir kapının analog davranışını araştırmalıyız. Bir kapının DC transfer karakteristikleri, giriş, çıkışın devam edebilmesi için yeterince yavaş değiştirildiğinde çıkış voltajını giriş voltajının bir fonksiyonu olarak tanımlar. Giriş ve çıkış voltajları arasındaki ilişkiyi tanımladıkları için transfer özellikleri olarak adlandırılırlar.
+
+İdeal bir tersleyici, Aşağıdaki şekil (a) 'da gösterildiği gibi, V <sub>DD</sub>/2'de ani bir anahtarlama eşiğine sahip olacaktır. V (A) <VDD / 2 için, V (Y) = VDD. V (A)> VDD / 2 için, V (Y) = 0. Böyle bir durumda VIH = VIL = VDD / 2. VOH = VDD ve VOL = 0.
+
+Şekil 1.25 (b) 'de gösterildiği gibi, gerçek bir invertör uç noktalar arasında daha kademeli olarak değişir. Giriş voltajı V (A) 0 olduğunda, çıkış voltajı V (Y) = VDD. V (A) = VDD olduğunda, V (Y) = 0. Ancak, bu uç noktalar arasındaki geçiş yumuşaktır ve tam olarak VDD / 2'de ortalanmayabilir. Bu mantık seviyelerinin nasıl tanımlanacağı sorusunu gündeme getirmektedir.
+
+Mantık seviyelerini seçmek için makul bir yer, transfer karakteristiği dV (Y) / dV (A) eğiminin −1 olduğu yerdir.
+
+Bu iki nokta, birim kazanç noktaları olarak adlandırılır. Birim kazanç noktalarında mantık seviyelerinin seçilmesi genellikle gürültü marjlarını maksimize eder. VIL azaltılırsa, VOH yalnızca küçük bir miktar artar. Ancak VIL artırılsaydı, VOH hızla düşerdi.
 
 
 
