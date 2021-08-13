@@ -315,15 +315,27 @@ Sürücünün çıkışı alıcının girişi bağlandığında, V <sub>OL</sub>
 
 
 ## 1.6.4 DC iletim karakteristigi
-Dijital soyutlamanın sınırlarını anlamak için, bir kapının analog davranışını araştırmalıyız. Bir kapının DC transfer karakteristikleri, giriş, çıkışın devam edebilmesi için yeterince yavaş değiştirildiğinde çıkış voltajını giriş voltajının bir fonksiyonu olarak tanımlar. Giriş ve çıkış voltajları arasındaki ilişkiyi tanımladıkları için transfer özellikleri olarak adlandırılırlar.
+Sayısal soyutlamanın sınırlarını anlamak için, bir kapının analog davranışını araştırmalıyız. Bir kapının DC transfer karakteristikleri, giriş, çıkışın devam edebilmesi için yeterince yavaş değiştirildiğinde çıkış voltajını giriş voltajının bir fonksiyonu olarak tanımlar. Giriş ve çıkış voltajları arasındaki ilişkiyi tanımladıkları için transfer özellikleri olarak adlandırılırlar.
 
-İdeal bir tersleyici, Aşağıdaki şekil (a) 'da gösterildiği gibi, V <sub>DD</sub>/2'de ani bir anahtarlama eşiğine sahip olacaktır. V (A) <VDD / 2 için, V (Y) = VDD. V (A)> VDD / 2 için, V (Y) = 0. Böyle bir durumda VIH = VIL = VDD / 2. VOH = VDD ve VOL = 0.
+İdeal bir tersleyici, Aşağıdaki şekil (a) 'da gösterildiği gibi, V <sub>DD</sub>/2'de ani bir anahtarlama eşiğine sahip olacaktır. V (A) < V <sub>DD</sub> / 2 için, V (Y) = V <sub>DD</sub>. V (A)> V <sub>DD</sub> / 2 için, V (Y) = 0. Böyle bir durumda V <sub>IH</sub> = V <sub>IL</sub> = V <sub>DD</sub> / 2. V <sub>OH</sub> = V <sub>DD</sub> ve V <sub>OL</sub> = 0. Şekil (b) 'de gösterildiği gibi, gerçek bir tersleyici uç noktalar arasında daha kademeli olarak değişir. Giriş voltajı V (A) 0 olduğunda, çıkış voltajı V (Y) = V <sub>DD</sub>. V (A) = V <sub>DD</sub> olduğunda, V (Y) = 0. Ancak, bu uç noktalar arasındaki geçiş yumuşaktır ve tam olarak V <sub>DD</sub> / 2'de ortalanmayabilir. Bu mantık seviyelerinin nasıl tanımlanacağı sorusunu gündeme getirmektedir.
 
-Şekil 1.25 (b) 'de gösterildiği gibi, gerçek bir invertör uç noktalar arasında daha kademeli olarak değişir. Giriş voltajı V (A) 0 olduğunda, çıkış voltajı V (Y) = VDD. V (A) = VDD olduğunda, V (Y) = 0. Ancak, bu uç noktalar arasındaki geçiş yumuşaktır ve tam olarak VDD / 2'de ortalanmayabilir. Bu mantık seviyelerinin nasıl tanımlanacağı sorusunu gündeme getirmektedir.
+Mantık seviyelerini seçmek için makul bir yer, transfer karakteristiği dV (Y) / dV (A) eğiminin −1 olduğu yerdir. Bu iki nokta, birim kazanç noktaları olarak adlandırılır. Birim kazanç noktalarında mantık seviyelerinin seçilmesi genellikle gürültü marjlarını maksimize eder. V <sub>IL</sub> azaltılırsa, V <sub>OH</sub> yalnızca küçük bir miktar artar. Ancak V <sub>IL</sub> artırılsaydı, V <sub>OH</sub> hızla düşerdi.
 
-Mantık seviyelerini seçmek için makul bir yer, transfer karakteristiği dV (Y) / dV (A) eğiminin −1 olduğu yerdir.
+![DC](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/27.png)
 
-Bu iki nokta, birim kazanç noktaları olarak adlandırılır. Birim kazanç noktalarında mantık seviyelerinin seçilmesi genellikle gürültü marjlarını maksimize eder. VIL azaltılırsa, VOH yalnızca küçük bir miktar artar. Ancak VIL artırılsaydı, VOH hızla düşerdi.
+## 1.6.5 Static displin
+Girişlerin yasak bölgeye düşmesini önlemek için dijital mantık kapıları statik disipline uyacak şekilde tasarlanmıştır. Statik disiplin, mantıksal olarak geçerli girdiler verildiğinde, her devre elemanının mantıksal olarak geçerli çıktılar üretmesini gerektirir.
+
+Dijital tasarımcılar, statik disipline uyarak, dijital devrelerin basitliği ve sağlamlığı karşılığında rastgele analog devre elemanlarını kullanma özgürlüğünden feragat ederler. Soyutlama düzeyini analogdan dijitale yükseltirler, gereksiz ayrıntıları gizleyerek tasarım verimliliğini artırır.
+
+V <sub>DD</sub> ve mantık seviyelerinin seçimi isteğe bağlıdır, ancak iletişim kuran tüm kapılar uyumlu mantık seviyelerine sahip olmalıdır. Bu nedenle kapılar, mantık ailesindeki tüm kapılar, ailedeki diğer kapılar ile birlikte kullanıldığında statik disipline uyacak şekilde mantık aileleri halinde gruplandırılır. Aynı mantık ailesindeki mantık kapıları, tutarlı güç kaynağı voltajları ve mantık seviyeleri kullandıklarından legolar gibi birbirine geçerler.
+
+1970'lerden 1990'lara kadar baskın olan dört ana mantık ailesi, Transistör-Transistör Mantığı (TTL), Tamamlayıcı Metal Oksit-Yarıiletken Mantığı (CMOS, sea-moss), Düşük Voltaj TTL Mantığı (LVTTL) ve Düşük Voltaj CMOS Mantığıdır (LVCMOS). Mantık seviyeleri aşağıdaki tabloda karşılaştırılmıştır. 
+
+
+
+O zamandan beri mantık aileleri, daha da düşük güç kaynağı voltajlarının çoğalmasıyla balkanlaştı.
+
 
 
 
