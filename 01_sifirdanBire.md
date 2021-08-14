@@ -333,12 +333,14 @@ V <sub>DD</sub> ve mantık seviyelerinin seçimi isteğe bağlıdır, ancak ilet
 1970'lerden 1990'lara kadar baskın olan dört ana mantık ailesi, Transistör-Transistör Mantığı (TTL), Tamamlayıcı Metal Oksit-Yarıiletken Mantığı (CMOS, sea-moss), Düşük Voltaj TTL Mantığı (LVTTL) ve Düşük Voltaj CMOS Mantığıdır (LVCMOS). Mantık seviyeleri aşağıdaki tabloda karşılaştırılmıştır. 
 
 
+![Table](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/28.png)
 
-O zamandan beri mantık aileleri, daha da düşük güç kaynağı voltajlarının çoğalmasıyla balkanlaştı.
+Örnek 1.19 Yukarıdaki mantık ailelerinden hangileri birbiriyle güvenilir bir şekilde iletişim kurabilir?
 
+Çözüm: Aşağıdaki tablo, hangi mantık ailelerinin uyumlu mantık düzeylerine sahip olduğunu listeler. TTL veya CMOS gibi 5V mantık ailesinin 5V kadar YÜKSEK bir çıkış voltajı üretebileceğini unutmayın. Bu 5V sinyal, LVTTL veya LVCMOS gibi 3,3V mantık ailesinin girişini yönlendirirse, alıcı özel olarak "5 volt uyumlu" olacak şekilde tasarlanmadıkça alıcıya zarar verebilir.
 
+![Tablecompatible](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/29.png)
 
-
-
+# CMOS Transistorler
 
 
