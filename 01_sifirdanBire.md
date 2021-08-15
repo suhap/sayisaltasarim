@@ -341,6 +341,23 @@ V <sub>DD</sub> ve mantık seviyelerinin seçimi isteğe bağlıdır, ancak ilet
 
 ![Tablecompatible](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/29.png)
 
-# CMOS Transistorler
+# 1.7 CMOS Transistorler
+
+Babbage’ın Analitik Motoru dişlilerden yapıldı ve ilk elektrikli bilgisayarlar röleler veya vakum tüpleri kullanıyordu. Modern bilgisayarlar, ucuz, küçük ve güvenilir oldukları için transistör kullanır. Transistörler, bir kontrol terminaline voltaj veya akım uygulandığında AÇILAN veya KAPATILAN elektrikle kontrol edilen anahtarlardır. İki ana transistör türü, bipolar bağlantı transistörleri ve metal oksit-yarı iletken alan etkili transistörleridir (sırasıyla "yosun fetleri" veya "M-O-S" olarak telaffuz edilen MOSFET'ler veya MOS transistörleri). 
+
+1958'de Texas Instruments'tan Jack Kilby, iki transistör içeren ilk entegre devreyi kurdu. 1959'da Fairchild Semiconductor'dan Robert Noyce, tek bir silikon çip üzerinde birden fazla transistörü birbirine bağlama yönteminin patentini aldı. O zamanlar transistörlerin her biri yaklaşık 10 dolara mal oluyor.
+
+Otuz yılı aşkın süredir benzeri görülmemiş üretim ilerlemeleri sayesinde, mühendisler artık 1 cm <sub>2</sub> silikon çip üzerine yaklaşık bir milyar MOSFET paketleyebiliyor ve bu transistörlerin her biri 10 mikro sentten daha ucuza mal oluyor. Kapasite ve maliyet, yaklaşık olarak her 8 yılda bir büyük ölçüde artmaya devam ediyor. MOSFET'ler artık neredeyse tüm dijital sistemlerin yapı taşlarıdır. Bu bölümde, mantık kapılarının MOSFET'lerden nasıl inşa edildiğini görmek için dijital soyutlamanın altına bakacağız.
+
+## 1.7.1 Yarıiletkenler
+
+MOS transistörleri, kaya ve kumdaki baskın atom olan silikondan yapılmıştır. Silikon (Si) bir grup IV atomudur, bu nedenle valans kabuğunda dört elektrona sahiptir ve dört bitişik atomla bağlar oluşturarak kristal bir kafes oluşturur. Aşağıdaki şekil a'da bu kafes çizmi kolay olsun diye 2 boyutlu olarak gösterilmiştir ancak bu kafesin bir küp şeklinde olduğunu unutmamak gerekmektedir. Şekildeki çizgiler kovalent bağları göstermektedir. Silikon kendi başına zayıf bir iletkendir çünkü tüm elektronlar kovalent bağlara bağlıdır. Bununla birlikte, katkı atomları olarak adlandırılan küçük miktarlardaki safsızlıklar dikkatlice eklendiğinde daha iyi bir iletken haline gelir. Arsenik (As) gibi bir grup V katkı maddesi eklenirse, katkı atomlarının bağlarda yer almayan fazladan bir elektronu vardır. Elektron,  aşağıdaki şekil b'de gösterildiği gibi arkada bir iyonize katkı atomu (As +) bırakarak kafes etrafında kolayca hareket edebilir. Elektron negatif bir yük taşır, bu nedenle arseniğe n-tipi katkı maddesi diyoruz. Öte yandan, bor (B) gibi bir grup III katkı maddesi eklenirse, aşağıdaki şekil c'de gösterildiği gibi katkı atomlarında bir elektron eksiktir. Bu eksik elektrona delik denir. Komşu bir silikon atomundan gelen bir elektron, eksik bağı doldurmak için hareket ederek iyonize bir katkı atomu (B−) oluşturabilir ve komşu silikon atomunda bir delik bırakabilir. Benzer bir şekilde, delik kafes etrafında hareket edebilir. Delik, negatif yük eksikliğidir, bu nedenle pozitif yüklü bir parçacık gibi davranır. Bu nedenle bor'a p-tipi katkı maddesi diyoruz. Silikonun iletkenliği, katkı maddelerinin konsantrasyonuna bağlı olarak birçok büyüklük sırasına göre değiştiğinden, silikona yarı iletken denir.
+
+![yarıiletken](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/30.png)
+
+## 1.7.2 Diyot
+
+
+
 
 
