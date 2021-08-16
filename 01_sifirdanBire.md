@@ -359,7 +359,7 @@ MOS transistörleri, kaya ve kumdaki baskın atom olan silikondan yapılmıştı
 
 P-tipi ve n-tipi silikon arasındaki bağlantıya diyot denir. Şekilde gösterildiği gibi p-tipi bölge anot ve n-tipi bölge katot olarak adlandırılır. Anot üzerindeki voltaj, katottaki voltajın üzerine çıktığında, diyot öne doğru eğilir ve akım, diyot boyunca anottan katoda akar. Ancak anot voltajı katottaki voltajdan daha düşük olduğunda, diyot ters yönlüdür ve hiçbir akım akmaz. Diyot sembolü sezgisel olarak akımın yalnızca bir yönde aktığını gösterir.
 
-![diyot](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/31.PNG)
+![diyot](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/31.png)
 
 ## 1.7.3 Kondansatör
 
@@ -382,4 +382,24 @@ Bir MOSFET, geçit voltajının kaynak ile tahliye arasındaki bağlantıyı AÇ
 Bir nMOS transistörün substratı normalde sistemdeki en düşük voltaj olan GND'ye bağlıdır. İlk olarak, aşağıdkai şekil (a) 'da gösterildiği gibi, kapının da 0 V'de olduğu durumu düşünün. Kaynak veya boşaltma ve alt tabaka arasındaki diyotlar, kaynak veya boşaltma voltajı negatif olmadığından ters eğimlidir. Bu nedenle, akımın kaynak ve boşaltma arasında akması için bir yol yoktur, bu nedenle transistör KAPALI'dır. Şimdi, aşağıdkai şekil (b) 'de gösterildiği gibi kapının VDD'ye ne zaman yükseltildiğini düşünün. Bir kapasitörün üst plakasına pozitif voltaj uygulandığında, üst plakada pozitif yük ve alt plakaya negatif yük çeken bir elektrik alanı oluşturur. Voltaj yeterince büyükse, kapının alt tarafına o kadar çok negatif yük çekilir ki, bölge p-tipinden etkin bir şekilde n-tipi haline gelmek için tersine çevrilir. Bu ters çevrilmiş bölgeye kanal denir. Artık transistör, n-tipi kaynaktan n-tipi kanaldan n-tipi drenaja kadar sürekli bir yola sahiptir, böylece elektronlar kaynaktan drenaja akabilir. Transistör AÇIK. Bir transistörü açmak için gereken kapı voltajına eşik voltajı Vt denir ve tipik olarak 0,3 ila 0,7 V arasındadır.
 
 ![MOSFET2](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/33.png)
+
+pMOS transistörleri, Şekide gösterilen sembollerindeki balondan tahmin edilebileceği gibi, tam tersi şekilde çalışır. Substrat, VDD'ye bağlanır. Kapı da VDD'de olduğunda, pMOS transistörü KAPALI'dır. Kapı GND'de olduğunda, kanal p-tipine dönüşür ve pMOS transistörü AÇIK durumdadır.
+
+![transistör](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/34.png)
+
+Maalesef MOSFET'ler mükemmel anahtarlar değildir. Özellikle, nMOS transistörleri 0’ları iyi geçer ancak 1’leri kötü geçer. Spesifik olarak, bir nMOS transistörünün kapısı VDD'de olduğunda, drenaj yalnızca 0 ile VDD - Vt arasında sallanacaktır. Benzer şekilde, pMOS transistörleri 1’leri iyi geçer, ancak 0’ları zayıftır. Bununla birlikte, transistörleri yalnızca iyi modlarında kullanan mantık kapıları inşa etmenin mümkün olduğunu göreceğiz.
+
+nMOS transistörleri bir p-tipi alt tabakaya ihtiyaç duyar ve pMOS transistörleri bir n-tipi alt tabakaya ihtiyaç duyar. Aynı çip üzerinde her iki transistör çeşidini oluşturmak için, üretim süreçleri tipik olarak bir p-tipi yonga plakası ile başlar, ardından pMOS transistörlerinin gitmesi gereken kuyular olarak adlandırılan n-tipi bölgeleri implante edin. Her iki transistör çeşidini sağlayan bu işlemlere Tamamlayıcı MOS veya CMOS denir. CMOS işlemleri, bugün üretilen tüm transistörlerin büyük çoğunluğunu oluşturmak için kullanılmaktadır.
+
+Özetle, CMOS süreçleri bize yukarıdaki şekilde gösterildiği gibi iki tür elektrikle kontrol edilen anahtar verir. Kapıdaki (g) voltaj, kaynak (s) ile drenaj (d) arasındaki akım akışını düzenler. nMOS transistörleri, kapı 0 olduğunda KAPALI ve kapı 1 olduğunda AÇIK durumdadır. pMOS transistörleri tam tersidir: Kapı 0 olduğunda AÇIK ve kapı 1 olduğunda KAPALI.
+
+## 1.7.5 CMOS(Complementary MOS) Not Kapısı
+
+Aşağıdaki şekil, CMOS transistörlerle oluşturulmuş bir NOT geçidinin şemasını gösterir. Üçgen GND'yi ve düz çubuk VDD'yi gösterir; bu etiketler gelecekteki şemalardan çıkarılacaktır. NMOS transistörü N1, GND ve Y çıkışı arasına bağlanır. PMOS transistörü P1, VDD ve Y çıkışı arasına bağlanır. Her iki transistör kapısı A girişi tarafından kontrol edilir. 
+
+![NOT](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/35.png)
+
+A = 0 ise, N1 KAPALI ve P1 AÇIK. Bu nedenle Y, VDD'ye bağlanır ancak GND'ye bağlanmaz ve mantık 1'e çekilir. P1 iyi 1'i geçer. A = 1 ise, N1 AÇIK ve P1 KAPALI ve Y mantık 0'a çekilir. N1 kararlı bir 0'a geçer. Doğruluk tablosu incelendiğinde, devrenin gerçekten bir NOT geçidi olduğunu görüyoruz.
+
+## 1.7.6 
 
