@@ -401,5 +401,78 @@ Aşağıdaki şekil, CMOS transistörlerle oluşturulmuş bir NOT geçidinin şe
 
 A = 0 ise, N1 KAPALI ve P1 AÇIK. Bu nedenle Y, VDD'ye bağlanır ancak GND'ye bağlanmaz ve mantık 1'e çekilir. P1 iyi 1'i geçer. A = 1 ise, N1 AÇIK ve P1 KAPALI ve Y mantık 0'a çekilir. N1 kararlı bir 0'a geçer. Doğruluk tablosu incelendiğinde, devrenin gerçekten bir NOT geçidi olduğunu görüyoruz.
 
-## 1.7.6 
+## 1.7.6 Diğer CMOS Lojik Kapılar
+
+Aşağıdaki şekil, iki girişli bir NAND geçidinin şemasını göstermektedir. Şematik diyagramlarda, teller her zaman üç yollu bağlantılarda birleştirilir. Dört yönlü kavşaklarda, yalnızca bir nokta gösteriliyorsa birleştirilirler. NMOS transistörleri N1 ve N2 seri olarak bağlanmıştır; Çıkışı GND'ye çekmek için her iki nMOS transistörü de AÇIK olmalıdır. PMOS transistörleri P1 ve P2 paraleldir; Çıkışı V <sub>DD</sub>'ye çekmek için yalnızca bir pMOS transistör AÇIK olmalıdır. Aşağıdaki tabloda, kapının bir NAND olarak işlev gördüğünü göstererek, aşağı çekme ve yukarı çekme ağlarının çalışmasını ve çıktının durumunu listeler. Örneğin, A = 1 ve B = 0 olduğunda, N1 AÇIK, ancak N2 KAPALI, Y'den GND'ye giden yolu bloke ediyor. P1 KAPALI, ancak P2 AÇIK, V <sub>DD</sub>'den Y'ye bir yol oluşturuyor. Bu nedenle, Y 1'e çekiliyor.
+
+![NAND](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/36.png)
+
+![TabloNAND](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/37.png)
+
+Aşağıdaki şekil , NOT, NAND veya NOR gibi herhangi bir ters çevirici mantık geçidi oluşturmak için kullanılan genel formu gösterir. nMOS transistörleri, 0’ları geçirmekte iyidir, bu nedenle, çıkışı 0’a çekmek için çıkış ile GND arasına aşağıya açılan bir nMOS transistör ağı yerleştirilir. pMOS transistörleri 1’leri geçirmekte iyidir, bu nedenle çıkışı 1’e kadar çekmek için çıkış ve V <sub>DD</sub> arasına bir yukarı çekmeli pMOS transistör ağı yerleştirilir. Ağlar, seri veya paralel transistörlerden oluşabilir. Transistörler paralel olduğunda, transistörlerden biri AÇIK ise ağ AÇIK konumdadır. Transistörler seri haldeyken, ağ yalnızca her iki transistör de AÇIK ise AÇIK konumdadır. Giriş telindeki eğik çizgi, geçidin birden fazla giriş alabileceğini gösterir.
+
+Hem yukarı çekme hem de aşağı çekme ağları aynı anda AÇIK olsaydı, V <sub>DD</sub> ve GND arasında bir kısa devre olurdu. Geçidin çıkışı yasak bölgede olabilir ve transistörler muhtemelen yanmaya yetecek kadar büyük miktarda güç tüketebilir. Öte yandan, hem yukarı çekme hem de aşağı çekme ağları aynı anda KAPALI olsaydı, çıkış ne V <sub>DD</sub>'ye ne de GND'ye bağlanırdı. Çıktının yüzdüğünü söylüyoruz. Değeri yine tanımsızdır. Yüzen çıktılar genellikle istenmeyen bir durumdur, ancak ileride bu durumun zaman zaman tasarımcının avantajına nasıl kullanılabileceklerini göreceğiz.
+
+Düzgün çalışan bir mantık geçidinde, herhangi bir zamanda ağlardan biri AÇIK ve diğeri KAPALI olmalıdır, böylece çıkış YÜKSEK veya DÜŞÜK çekilir ancak kısa devre veya yüzer olmaz. Bunu, iletim tamamlayıcıları kuralını kullanarak garanti edebiliriz. NMOS transistörleri seri olduğunda, pMOS transistörleri paralel olmalıdır. NMOS transistörleri paralel olduğunda, pMOS transistörleri seri olmalıdır.
+
+Örnek 1.20 CMOS transistörlerini kullanarak üç girişli bir NAND geçidi için bir şema çizin.
+
+Çözüm: NAND geçidi, yalnızca üç girişin tümü 1 olduğunda bir 0 çıkışı üretmelidir. Bu nedenle, aşağı açılır ağda seri olarak üç nMOS transistörü olmalıdır. İletim tamamlayıcılar kuralına göre, pMOS transistörleri paralel olmalıdır. Böyle bir kapı aşağıdaki şekilde gösterilmektedir; doğru doğruluk tablosuna sahip olup olmadığını kontrol ederek işlevi doğrulayabilirsiniz.
+
+![20NAND](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/38.png)
+
+Örnek 1.21 CMOS transistörlerini kullanarak iki girişli bir NOR geçidi için bir şema çizin.
+
+Çözüm: Her iki giriş 1 ise NOR geçidi 0 çıkış üretmelidir. Bu nedenle, aşağı açılır ağın paralel olarak iki nMOS transistörüne sahip olması gerekir. İletim tamamlayıcılar kuralına göre, pMOS transistörleri seri halinde olmalıdır. Böyle bir kapı aşağıdaki şekilde gösterilmektedir.
+
+![21NOR](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/39.png)
+
+Örnek 1.22 İki girişli bir AND geçidi için bir şema çizin.
+
+Çözüm: Tek bir CMOS geçidi ile bir AND geçidi oluşturmak imkansızdır. Ancak, NAND ve NOT kapıları inşa etmek kolaydır. Bu nedenle, CMOS transistörleri kullanarak bir AND geçidi oluşturmanın en iyi yolu, aşağıdaki şekilde gösterildiği gibi bir NAND ve ardından bir NOT kullanmaktır.
+
+![22AND](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/40.png)
+
+## 1.7.7 İletim Kapıları
+Zaman zaman tasarımcılar, hem 0 hem de 1 geçebilen ideal bir anahtar kullanmayı uygun buluyor. NMOS transistörlerinin 0'ı geçmekte iyi olduğunu ve pMOS transistörlerinin 1'i geçmekte iyi olduğunu hatırlayın, bu nedenle ikisinin paralel kombinasyonu her iki değeri de iyi geçirir. Aşağıdaki şekil , iletim kapısı veya geçiş kapısı adı verilen böyle bir devreyi göstermektedir. Anahtarın iki tarafı A ve B olarak adlandırılır çünkü bir anahtar çift yönlüdür ve tercih edilen giriş veya çıkış tarafına sahip değildir. Kontrol sinyalleri enable, EN ve EN’ olarak adlandırılır. EN = 0 ve EN’ = 1 olduğunda, her iki transistör de KAPALI. Dolayısıyla, iletim kapısı KAPALI veya devre dışıdır, bu nedenle A ve B bağlı değildir. EN = 1 ve EN’ = 0 olduğunda, iletim kapısı AÇIK veya etkindir ve herhangi bir mantık değeri A ile B arasında akabilir.
+
+![iletimkapi](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/41.png)
+
+## 1.7.8 Sözde-nMOS Mantığı
+Bir N girişli CMOS NOR geçidi, paralel olarak N nMOS transistörleri ve seri olarak N pMOS transistörlerini kullanır. Seri transistörler paralel transistörlerden daha yavaştır, tıpkı serideki dirençlerin paralel dirençlerden daha fazla dirence sahip olması gibi. Dahası, pMOS transistörleri nMOS transistörlerinden daha yavaştır çünkü delikler silikon kafes etrafında elektronlar kadar hızlı hareket edemez. Bu nedenle paralel nMOS transistörleri hızlıdır ve seri pMOS transistörleri, özellikle birçoğu seri olduğunda yavaştır.
+
+Sözde-nMOS mantığı, yavaş pMOS transistör yığınını, aşağıdaki şekilde gösterildiği gibi her zaman AÇIK olan tek bir zayıf pMOS transistör ile değiştirir. Bu pMOS transistörüne genellikle zayıf çekme denir. PMOS transistörünün fiziksel boyutları, pMOS transistörünün Y YÜKSEK çıkışını zayıf bir şekilde çekeceği şekilde seçilir - yani, nMOS transistörlerinden hiçbiri AÇIK değilse. Ancak herhangi bir nMOS transistörü AÇIK ise, zayıf yukarı çekmeyi etkisiz hale getirir ve mantık 0 üretmek için Y'yi GND'ye yeterince yaklaştırır.
+
+![nMOS](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/42.png)
+
+Sözde nMOS mantığının avantajı, birçok girişle hızlı NOR geçitleri oluşturmak için kullanılabilmesidir. Örneğin, aşağıdaki şekil, sözde nMOS dört girişli NOR gösterir. Sözde nMOS geçitleri, ileride tartışılan belirli bellek ve mantık dizileri için kullanışlıdır. Dezavantajı, çıkış DÜŞÜK olduğunda VDD ve GND arasında bir kısa devre olmasıdır; zayıf pMOS ve nMOS transistörlerinin her ikisi de AÇIK. Kısa devre sürekli güç çeker, bu nedenle sözde-nMOS mantığı idareli kullanılmalıdır.
+
+![nMOS4](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/43.png)
+
+Sözde nMOS kapıları adını, üretim süreçlerinin yalnızca nMOS transistörlere sahip olduğu 1970'lerden almıştır. HIGH çıkışını çekmek için zayıf bir nMOS transistörü kullanıldı çünkü pMOS transistörleri mevcut değildi.
+
+# 8 Güç Tüketimi
+Güç tüketimi, birim zamanda kullanılan enerji miktarıdır. Dijital sistemlerde güç tüketimi büyük önem taşımaktadır. Cep telefonları ve dizüstü bilgisayarlar gibi taşınabilir sistemlerin pil ömrü, güç tüketimiyle sınırlıdır. Güç, prize takılı sistemler için de önemlidir, çünkü elektrik maliyetlidir ve sistem çok fazla güç çekerse aşırı ısınır.
+
+Dijital sistemler hem dinamik hem de statik güç çekerler. Dinamik güç, sinyaller 0 ile 1 arasında değişirken kapasitansı şarj etmek için kullanılan güçtür. Statik güç, sinyaller değişmediğinde ve sistem boştayken bile kullanılan güçtür.
+
+Mantık kapıları ve bunları bağlayan teller kapasitansa sahiptir. Bir kapasitans C'yi voltaj V <sub>DD</sub>'ye şarj etmek için güç kaynağından çekilen enerji CV <sub>DD</sub> <sup>2</sup>'dir. Kapasitör üzerindeki voltaj f frekansında (yani saniyede f kez) anahtarlanırsa, kapasitörü f / 2 kez şarj eder ve saniyede f / 2 kez boşaltır. Boşaltma güç kaynağından enerji çekmez, bu nedenle dinamik güç tüketimi
+
+Dinamik = 1/2 CV <sub>DD</sub> <sup>2</sup> f 
+
+Elektrik sistemleri boştayken bile bir miktar akım çekerler. Transistörler KAPALI olduğunda, az miktarda akım sızdırırlar. Bölüm 1.7.8'de tartışılan sözde-nMOS geçidi gibi bazı devreler, V <sub>DD</sub>'den GND'ye akımın sürekli aktığı bir yola sahiptir. Toplam statik akım, Idd, aynı zamanda, kaçak akım veya Vdd ile GND arasında akan durgun besleme akımı olarak da adlandırılır. Statik güç tüketimi, bu statik akımla orantılıdır:
+
+P <sub>static</sub> = I <sub>DD</sub> V <sub>dd</sub>
+
+Örnek 1.23 Belirli bir cep telefonunun 6 watt-saatlik (W-hr) bir pili vardır ve 1,2 V'ta çalışır. Kullanıldığında, cep telefonunun 300 MHz'de çalıştığını ve herhangi bir zamanda çip anahtarlamasındaki ortalama kapasitans miktarının 10 nF (10 <sup>-8</sup> Farad) olduğunu varsayalım. Kullanımdayken, anteninden 3 W güç de yayınlar. Telefon kullanımda değilken, sinyal işleme kapatıldığı için dinamik güç neredeyse sıfıra düşer. Ancak telefon, kullanımda olsun veya olmasın 40 mA hareketsiz akım da çekiyor. Telefonun pil ömrünü (a) kullanılmıyorsa ve (b) sürekli kullanılıyorsa belirleyin.
+
+Çözüm: Statik güç P <sub>statik</sub> = (0,040 A) (1,2 V) = 48 mW'dir.
+(a) Telefon kullanılmıyorsa, bu tek güç tüketimidir, dolayısıyla pil ömrü (6 Whr) / (0,048 W) = 125 saattir (yaklaşık 5 gün).
+(b) Telefon kullanılıyorsa, dinamik güç P <sub>dinamik</sub> = (0,5) (10 <sup>−8</sup> F) (1,2 V) <sup>2</sup> (3 × 10 <sup>8</sup> Hz) = 2,16 W.
+
+Statik ve yayın gücü ile birlikte toplam aktif güç 2,16 W + 0,048 W + 3 W = 5,2 W, dolayısıyla pil ömrü 6 W-sa / 5,2 W = 1,15 saattir. Bu örnek, bir cep telefonunun gerçek işleyişini biraz fazla basitleştiriyor, ancak güç tüketiminin temel fikirlerini gösteriyor.
+
+
+
+
 
