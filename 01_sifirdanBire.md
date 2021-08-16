@@ -357,7 +357,29 @@ MOS transistörleri, kaya ve kumdaki baskın atom olan silikondan yapılmıştı
 
 ## 1.7.2 Diyot
 
+P-tipi ve n-tipi silikon arasındaki bağlantıya diyot denir. Şekilde gösterildiği gibi p-tipi bölge anot ve n-tipi bölge katot olarak adlandırılır. Anot üzerindeki voltaj, katottaki voltajın üzerine çıktığında, diyot öne doğru eğilir ve akım, diyot boyunca anottan katoda akar. Ancak anot voltajı katottaki voltajdan daha düşük olduğunda, diyot ters yönlüdür ve hiçbir akım akmaz. Diyot sembolü sezgisel olarak akımın yalnızca bir yönde aktığını gösterir.
 
+![diyot](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/31.PNG)
 
+## 1.7.3 Kondansatör
 
+Bir kondansatör, bir yalıtkanla ayrılmış iki iletkenden oluşur. İletkenlerden birine bir V voltajı uygulandığında, iletken Q elektrik yükünü biriktirir ve diğer iletken, zıt −Q yükünü biriktirir. Kondansatörün kapasitansı C, yükün voltaja oranıdır: C = Q / V. Kapasite, iletkenlerin boyutuyla orantılıdır ve aralarındaki mesafe ile ters orantılıdır. 
+
+Kapasitans önemlidir çünkü bir iletkeni şarj etmek veya boşaltmak zaman ve enerji gerektirir. Daha fazla kapasitans, bir devrenin daha yavaş olacağı ve çalışması için daha fazla enerji gerektireceği anlamına gelir.
+
+## 1.7.4 nMOS ve pMOS Transistörler
+
+Bir MOSFET, birkaç katman iletken ve yalıtım malzemesinden oluşan bir sandviçtir. MOSFET'ler, çapı yaklaşık 15 ila 30 cm olan ince yassı silikon levhalar üzerine inşa edilmiştir. Üretim süreci çıplak bir gofretle başlar. İşlem, dopantların silikon içine implante edildiği, ince silikon dioksit ve silikon filmlerinin büyüdüğü ve metalin biriktirildiği bir dizi aşamayı içerir. Her adım arasında, gofret desenlendirilir, böylece malzemeler sadece istendiği yerde görünür. Transistörler, bir mikron <sup>2</sup> uzunluğunda olduğundan ve tüm gofret aynı anda işlendiğinden, bir seferde milyarlarca transistör üretmek ucuzdur. İşlem tamamlandıktan sonra, gofret binlerce, milyonlarca ve hatta milyarlarca transistör içeren cips veya zar adı verilen dikdörtgenler halinde kesilir. Çip test edilir, ardından bir devre kartına bağlanması için metal pimli plastik veya seramik bir pakete yerleştirilir.
+
+MOSFET sandviçi, substrate adı verilen silikon gofretin üstündeki yalıtkan bir silikon dioksit (SiO <sub>2</sub>) katmanının üstündeki kapı adı verilen iletken bir katmandan oluşur. Tarihsel olarak, kapı metalden yapılmıştır, dolayısıyla metal-oksit yarı-iletken adı verilmiştir. Modern üretim süreçleri, kapı için polikristalin silikon kullanır çünkü sonraki yüksek sıcaklıkta işleme aşamalarında erimez. Silikon dioksit daha çok cam olarak bilinir ve yarı iletken endüstrisinde genellikle basitçe oksit olarak adlandırılır. Metal oksit yarı iletken sandviç, dielektrik adı verilen ince bir yalıtım oksit tabakasının metal ve yarı iletken plakaları ayırdığı bir kapasitör oluşturur.
+
+MOSFET'lerin iki çeşidi vardır: nMOS ve pMOS (“n-moss” ve “p-moss” olarak telaffuz edilir).  Aşağıdaki şekil bir gofretin içinden kesilerek ve yandan bakılarak yapılan her bir türün enine kesitlerini göstermektedir. NMOS olarak adlandırılan n-tipi transistörler, kaynak ve drenaj adı verilen kapının bitişiğinde n-tipi katkı maddelerinin bölgelerine sahiptir ve bir p-tipi yarı iletken substrat üzerine inşa edilmiştir. PMOS transistörleri, n-tipi bir alt tabakadaki p-tipi kaynak ve boşaltma bölgelerinden oluşan tam tersidir.
+
+![MOSFET](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/32.png)
+
+Bir MOSFET, geçit voltajının kaynak ile tahliye arasındaki bağlantıyı AÇAN veya KAPATAN bir elektrik alanı oluşturduğu voltaj kontrollü bir anahtar gibi davranır. Alan etkili transistör terimi bu çalışma prensibinden gelir. Bir nMOS transistörün işleyişini keşfederek başlayalım.
+
+Bir nMOS transistörün substratı normalde sistemdeki en düşük voltaj olan GND'ye bağlıdır. İlk olarak, aşağıdkai şekil (a) 'da gösterildiği gibi, kapının da 0 V'de olduğu durumu düşünün. Kaynak veya boşaltma ve alt tabaka arasındaki diyotlar, kaynak veya boşaltma voltajı negatif olmadığından ters eğimlidir. Bu nedenle, akımın kaynak ve boşaltma arasında akması için bir yol yoktur, bu nedenle transistör KAPALI'dır. Şimdi, aşağıdkai şekil (b) 'de gösterildiği gibi kapının VDD'ye ne zaman yükseltildiğini düşünün. Bir kapasitörün üst plakasına pozitif voltaj uygulandığında, üst plakada pozitif yük ve alt plakaya negatif yük çeken bir elektrik alanı oluşturur. Voltaj yeterince büyükse, kapının alt tarafına o kadar çok negatif yük çekilir ki, bölge p-tipinden etkin bir şekilde n-tipi haline gelmek için tersine çevrilir. Bu ters çevrilmiş bölgeye kanal denir. Artık transistör, n-tipi kaynaktan n-tipi kanaldan n-tipi drenaja kadar sürekli bir yola sahiptir, böylece elektronlar kaynaktan drenaja akabilir. Transistör AÇIK. Bir transistörü açmak için gereken kapı voltajına eşik voltajı Vt denir ve tipik olarak 0,3 ila 0,7 V arasındadır.
+
+![MOSFET2](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/33.png)
 
