@@ -29,5 +29,11 @@ Aşağıdaki şekil, çoklu çıkışlara sahip bir birleşimsel devreyi göster
 
 Burada kaldım
 
-Çizimleri basitleştirmek için, genellikle bir çizgi ve yanında bir sayı olan tek bir çizgi, birden çok sinyalden oluşan bir yolu belirtmek için kullanırız. Numara, veriyolunda kaç sinyal olduğunu belirtir. Örneğin, Şekil sağ(a), üç giriş ve iki çıkış içeren bir birleşimsel mantık bloğunu temsil eder. Bit sayısı önemsizse veya bağlamdan anlaşılırsa, eğik çizgi sayı olmadan gösterilebilir. Şekil sağ(b), bir bloktan ikinci bloğa girişler olarak hizmet eden keyfi sayıda çıktıya sahip iki kombinasyonel mantık bloğunu gösterir.
+Çizimleri basitleştirmek için, genellikle bir çizgi ve yanında bir sayı olan tek bir çizgi, birden çok sinyalden oluşan bir yolu belirtmek için kullanırız. Sayı, veriyolunda kaç sinyal olduğunu belirtir. Örneğin, Aşağıdaki şekil, üç giriş ve iki çıkış içeren bir birleşimsel mantık bloğunu temsil eder. 
+
+![şekil2.6](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-6.png)
+
+Bit sayısı önemsizse veya bağlamdan anlaşılırsa, eğik çizgi sayı olmadan gösterilebilir. Aşağıdaki şekil, bir bloktan ikinci bloğa girişler olarak hizmet eden keyfi sayıda çıktıya sahip iki kombinasyonel mantık bloğunu gösterir.
+
+![şekil2.7](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-7.png)
 
