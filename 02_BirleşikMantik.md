@@ -58,4 +58,24 @@ NOT: Kombinasyonel kompozisyon kuralları yeterlidir ancak kesinlikle gerekli de
 
 Boole denklemleri, DOĞRU veya YANLIŞ olan değişkenlerle ilgilenir, bu nedenle dijital mantığı tanımlamak için mükemmeldir. Bu bölüm, Boole denklemlerinde yaygın olarak kullanılan bazı terminolojiyi tanımlar, ardından doğruluk tablosu verilen herhangi bir mantık işlevi için bir Boole denkleminin nasıl yazılacağını gösterir.
 
+## 2.2.1 Terminoloji
+
+A değişkeninin tamamlayıcısı, ters A'dır. Değişken veya onun tamamlayıcısı, "literal" olarak adlandırılır. Örneğin, A, A’, B ve B’ literal değerlerdir. A'ya değişkenin gerçek biçimi ve A’ 'ya tamamlayıcı biçim diyoruz; "Gerçek biçim", A'nın DOĞRU olduğu anlamına gelmez, yalnızca A'nın üzerinde bir çizgi olmadığı anlamına gelir.
+
+Bir veya daha fazla değişmezin AND'sine ürün veya implikant denir. A’B, AB’C’ ve B, üç değişkenli bir fonksiyonun tüm sonuçlarıdır. Bir minterm, işlevin tüm girdilerini içeren bir üründür. A’B’C’, A, B ve C üç değişkeninin bir fonksiyonu için bir mintermdir, ancak AB’, C'yi içermediği için değildir. Benzer şekilde, bir veya daha fazla değişmezin VEYA'sına toplam denir. Bir maxterm, fonksiyonun tüm girdilerini içeren bir toplamdır. A + B’ + C, A, B ve C olmak üzere üç değişkenli bir fonksiyon için bir maxtermdir.
+
+Boole denklemlerini yorumlarken işlem sırası önemlidir. Y = A + BC, Y = (A OR B) VE C veya Y = A OR (B AND C) anlamına mı geliyor? Boole denklemlerinde, NOT en yüksek önceliğe sahiptir, ardından AND ve ardından OR gelir. Tıpkı sıradan denklemlerde olduğu gibi, ürünler toplamlardan önce gerçekleştirilir. Bu nedenle denklem Y = A OR (B AND C) olarak okunur.
+
+Denklem 2.1, işlemlerin sırasına ilişkin başka bir örnek verir.
+
+A’B + BCD’ = ((A’)B) + ((BC)D’))
+
+
+The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
+
+$$
+\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
+$$
+
+
 
