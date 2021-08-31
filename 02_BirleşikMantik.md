@@ -62,13 +62,22 @@ Boole denklemleri, DOĞRU veya YANLIŞ olan değişkenlerle ilgilenir, bu nedenl
 
 A değişkeninin tamamlayıcısı, ters A'dır. Değişken veya onun tamamlayıcısı, "literal" olarak adlandırılır. Örneğin, A, A’, B ve B’ literal değerlerdir. A'ya değişkenin gerçek biçimi ve A’ 'ya tamamlayıcı biçim diyoruz; "Gerçek biçim", A'nın DOĞRU olduğu anlamına gelmez, yalnızca A'nın üzerinde bir çizgi olmadığı anlamına gelir.
 
-Bir veya daha fazla değişmezin AND'sine ürün veya implikant denir. A’B, AB’C’ ve B, üç değişkenli bir fonksiyonun tüm sonuçlarıdır. Bir minterm, işlevin tüm girdilerini içeren bir üründür. A’B’C’, A, B ve C üç değişkeninin bir fonksiyonu için bir mintermdir, ancak AB’, C'yi içermediği için değildir. Benzer şekilde, bir veya daha fazla değişmezin VEYA'sına toplam denir. Bir maxterm, fonksiyonun tüm girdilerini içeren bir toplamdır. A + B’ + C, A, B ve C olmak üzere üç değişkenli bir fonksiyon için bir maxtermdir.
+Bir veya daha fazla literal değerin AND işlemine tabi tutulmasına product veya implicant denir. A’B, AB’C’ ve B, üç değişkenli bir fonksiyonun tüm sonuçlarıdır. Bir minterm, işlevin tüm girdilerini içeren bir product işlemidir. A’B’C’, A, B ve C üç değişkeninin bir fonksiyonu için bir mintermdir, ancak AB’, C'yi içermediği için değildir. Benzer şekilde, bir veya daha fazla değişmezin VEYA'sına sum denir. Bir maxterm, fonksiyonun tüm girdilerini içeren bir sum işlemidir. A + B’ + C, A, B ve C olmak üzere üç değişkenli bir fonksiyon için bir maxterm leridir.
 
-Boole denklemlerini yorumlarken işlem sırası önemlidir. Y = A + BC, Y = (A OR B) VE C veya Y = A OR (B AND C) anlamına mı geliyor? Boole denklemlerinde, NOT en yüksek önceliğe sahiptir, ardından AND ve ardından OR gelir. Tıpkı sıradan denklemlerde olduğu gibi, ürünler toplamlardan önce gerçekleştirilir. Bu nedenle denklem Y = A OR (B AND C) olarak okunur.
-
-Denklem 2.1, işlemlerin sırasına ilişkin başka bir örnek verir.
+Boole denklemlerini yorumlarken işlem sırası önemlidir. Y=A+BC, Y=(A OR B) VE C veya Y = A OR (B AND C) bu iki ifadeden hangisinin yerine geçer? Boole denklemlerinde, NOT en yüksek önceliğe sahiptir, ardından AND ve ardından OR gelir. Tıpkı sıradan denklemlerde olduğu gibi, çarpımlar toplamlardan önce gerçekleştirilir. Bu nedenle denklem Y = A OR (B AND C) olarak okunur. Denklem 2.1, işlemlerin sırasına ilişkin başka bir örnek verir.
 
 A’B + BCD’ = ((A’)B) + ((BC)D’))
 
+## 2.2.2 Sum-of-Products Form
+
+N girdiden oluşan doğruluk tablosu, girişlerin her olası değeri için bir tane olmak üzere 2^N satır içerir. Bir doğruluk tablosundaki her satır, o satır için DOĞRU olan bir minterm ile ilişkilendirilir. Şekil, A ve B olmak üzere iki girişin doğruluk tablosunu göstermektedir. Her satır, ilgili mintermini gösterir. Örneğin, ilk satır için minterm A’B’ 'dir çünkü A = 0, B = 0 olduğunda A’B’ DOĞRUDUR. Mintermler 0 ile başlayarak numaralandırılır; üst sıra minterm 0, m0'a, sonraki satır minterm 1'e, m1'e vb. karşılık gelir.
+
+Çıktı Y'nin DOĞRU olduğu mintermlerin her birini toplayarak herhangi bir doğruluk tablosu için bir Boole denklemi yazabiliriz. Örneğin, üstteki Şekide, mavi daire içinde gösterilen Y çıktısının TRUE olduğu yalnızca bir satır (veya minterm) vardır. Böylece, Y = A’B. Alltaki Şekil, çıktının TRUE olduğu birden fazla satıra sahip bir doğruluk tablosunu göstermektedir. Daire içindeki mintermlerin her birinin toplamını almak Y = A’B + AB verir:
+
+Bu, çarpımların toplamı (OR) olduğu için (minterm oluşturan AND'ler) bir fonksiyonun toplam çarpımlar kanonik biçimi(sum-of-products canonical form) olarak adlandırılır. Aynı işlevi yazmanın Y = B’A + BA gibi birçok yolu olmasına rağmen, mintermleri doğruluk tablosunda göründükleri sırayla sıralayacağız, böylece aynı doğruluk tablosu için her zaman aynı Boole ifadesini yazacağız. 
+
+Çarpımların toplamı kanonik formu, Σ toplama sembolü kullanılarak sigma gösterimi ile de yazılabilir. Bu gösterimle, Alttaki Şekildeki işlev şu şekilde yazılacaktır:
+F(A,B) = Σ(m1, m3)
+F(A,B) = Σ(1, 3)
 
 
