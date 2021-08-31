@@ -70,7 +70,9 @@ A’B + BCD’ = ((A’)B) + ((BC)D’))
 
 ## 2.2.2 Sum-of-Products Form
 
-N girdiden oluşan doğruluk tablosu, girişlerin her olası değeri için bir tane olmak üzere 2^N satır içerir. Bir doğruluk tablosundaki her satır, o satır için DOĞRU olan bir minterm ile ilişkilendirilir. Şekil, A ve B olmak üzere iki girişin doğruluk tablosunu göstermektedir. Her satır, ilgili mintermini gösterir. Örneğin, ilk satır için minterm A’B’ 'dir çünkü A = 0, B = 0 olduğunda A’B’ DOĞRUDUR. Mintermler 0 ile başlayarak numaralandırılır; üst sıra minterm 0, m0'a, sonraki satır minterm 1'e, m1'e vb. karşılık gelir.
+N girdiden oluşan doğruluk tablosu, girişlerin her olası değeri için bir tane olmak üzere 2<sup>N</sup> satır içerir. Bir doğruluk tablosundaki her satır, o satır için DOĞRU olan bir minterm ile ilişkilendirilir. Aşağıdaki şekil, A ve B olmak üzere iki girişin doğruluk tablosunu göstermektedir. Her satır, ilgili mintermini gösterir. Örneğin, ilk satır için minterm A’B’ 'dir çünkü A = 0, B = 0 olduğunda A’B’ DOĞRUDUR. Mintermler 0 ile başlayarak numaralandırılır; üst sıra minterm 0, m0'a, sonraki satır minterm 1'e, m1'e vb. karşılık gelir.
+
+![şekil2.8](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-8.png)
 
 Çıktı Y'nin DOĞRU olduğu mintermlerin her birini toplayarak herhangi bir doğruluk tablosu için bir Boole denklemi yazabiliriz. Örneğin, üstteki Şekide, mavi daire içinde gösterilen Y çıktısının TRUE olduğu yalnızca bir satır (veya minterm) vardır. Böylece, Y = A’B. Alltaki Şekil, çıktının TRUE olduğu birden fazla satıra sahip bir doğruluk tablosunu göstermektedir. Daire içindeki mintermlerin her birinin toplamını almak Y = A’B + AB verir:
 
