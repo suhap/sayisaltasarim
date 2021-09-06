@@ -135,11 +135,127 @@ Aşağıdaki tablodaki T1 ila T5 teoremleri, bir değişken içeren denklemlerin
 
 ![şekil2.14](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-14.png)
 
-Boş eleman teoremi, T2, B AND 0'ın her zaman 0'a eşit olduğunu söyler. Bu nedenle, 0, diğer herhangi bir girdinin etkisini geçersiz kıldığından, AND işlemi için boş öğe olarak adlandırılır. Dual, B OR 1'in her zaman 1'e eşit olduğunu belirtir. Bu nedenle, 1, OR işlemi için boş öğedir.  Donanımda, Şekil alt ortada gösterildiği gibi, bir AND geçidinin bir girişi 0 ise, AND geçidini LOW (0'a) bağlı bir tel ile değiştirebiliriz. Benzer şekilde, bir OR geçidinin bir girişi 1 ise, OR geçidini HIGH (1'e) bağlı bir tel ile değiştirebiliriz. 
+Boş eleman teoremi, T2, B AND 0'ın her zaman 0'a eşit olduğunu söyler. Bu nedenle, 0, diğer herhangi bir girdinin etkisini geçersiz kıldığından, AND işlemi için boş öğe olarak adlandırılır. Dual, B OR 1'in her zaman 1'e eşit olduğunu belirtir. Bu nedenle, 1, OR işlemi için boş öğedir.  Donanımda, aşağıdaki şekil gösterildiği gibi, bir AND geçidinin bir girişi 0 ise, AND geçidini LOW (0'a) bağlı bir tel ile değiştirebiliriz. Benzer şekilde, bir OR geçidinin bir girişi 1 ise, OR geçidini HIGH (1'e) bağlı bir tel ile değiştirebiliriz. 
 
-Idempotency, T3, bir değişkenin VE kendisinin sadece kendisine eşit olduğunu söyler. Benzer şekilde, bir değişken VEYA'nın kendisi kendisine eşittir. Teorem adını Latin köklerinden alır: idem (aynı) ve güçlü (güç). İşlemler, onlara koyduğunuz şeyin aynısını döndürür. Şekil alt sağ idempotency'nin bir kapının bir kabloyla değiştirilmesine yine izin verdiğini göstermektedir.
+![şekil2.15](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-15.png)
 
-İnvolüsyon, T4, bir değişkeni iki kez tamamlamanın orijinal değişkenle sonuçlandığını söylemenin süslü bir yoludur. Dijital elektronikte iki yanlış bir doğru yapar. Seri haldeki iki invertör mantıksal olarak birbirini iptal eder ve Şekil sağ üstte gösterildiği gibi mantıksal olarak bir kabloya eşdeğerdir. T4'ün ikilisi kendisidir.
+Idempotency, T3, bir değişkenin VE kendisinin sadece kendisine eşit olduğunu söyler. Benzer şekilde, bir değişken VEYA'nın kendisi kendisine eşittir. Teorem adını Latin köklerinden alır: idem (aynı) ve güçlü (güç). İşlemler, onlara koyduğunuz şeyin aynısını döndürür. Aşağıdaki şekil idempotency'nin bir kapının bir kabloyla değiştirilmesine yine izin verdiğini göstermektedir.
+
+![şekil2.16](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-16.png)
+
+İnvolüsyon, T4, bir değişkeni iki kez tamamlamanın orijinal değişkenle sonuçlandığını söylemenin süslü bir yoludur. Dijital elektronikte iki yanlış bir doğru yapar. Seri haldeki iki invertör mantıksal olarak birbirini iptal eder ve aşağıdaki şekilde gösterildiği gibi mantıksal olarak bir kabloya eşdeğerdir. T4'ün ikilisi kendisidir.
+
+![şekil2.17](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-17.png)
+
+Tamamlayıcı teoremi, T5 (aşağıdaki şekil), bir değişkenin VE onun tamamlayıcısının 0 olduğunu belirtir (çünkü bunlardan birinin 0 olması gerekir). Ve dualite ile, bir değişken VEYA onun tamamlayıcısı 1'dir (çünkü bunlardan birinin 1 olması gerekir).
+
+![şekil2.18](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-18.png)
+
+## Birden çok Degiskene ait Teoremler
+Aşağıdaki tabloda T6 ila T12 teoremleri, birden fazla Boole değişkenini içeren denklemlerin nasıl basitleştirileceğini açıklar.
+
+![şekil2.T3](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-T3.png)
+
+Değişim ve birleşimlilik, T6 ve T7, geleneksel cebirde olduğu gibi çalışır. Komütatiflik ile, bir VE veya VEYA işlevi için girişlerin sırası, çıktının değerini etkilemez. İlişkilendirme ile, belirli girdi grupları, çıktının değerini etkilemez.
+
+Dağılım teoremi, T8, geleneksel cebirdeki ile aynıdır, ancak ikili, T8 ′ değildir. T8'e göre, AND, OR üzerinden dağıtır ve T8 ′ ile OR, AND üzerinden dağıtır. Geleneksel cebirde, çarpma toplamaya dağıtılır ancak toplama, çarpma üzerinden dağıtılmaz, böylece (B + C) × (B + D) ≠ B + (C × D).
+
+Örtme, birleştirme ve fikir birliği teoremleri, T9 ila T11, gereksiz değişkenleri ortadan kaldırmamıza izin verir. Biraz düşünerek, kendinizi bu teoremlerin doğru olduğuna ikna edebilmelisiniz.
+
+De Morgan'ın Teoremi, T12, dijital tasarımda özellikle güçlü bir araçtır. Teorem, tüm terimlerin çarpımının tamamlamasının, her terimin tamamlayıcısının toplamına eşit olduğunu açıklar. Benzer şekilde, tüm terimlerin toplamının tamamlayıcısı, her terimin tamamlayıcısının ürününe eşittir.
+
+De Morgan'ın teoremine göre, bir NAND geçidi, ters girdilere sahip bir OR geçidine eşdeğerdir. Benzer şekilde, bir NOR geçidi, ters girdilere sahip bir AND geçidine eşdeğerdir. Aşağıdaki şekil, NAND ve NOR kapıları için bu De Morgan eşdeğer kapılarını göstermektedir. Her bir işlev için gösterilen iki sembole ikili denir. Mantıksal olarak eşdeğerdirler ve birbirlerinin yerine kullanılabilirler.
+
+![şekil2.19](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-19.png)
+
+Ters çevirme çemberi bir balon olarak adlandırılır. Sezgisel olarak, bir baloncuğun kapıdan "itilmesinin" diğer taraftan çıkmasına ve kapının gövdesini AND'den OR'a veya tersi yönde çevirmesine neden olduğunu hayal edebilirsiniz. Örneğin, yukaridaki şekil'deki NAND geçidi, çıkışta bir balon bulunan bir AND gövdesinden oluşur. Kabarcığı sola itmek, girişlerde kabarcıklar bulunan bir OR gövdesi ile sonuçlanır.Kabarcık itmenin temel kuralları şunlardır:
+- Baloncukları geriye (çıkıştan) veya ileriye (girişlerden) itmek, geçidin gövdesini AND'den OR'a veya tersi yönde değiştirir.
+- Çıkıştan girişlere bir balonun itilmesi, tüm geçit girişlerine baloncuklar yerleştirir.
+- Tüm kapı girişlerindeki baloncukları çıkışa doğru ileri itmek, çıkışta bir balon oluşturur.
+
+Örnek 2.4: Allataki şekil, bir Boole fonksiyonu Y ve onun tamamlayıcısı Y’ için doğruluk tablosunu gösterir: De Morgan Teoremini kullanarak, Y'nin product-of-sums kanonik biçimini Y’ 'nin sum-of-products biçiminden türetin:
+
+![şekil2.20](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-20.png)
+
+Çözüm: Aşağıdaki şekil , Y’ 'nin içerdiği mintermleri (daire içine alınmış) göstermektedir: Y’ 'nin  sum-of-products kanonik biçimin;
+Y’ = A’B’ + A’B
+
+![şekil2.21](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-21.png)
+
+Her iki tarafın tümleyicisini alarak ve De Morgan Teoremini iki kez uygulayarak şunu elde ederiz:
+Y’’ = Y = (A’ B’ + A’B)’ = (A’B’)’(A’B)’ = (A + B)(A + B’)
+
+## 2.3.5 Denklem indirgeme
+Boole cebirinin teoremleri Boole denklemlerini basitleştirmemize yardımcı olur. Örneğin, Aşağıdkai şekilde doğruluk tablosundaki sum-of-products ifadesini düşünün: Y = A’B’ + AB’: Teorem T10'a göre, denklem Y = B’ 'ye sadeleştirilir: Bu, doğruluk tablosuna bakıldığında açıkça görülmüş olabilir. Genel olarak, daha karmaşık denklemleri basitleştirmek için birden çok adım gerekli olabilir.
+
+![şekil2.9](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-9.png)
+
+sum-of-products denklemlerini basitleştirmenin temel ilkesi, PA + PA’ = P ilişkisini kullanarak terimleri birleştirmektir, burada P herhangi bir dolaylı olabilir. Bir denklem ne kadar basitleştirilebilir? Mümkün olan en az etkiyi kullanırsa en aza indirilecek sum-of-products biçiminde bir denklem tanımlarız. Aynı sayıda etkiye sahip birkaç denklem varsa, en az olan en az değişmez değere sahip olandır.
+
+Bir implicant, daha az değişmez değerle yeni bir implikant oluşturmak için denklemdeki diğer herhangi bir implicant ile birleştirilemezse, birincil implikant olarak adlandırılır. Minimal bir denklemdeki sonuçların tümü birincil çıkarımlar(implikant) olmalıdır. Aksi takdirde, değişmez değerlerin sayısını azaltmak için birleştirilebilirler. 
+
+Örnek 2.6 A’B’C’ + AB’C’ + AB’C ifadesini sadeleştiriniz.
+
+Çözüm: Orijinal denklemle başlıyoruz ve aşağıdaki tabloda gösterildiği gibi Boole teoremlerini adım adım uyguluyoruz. Bu noktada denklemi tamamen basitleştirdik mi? Hadi daha yakından bakalım. 
+
+![şekil2.T4](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-T4.png)
+
+Orijinal denklemden, A’B’C’ ve AB’C’ mintermleri yalnızca A değişkeninde farklılık gösterir. Böylece mintermleri birleştirerek B’C’ 'yi oluşturduk. Ancak, orijinal denkleme bakarsak, son iki minterm AB’C’ ve AB’C 'nin de tek bir değişmez değerle (C ve C’) farklılık gösterdiğini not ederiz. Böylece, aynı yöntemi kullanarak, bu iki mintermi birleştirerek minterm AB’ 'yi oluşturabilirdik. Etkilenen B’C’ ve AB’ 'nin minterm AB’C’ 'yi paylaştığını gösteririz.
+
+Öyleyse, minterm çiftlerinden yalnızca birini sadeleştirmek zorunda mıyız yoksa ikisini de basitleştirebilir miyiz? İdempotens teoremini kullanarak, terimleri istediğimiz kadar çoğaltabiliriz: B = B + B + B + B .... Bu prensibi kullanarak, aşağıdaki tabloda gösterildiği gibi denklemi iki asal çarpımı olan B C + AB'ye tamamen sadeleştiriyoruz.
+
+![şekil2.T5](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-T5.png)
+
+Biraz mantığa aykırı olsa da, bir etkiyi genişletmek (örneğin, AB'yi ABC + ABC'ye dönüştürmek) bazen denklemleri en aza indirmede yararlıdır. Bunu yaparak, başka bir minterm ile birleştirilmek (paylaşılmak) için genişletilmiş mintermlerden birini tekrarlayabilirsiniz.
+
+Bir Boole denklemini Boole cebri teoremleriyle tamamen basitleştirmenin biraz deneme yanılma gerektirebileceğini fark etmiş olabilirsiniz. Bölüm 2.7, süreci kolaylaştıran Karnaugh haritaları adı verilen yöntemsel bir tekniği açıklar.
+
+Mantıksal olarak eşdeğer kalmaya devam ederse neden bir Boole denklemini basitleştirmeye çalışalım? Basitleştirme işlevi fiziksel olarak uygulamak için kullanılan kapıların sayısını azaltır, böylece daha küçük, daha ucuz ve muhtemelen daha hızlı hale getirir. Bir sonraki bölümde mantık geçitleriyle Boole denklemlerinin nasıl uygulanacağı açıklanmaktadır.
+
+# 2.4 Lojik ifadelerden Lojik Kapılara (sematik)
+Şematik, elemanları ve bunları birbirine bağlayan telleri gösteren bir dijital devrenin diyagramıdır.  Örneğin, aşağıdaki şekilde, favori mantık denklemin (Y = A'B'C' + AB'C' + AB'C) olası bir donanım uygulamasını göstermektedir.
+
+![şekil2.23](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-23.png)
+
+Şemaları tutarlı bir şekilde çizerek, bunların okunmasını ve hata ayıklamasını kolaylaştırıyoruz. Genel olarak aşağıdaki kurallara uyacağız:
+- Girişler, şematiğin sol (veya üst) tarafındadır.
+- Çıkışlar, bir şemanın sağ (veya alt) tarafındadır.
+- Mümkün olduğunda kapılar soldan sağa akmalıdır.
+- Düz kablolar, çok köşeli kablolardan daha iyidir (karmaşık teller, devrenin ne yaptığını düşünmek yerine teli takip etmek gibi zihinsel çabayı gerektirir).
+- Kablolar her zaman bir T bağlantısında bağlanır. 
+- Tellerin kesiştiği nokta, teller arasındaki bir bağlantıyı gösterir. 
+- Noktasız kesişen kablolar bağlantı yapmaz.  
+Son üç kısıt aşağıdaki şekilde görülmektedir. 
+
+![şekil2.24](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-24.png)
+
+Çarpımların toplamı formundaki herhangi bir Boole denklemi, 2.23 şekile benzer bir sistematik yolla şematik olarak çizilebilir. İlk olarak, girdiler için sütunlar çizin. Gerekirse tamamlayıcı girişler sağlamak için inverterleri bitişik sütunlara yerleştirin. Mintermlerin her biri için sıra sıra AND kapıları çizin. Ardından, her çıktı için, o çıktıyla ilgili mintermlere bağlı bir OR geçidi çizin. Bu stile programlanabilir mantık dizisi (PLA) adı verilir çünkü invertörler, AND geçitleri ve OR kapıları sistematik bir şekilde dizilmiştir. 
+
+Aşağıdaki şekil, geçen son derste Boole cebri kullanarak bulduğumuz basitleştirilmiş denklemin bir uygulamasını göstermektedir. Basitleştirilmiş devrenin bir 2.23 şekilden önemli ölçüde daha az donanıma sahip olduğuna dikkat edin. Daha az girişli kapılar kullandığı için daha hızlı da olabilir.
+
+![şekil2.25](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-25.png)
+
+Kapıların ters çevrilmesinden yararlanarak kapı sayısını daha da azaltabiliriz (tek bir invertörle de olsa). B’ C’  'nin ters girdilere sahip bir AND olduğunu gözlemleyin. aşağıdaki şekil, C'deki inverteri ortadan kaldırmak için bu optimizasyonu kullanan bir şematik gösterir. De Morgan teoremine göre, ters girdilerle AND'nin bir NOR geçidine eşdeğer olduğunu hatırlayın. Uygulama teknolojisine bağlı olarak, en az sayıda geçidi kullanmak veya diğerlerine göre tercihe göre belirli kapı tiplerini kullanmak daha ucuz olabilir. Örneğin, CMOS uygulamalarında AND'ler ve OR'ler yerine NAND'ler ve NOR'lar tercih edilir.
+
+![şekil2.26](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-26.png)
+
+Birçok devrenin, her biri girişlerin ayrı bir Boole işlevini hesaplayan birden fazla çıkışı vardır. Her çıktı için ayrı bir doğruluk tablosu yazabiliriz, ancak tüm çıktıları tek bir doğruluk tablosuna yazmak ve tüm çıktılarla bir şematik çizim yapmak genellikle uygundur.
+
+Örnek 2.7: Dekan, bölüm başkanı, öğretim görevlisi ve yurt müdürü bazen konferans salonunu kullanmaktadır. Ne yazık ki, ara sıra aynı anda kullanmak istemektedirler. Bu durum Dekan'ın huysuz mütevellilerle bağış toplama toplantısı yurdun BTB partisiyle aynı anda gerçekleşmesi gibi felaketlere yol açıyorlar. Bu durumu çözmek için Alyssa P. Hacker, bir oda rezervasyon sistemi tasarlaması için çağrıldı.
+
+Sistemin dört girişi, A3, ..., A0 ve dört çıkışı, Y3, ..., Y0 vardır. Bu sinyaller A3:0 ve Y3:0  olarak da yazılabilir. Her kullanıcı, ertesi gün için  konferans salonunu talep ettiğinde bildirir. Sistem,  konferans salonunu en yüksek öncelikli kullanıcıya vererek en fazla bir çıktı ileri sürer. Sistemin bedelini ödeyen dekan en yüksek önceliği talep eder. Bölüm başkanı, öğretim görevlisi ve yurt müdürü  azalan önceliğe sahiptir. 
+
+Sistem için bir doğruluk tablosu ve Boole denklemleri yazın. Bu işlevi yerine getiren bir devre çizin.
+
+Çözüm: Bu işleve dört girişli öncelik devresi denir. Sembolü ve doğruluk tablosu gösterilmektedir.
+
+![şekil2.27](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-27.png)
+
+Her çıktıyı çarpımların toplamı biçiminde yazabilir ve denklemleri Boole cebri kullanarak azaltabiliriz. Bununla birlikte, basitleştirilmiş denklemler, fonksiyonel açıklamadan (ve doğruluk tablosundan) incelenerek kolayca çıkarılabilir. 
+
+A3 bir ise Y3 DOĞRUDUR, yani Y3 = Α3.
+A2 bir ise ve A3 sıfır ise Y2 DOĞRU'dur, bu nedenle Y2 = A’3 A2
+A1 bir ise ve yüksek öncelikli girişlerden hiçbiri bir değilse Y1 DOĞRUDUR: Y1 = A’3A’2A1 
+A0 ve başka hiçbir giriş bir olmadığında Y0 DOĞRUDUR iddia edildi: Y0 = A’3A’2A’1A0
 
 
-Tamamlayıcı teoremi, T5 (şekil sağ orta/alt), bir değişkenin VE onun tamamlayıcısının 0 olduğunu belirtir (çünkü bunlardan birinin 0 olması gerekir). Ve dualite ile, bir değişken VEYA onun tamamlayıcısı 1'dir (çünkü bunlardan birinin 1 olması gerekir).
