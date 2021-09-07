@@ -345,4 +345,195 @@ Kayan bir düğüm oluşturmanın yaygın bir yolu, bir devre girişine bir volt
 ![şekil2.42](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-42.png)
 
 # 2.7 Harita Yöntemi ile Sadelestirme(Karnaugh Map Minimization)
+Boole cebirini kullanarak Boole denklemlerinin birkaç minimizasyonu üzerinde çalıştıktan sonra, dikkatli olmazsanız, bazen basitleştirilmiş bir denklem yerine tamamen farklı bir denklemle karşılaşacağınızı fark edeceksiniz. Karnaugh haritaları (K-haritaları), Boole denklemlerini basitleştirmek için grafiksel bir yöntemdir. 1953 yılında Bell Labs'ta bir telekomünikasyon mühendisi olan Maurice Karnaugh tarafından icat edildi. K-haritaları, dört değişkene kadar olan problemlerde iyi çalışır. Daha da önemlisi, Boole denklemlerini manipüle etme konusunda fikir verirler.
+
+Mantık küçültmenin terimleri birleştirmeyi içerdiğini hatırlayın. Dolaylı bir P içeren iki terim ve bazı değişken A'nın gerçek ve tamamlayıcı formları, A'yı ortadan kaldırmak için birleştirilir: PA + PA’ = P Karnaugh haritaları, bu birleştirilebilir terimleri bir ızgarada yan yana koyarak görmeyi kolaylaştırır.
+
+Şekil 2.43, üç girişli bir fonksiyon için doğruluk tablosunu ve K-haritasını gösterir. K haritasının üst satırı, A ve B girişleri için dört olası değeri verir. Sol sütun, C girişi için iki olası değeri verir. K-haritasındaki her kare, doğruluk tablosundaki bir satıra karşılık gelir ve o satır için Y çıktısının değerini içerir. Örneğin, sol üst kare, doğruluk tablosundaki ilk satıra karşılık gelir ve ABC = 000 olduğunda çıktı değeri Y = 1 olduğunu belirtir. Tıpkı doğruluk tablosundaki her satır gibi, bir K-haritasındaki her kare tek bir mintermi temsil eder . Açıklama amacıyla, Şekil 2.43(c), K-haritasındaki her kareye karşılık gelen mintermi göstermektedir.
+
+![şekil2.43](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-43.png)
+
+Her kare veya minterm, tek bir değişkendeki değişiklikle bitişik kareden farklıdır. Bu, bitişik karelerin, biri dışında, bir karede gerçek biçimde ve diğerinde tamamlayıcı biçimde görünen tüm değişmez değerleri paylaştığı anlamına gelir. Örneğin, A’B’C’ ve A’B’C mintermlerini temsil eden kareler bitişiktir ve yalnızca C değişkeninde farklılık gösterir. Üst sıradaki A ve B kombinasyonlarının tuhaf bir sırada olduğunu fark etmiş olabilirsiniz: 00, 01, 11, 10. Bu düzene Gri kod denir. Sıradan ikili düzenden (00, 01, 10, 11) farklıdır, çünkü bitişik girişler yalnızca tek bir değişkende farklılık gösterir. Örneğin, 01: 11 yalnızca A'yı 0'dan 1'e değiştirirken, 01: 10, A'yı 1'den 0'a ve B'yi 0'dan 1'e değiştirir. Dolayısıyla, kombinasyonları ikili sırayla yazmak, bitişik kareler için istediğimiz özelliği üretmezdi. sadece bir değişkende farklılık gösterir.
+
+K-haritası da "etrafını sarar". En sağdaki kareler, en soldaki karelere etkin bir şekilde bitişiktir, çünkü bunlar yalnızca bir değişken olan A'da farklılık gösterirler. Diğer bir deyişle, haritayı alıp bir silindire yuvarlayabilir, sonra da karelerin uçlarını birleştirebilirsiniz. bir simit (yani bir halka) oluşturmak için silindir ve yine de bitişik karelerin yalnızca bir değişkende farklılık göstereceğini garanti eder.
+
+# 2.7.1 Döngüsel Düşünme
+
+Şekil 2.43, K-haritasında, sol sütundaki 1’lerle gösterildiği gibi, denklemde yalnızca iki minterm vardır, A’B’C’ ve A’B’C. Mintermleri K-haritasından okumak, çarpımların toplamı formundaki denklemleri doğrudan doğruluk tablosundan okumaya tam olarak eşdeğerdir.
+
+Daha önce olduğu gibi, çarpımların toplamı formundaki denklemleri en aza indirmek için Boole cebirini kullanabiliriz.
+
+Y = A’B’C’ + A’B’C = A’B’(C’ + C) = A’B’
+
+K haritaları, Şekil 2.44 gösterildiği gibi, 1'leri bitişik karelerde daire içine alarak bu basitleştirmeyi grafiksel olarak yapmamıza yardımcı olur. Her daire için karşılık gelen implikantı yazıyoruz. Bölüm 2.2'den bir dolaylı ifadenin bir veya daha fazla değişmezin ürünü olduğunu unutmayın. Hem gerçek hem de tamamlayıcı formları daire içinde olan değişkenler, imanın dışında bırakılır. Bu durumda, C değişkeni hem gerçek formuna (1) hem de çemberde tamamlayıcı formuna (0) sahiptir, bu nedenle onu implicant'a dahil etmiyoruz. Başka bir deyişle, C'den bağımsız olarak A = B = 0 olduğunda Y DOĞRUDUR. Dolayısıyla, sonuç A’B’  'dir. K-haritası Boole cebri kullanarak ulaştığımız aynı cevabı verir.
+
+![şekil2.44](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-44.png)
+
+## 2.7.2 K-Maps ile Mantık Minimizasyonu
+K haritaları, mantığı en aza indirmek için kolay bir görsel yol sağlar. Mümkün olan en az sayıda daire kullanarak haritadaki 1’lerin tüm dikdörtgen bloklarını daire içine almanız yeterlidir. Her daire mümkün olduğu kadar geniş olmalıdır. Daha sonra daire içine alınmış sonuçları okuyun.
+
+Daha resmi olarak, bir Boole denkleminin en aza indirildiğini hatırlayın. en az sayıda asal çarpımın toplamı olarak yazılır. K-haritasındaki her daire bir içeriği temsil eder. Olası en büyük çemberler birincil çıkarımlardır.
+
+Örneğin, Şekil 2.44 K-haritasında, A’B’C’ ve A’B’C, implikantlardır, ancak asal çıkarımlar değildir. Sadece A’B’, bu K-haritasında en önemli etkendir. K-haritasından küçültülmüş denklem bulma kuralları aşağıdaki gibidir:
+
+- 1’leri kaplamak için gereken en az daireyi kullanın.
+- Her dairedeki tüm kareler 1’leri içermelidir.
+- Her daire, her yönde 2 (yani 1, 2 veya 4) karenin üssü olan dikdörtgen bir bloğu kapsamalıdır.
+- Her daire mümkün olduğu kadar büyük olmalıdır.
+- K-haritasının kenarlarını bir daire sarabilir.
+- K-haritasındaki bir 1, daha az dairenin kullanılmasına izin veriyorsa, birden çok kez daire içine alınabilir
+
+Örnek 2.9 Şekil 2.45 K-haritasıyla Y = F (A, B, C) fonksiyonumuz olduğunu varsayalım. K-haritasını kullanarak denklemi en aza indirin.
+
+![şekil2.45](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-45.png)
+
+Çözüm: Şekil 2.46 gösterildiği gibi, mümkün olduğunca az daire kullanarak K-haritasındaki 1'leri daire içine alın. K-haritasındaki her daire bir asal anlamı temsil eder ve her dairenin boyutu ikinin bir kuvvetidir (2 × 1 ve 2 × 2). Çemberde sadece doğru olarak veya sadece tamamlayıcı biçimde görünen değişkenleri yazarak, her çember için birincil anlamı oluştururuz.
+
+Örneğin, 2×1 çemberde, B'nin gerçek ve tamamlayıcı biçimleri çembere dahil edilmiştir, bu nedenle B'yi asal implicant'a dahil etmiyoruz. Bununla birlikte, yalnızca A (A) 'nın gerçek formu ve C (C’) nin tamamlayıcı formu bu çemberdedir, bu nedenle bu değişkenleri asal dolaylı AC’ 'ye dahil ederiz. Benzer şekilde, 2×2 çemberi B = 0 olan tüm kareleri kapsar, yani asıl önemli olan B’  'dir.
+
+![şekil2.46](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-46.png)
+
+Sağ üstteki karenin (minterm) iki kez nasıl kaplandığına dikkat edin ve birincil dolaylı daireleri olabildiğince geniş yapın. Boole cebri tekniklerinde gördüğümüz gibi, bu, implikantın boyutunu küçültmek için bir mintermi paylaşmaya eşdeğerdir. Ayrıca, dört kareyi kaplayan dairenin K-haritasının kenarlarını nasıl çevrelediğine dikkat edin.
+
+Örnek 2.10 Yedi bölümlü bir ekran kod çözücü, 4 bitlik bir veri girişi D3:0 alır ve 0'dan 9'a kadar bir rakam görüntülemek için ışık yayan diyotları kontrol etmek için yedi çıkış üretir. Yedi çıkışa genellikle a'dan g'ye kadar olan bölümler veya Sa-Sg denir , Şekil 2.47 tanımlandığı gibi. Rakamlar Şekil 2.48 gösterilmektedir. Çıktılar için bir doğruluk tablosu yazın ve Sa ve Sb çıktıları için Boole denklemlerini bulmak için K-haritalarını kullanın. Geçersiz giriş değerlerinin (10-15) boş bir okuma ürettiğini varsayın.
+
+![şekil2.47](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-47.png)
+
+![şekil2.48](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-48.png)
+
+Çözüm: Doğruluk tablosu Tablo 2.6 verilmiştir. Örneğin, 0000 girişi Sg hariç tüm segmentleri açmalıdır.
+
+![sekil2.6T](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-T6.png)
+
+Yedi çıktının her biri, dört değişkenli bağımsız bir işlevdir. Sa ve Sb çıktıları için K-haritaları Şekil 2.49 gösterilmektedir. Bitişik karelerin yalnızca tek bir değişkende farklılık gösterebileceğini unutmayın, bu nedenle satırları ve sütunları Gray kodu sırasına göre etiketleriz: 00, 01, 11, 10. Çıktı değerlerini karelere girerken bu sıralamayı da hatırlamaya dikkat edin.
+
+![şekil2.49](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-49.png)
+
+Sonra, asal sonuçları daire içine alın. Tüm 1'leri kapsayacak en az sayıda daire kullanın. Bir daire kenarların (dikey ve yatay) etrafını sarabilir ve 1 birden fazla daire içine alınabilir. Şekil 2.50, asal çarpımları ve basitleştirilmiş Boole denklemlerini gösterir.
+
+![şekil2.50](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-50.png)
+
+Asal ifadelerin minimal kümesinin benzersiz olmadığına dikkat edin. Örneğin, Sa K-haritasındaki 0000 girişi, D'<sub>2</sub>D'<sub>1</sub>D'<sub>0</sub> mintermini üretmek için 1000 girişiyle birlikte daire içine alındı. Daire, bunun yerine 0010 girişini içerebilir ve Şekil 2.51'de kesikli çizgilerle gösterildiği gibi bir D3D2D0 minterm üretebilirdi.
+
+![şekil2.51](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-51.png)
+
+Şekil 2.52 (bkz. sayfa 82), sol üst köşedeki 1'i kapatmak için asal olmayan bir dolaylının seçildiği yaygın bir hatayı göstermektedir. Bu minterm,  D'<sub>3</sub>D'<sub>2</sub>D'<sub>1</sub>D'<sub>0</sub> , minimal olmayan bir çarpımlar toplamı denklemi verir. Minterm, önceki iki şekilde yapıldığı gibi, daha büyük bir daire oluşturmak için bitişik olanlardan herhangi biriyle birleştirilebilirdi.
+
+![şekil2.52](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-52.png)
+
+## 2.7.3 Önemsenmeyen Durumlar
+Doğruluk tablosu girdileri için "umursamıyorum" girişlerinin, bazı değişkenler çıktıyı etkilemediğinde tablodaki satır sayısını azaltmak için Bölüm 2.4'te tanıtıldığını hatırlayın. X simgesiyle gösterilirler, bu da girişin 0 veya 1 olabileceği anlamına gelir.
+
+Önemsemeyin, çıktı değerinin önemsiz olduğu veya karşılık gelen girdi kombinasyonunun asla gerçekleşemeyeceği doğruluk tablosu çıktılarında da görünür. Bu tür çıktılar, tasarımcının takdirine bağlı olarak 0'lar veya 1'ler olarak ele alınabilir.
+
+Bir K-haritasında, X'ler daha fazla mantık küçültmeye izin verir. 1’leri daha az veya daha büyük dairelerle kapatmaya yardımcı olurlarsa daire içine alınabilir, ancak yardımcı olmadıklarında daire içine alınmaları gerekmez.
+
+
+Örnek 2.11   10 ila 15 arasındaki geçersiz girdi değerleri için çıktı değerleri umurumuzda değilse Örnek 2.10'u tekrarlayın.
+
+Çözüm: K-haritası, Şekilde 2.53 umursamadığını temsil ettiği şekilde gösterilmiştir. Önemsizler 0 veya 1 olabileceğinden, 1’leri daha az veya daha büyük dairelerle kaplamamıza izin verip vermediğini umursamıyoruz. Daire içine alınmış umursamazlar 1'ler olarak kabul edilirken, daire içine alınmış olmayanlar 0'lar olarak kabul edilir. Sa segmenti için dört köşenin etrafına 2 × 2 kare sarmanın nasıl daire içine alındığını gözlemleyin. Önemsizlerin kullanılması mantığı büyük ölçüde basitleştirir.
+
+![şekil2.53](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-53.png)
+
+## 2.7.4 Büyük Resim
+Boole cebri ve Karnaugh haritaları, mantık sadeleştirmenin iki yöntemidir. Nihayetinde amaç, belirli bir mantık işlevini uygulamak için düşük maliyetli bir yöntem bulmaktır.
+
+Modern mühendislik uygulamalarında, mantık sentezleyicileri olarak adlandırılan bilgisayar programları, Bölüm 4'te göreceğimiz gibi, mantık işlevinin bir tanımından basitleştirilmiş devreler üretir. Büyük problemler için, mantık sentezleyicileri insanlardan çok daha etkilidir. Küçük sorunlar için, biraz deneyime sahip bir insan teftişle iyi bir çözüm bulabilir. Yazarların hiçbiri gerçek hayatta pratik bir problemi çözmek için bir Karnaugh haritasını kullanmadı. Ancak Karnaugh haritalarının altında yatan ilkelerden elde edilen içgörü değerlidir. Ve Karnaugh haritaları genellikle iş görüşmelerinde görünür!
+
+# Birlesik Lojik Blokları
+Birleşik mantık, daha karmaşık sistemler oluşturmak için genellikle daha büyük yapı blokları halinde gruplandırılır. Bu, yapı bloğunun işlevini vurgulamak için gereksiz kapı seviyesi ayrıntılarını gizleyen soyutlama ilkesinin bir uygulamasıdır. Bu tür üç yapı bloğunu zaten inceledik: tam toplayıcılar (Bölüm 2.1'den), öncelik devreleri (Bölüm 2.4'ten) ve yedi bölümlü ekran kod çözücüler (Bölüm 2.7'den). Bu bölüm daha yaygın olarak kullanılan iki yapı taşını tanıtır: çoklayıcılar ve kod çözücüler. Bölüm 5, diğer kombinasyonel yapı bloklarını kapsar.
+
+## 2.8.1 Çoklayıcılar
+Çoklayıcılar en yaygın kullanılan birleşik mantık devrelerindendir. Seçim sinyalinin değerine bağlı olarak birkaç olası giriş arasından bir çıkış seçerler. Bir çoklayıcıya bazen kısaca mux denir.
+
+2:1 Çoklayıcı
+Şekil 2.54, iki veri girişi D0 ve D1, bir seçim girişi S ve bir çıkış Y olan 2:1 çoklayıcı için şematik ve doğruluk tablosunu göstermektedir. Çoklayıcı, seçime göre iki veri girişi arasında seçim yapar: S = 0 ise, Y = D0 ve S = 1 ise Y = D1  S, çoklayıcının ne yaptığını kontrol ettiği için kontrol sinyali olarak da adlandırılır.
+
+![şekil2.54](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-54.png)
+
+Şekilde 2.55 gösterildiği gibi 2:1 çoklayıcı, çarpımların toplamı mantığından oluşturulabilir. Çoklayıcı için Boole denklemi bir Karnaugh haritası ile türetilebilir veya inceleme ile okunabilir (S=0 VE D0=1 ise Y=1'dir VEYA S=1 VE D1=1 Y=1 dir).
+
+![şekil2.55](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-55.png)
+
+Alternatif olarak, çoklayıcılar, Şekilde 2.56 gösterildiği gibi üç durumlu tamponlardan oluşturulabilir. Üç durumlu etkinleştirmeler, her zaman tam olarak bir üç durumlu tampon aktif olacak şekilde düzenlenmiştir. S = 0 olduğunda, üç durumlu T0 etkinleştirilir ve D0'ın Y'ye akmasına izin verilir. S = 1 olduğunda, üç durumlu T1 etkinleştirilir ve D1'in Y'ye akmasına izin verilir.
+
+![şekil2.56](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-56.png)
+
+Daha Geniş Çoklayıcılar
+Şekil 2.57 gösterildiği gibi 4: 1 çoklayıcıda dört veri girişi ve bir çıkış vardır. Dört veri girişi arasından seçim yapmak için iki seçim sinyali gereklidir. 4: 1 çoklayıcı, Şekil 2.58 gösterildiği gibi, çarpımların toplamı mantığı, üç durumlu veya birden çok 2: 1 çoklayıcı kullanılarak oluşturulabilir.
+
+![şekil2.57](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-57.png)
+
+Üçdurumluları mümkün kılan çarpım terimleri, AND geçitleri ve invertörler kullanılarak oluşturulabilir. Ayrıca Bölüm 2.8.2'de tanıtacağımız bir kod çözücü kullanılarak da oluşturulabilirler. 
+
+![şekil2.58](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-58.png)
+
+8: 1 ve 16: 1 çoklayıcılar gibi daha geniş çoklayıcılar, Şekil 2.58 gösterilen yöntemler genişletilerek oluşturulabilir. Genel olarak, bir N: 1 çoklayıcı, log<sub>2</sub>N seçme hatlarına ihtiyaç duyar. Yine, en iyi uygulama seçimi, hedef teknolojiye bağlıdır.
+
+Çoklayıcı Mantığı
+
+Çoklayıcılar, mantık işlevlerini gerçekleştirmek için bakma tabloları olarak kullanılabilir. Şekil 2.59, iki girişli bir AND geçidi uygulamak için kullanılan 4: 1 çoklayıcıyı göstermektedir. Girişler, A ve B, seçme hatları olarak hizmet eder. Çoklayıcı veri girişleri, doğruluk tablosunun karşılık gelen satırına göre 0 veya 1'e bağlanır. Genel olarak, 2<sup>N</sup> girişli bir çoklayıcı, uygun veri girişlerine 0'lar ve 1'ler uygulayarak herhangi bir N girişli mantık işlevini gerçekleştirmek üzere programlanabilir. Aslında, veri girişlerini değiştirerek, çoklayıcı farklı bir işlevi gerçekleştirmek için yeniden programlanabilir.
+
+![şekil2.59](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-59.png)
+
+Biraz akıllıca, herhangi bir N girişli mantık işlevini gerçekleştirmek için yalnızca 2<sup>N–1</sup> girişli bir çoklayıcı kullanarak çoklayıcı boyutunu ikiye bölebiliriz. Strateji, çoklayıcı veri girişlerine 0 ve 1’lerin yanı sıra değişmez değerlerden birini sağlamaktır.
+
+Bu prensibi göstermek için, Şekil 2.60 iki girişli VE ve 2: 1 çoklayıcı ile uygulanan XOR fonksiyonları. Sıradan bir doğruluk tablosu ile başlıyoruz ve sonra en sağdaki girdi değişkenini ortadan kaldırmak için çıktıyı bu değişken cinsinden ifade ederek satır çiftlerini birleştiriyoruz. Örneğin, VE durumunda, A = 0, Y = 0, B'den bağımsız olarak, A = 1 olduğunda, Y = 0, B = 0 ve Y = 1, B = 1 ise, Y = B. Çoklayıcıyı yeni, daha küçük doğruluk tablosuna göre bir arama tablosu olarak kullanın.
+
+![şekil2.60](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-60.png)
+
+Örnek 2.12 MULTIPLEKSER İLE MANTIK
+
+Alyssa P. Hacker'ın kıdemli projesini bitirmek için Y = AB’+ B’C’ + A’BC işlevini uygulaması gerekiyor, ancak laboratuvar kitine baktığında kalan tek parçası 8: 1 çoklayıcı. İşlevi nasıl uyguluyor?
+
+Çözüm: Şekil 2.61, Alyssa'nın tek bir 8: 1 çoklayıcı kullanan uygulamasını göstermektedir. Çoklayıcı, doğruluk tablosundaki her satırın bir çoklayıcı girişine karşılık geldiği bir arama tablosu görevi görür.
+
+![şekil2.61](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-61.png)
+
+Örnek 2.13 Alyssa, son sunumdan önce devresini bir kez daha açar ve 8: 1 çoklayıcıyı havaya uçurur. (Bütün gece uyumadıktan sonra yanlışlıkla 5 V yerine 20 V ile çalıştırdı.) Arkadaşlarına yedek parça için yalvarıyor ve ona 4: 1 çoklayıcı ve invertör veriyorlar. Devresini sadece bu parçalarla kurabilir mi?
+
+Çözüm: Alyssa, çıktının C'ye bağlı olmasına izin vererek doğruluk tablosunu dört satıra indirgiyor (Çıktının A veya B'ye bağlı olmasına izin vermek için doğruluk tablosunun sütunlarını yeniden düzenlemeyi de seçebilirdi) Şekil 2.62 yeni tasarımı göstermektedir.
+
+![şekil2.62](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-62.png)
+
+## Decoder
+Bir kod çözücünün N girişi ve 2<sup>N</sup> çıkışı vardır. Giriş kombinasyonuna bağlı olarak çıktılarından tam olarak birini belirtir. Şekil 2.63, 2: 4 kod çözücüyü göstermektedir. A<sub>1:0</sub> = 00 olduğunda, Y0 1'dir. A1:0 = 01 olduğunda, Y1 1'dir. Ve bu böyle devam eder. Çıkışlara tekli olarak adlandırılır çünkü belirli bir zamanda tam olarak biri "sıcak" (YÜKSEK) olur.
+
+![şekil2.63](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-63.png)
+
+Örnek 2.14  AND, OR ve NOT kapıları ile 2: 4 kod çözücü uygulayın.
+
+Çözüm: Şekil 2.64, dört AND geçidi kullanan 2: 4 kod çözücünün uygulamasını göstermektedir. Her kapı, her girdinin gerçek veya tamamlayıcı şekline bağlıdır. Genel olarak, bir N: 2<sup>N</sup> kod çözücü, doğru veya tamamlayıcı girişlerin çeşitli kombinasyonlarını kabul eden 2<sup>N</sup> N-girişli AND geçitlerinden oluşturulabilir. Bir kod çözücüdeki her çıktı, tek bir mintermi temsil eder. Örneğin, Y0 minterm A1’A0’  ı temsil eder: Bu gerçek, diğer dijital yapı blokları ile kod çözücüler kullanırken kullanışlı olacaktır.
+
+![şekil2.64](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-64.png)
+
+# Zamanlama
+Önceki bölümlerde, öncelikle devrenin çalışıp çalışmadığı ile ilgilenmiştik - ideal olarak, en az sayıda geçidi kullanarak. Bununla birlikte, herhangi bir tecrübeli devre tasarımcısının da onaylayacağı gibi, devre tasarımındaki en zorlu konulardan biri zamanlamadır: bir devrenin hızlı çalışmasını sağlamak.
+
+Bir çıkışın, bir giriş değişikliğine yanıt olarak değişmesi zaman alır. Şekil 2.66, bir tampon için bir giriş değişikliği ile sonraki çıkış değişikliği arasındaki gecikmeyi göstermektedir. Şekle zamanlama diyagramı denir; bir giriş değiştiğinde tampon devresinin geçici yanıtını gösterir. DÜŞÜK'ten YÜKSEK'e geçiş yükselen kenar olarak adlandırılır. Benzer şekilde, HIGH'dan LOW'a geçiş (şekilde gösterilmemiştir) düşen kenar olarak adlandırılır. Mavi ok, Y'nin yükselen kenarının A'nın yükselen kenarından kaynaklandığını gösterir.Giriş sinyalinin% 50 noktası olan A'dan çıkış sinyalinin% 50 noktası Y'ye kadar olan gecikmeyi ölçüyoruz.% 50 noktası sinyalin geçiş sırasında LOW ve HIGH değerleri arasında yarı yolda (% 50) olduğu noktadır.
+
+![şekil2.66](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-66.png)
+
+## 2.9.1 Yayılma ve Kirlenme Gecikmesi
+Kombinasyonel mantık, yayılma gecikmesi ve kirlenme gecikmesi ile karakterize edilir. Yayılma gecikmesi tpd, bir girişin değişmesinden çıkış veya çıkışların nihai değerlerine ulaşmasına kadar geçen maksimum süredir. Kirlenme gecikmesi tcd, bir girişin değiştiği andan herhangi bir çıkışın değerini değiştirmeye başladığı ana kadar geçen minimum süredir.
+
+Şekil 2.67, sırasıyla mavi ve gri olarak bir tamponun yayılma gecikmesini ve kirlenme gecikmesini göstermektedir. Şekil, A'nın başlangıçta YÜKSEK veya DÜŞÜK olduğunu ve belirli bir zamanda diğer duruma değiştiğini gösterir; biz sadece değiştiği gerçeğiyle ilgileniyoruz, sahip olduğu değere değil. Yanıt olarak, Y bir süre sonra değişir. Yaylar, Y'nin, A geçişlerinden sonra tcd'yi değiştirmeye başlayabileceğini ve Y'nin kesinlikle tpd içinde yeni değerine yerleştiğini gösterir.
+
+![şekil2.67](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-67.png)
+
+Devrelerdeki gecikmenin altında yatan nedenler, bir devrede kapasitansı şarj etmek için gereken süre ve ışık hızını içerir. tpd ve tcd birçok nedenden dolayı farklı olabilir.
+- farklı yükselme ve düşme gecikmeleri
+- bazıları diğerlerinden daha hızlı olan birden fazla giriş ve çıkış
+- sıcakken yavaşlayan ve soğukken hızlanan devreler
+
+tpd ve tcd'yi hesaplamak, bu kitabın kapsamının ötesinde soyutlamanın daha düşük seviyelerine inmeyi gerektirir. Bununla birlikte, üreticiler normalde her kapı için bu gecikmeleri belirten veri sayfaları sağlar.
+
+Halihazırda listelenen faktörlerin yanı sıra, yayılma ve kirlenme gecikmeleri de bir sinyalin girişten çıkışa geçtiği yol tarafından belirlenir. Şekil 2.68, dört girişli bir mantık devresini göstermektedir. Mavi ile gösterilen kritik yol, A veya B girişinden Y çıkışına giden yoldur. Bu, en uzun ve bu nedenle en yavaş yoldur, çünkü giriş üç kapıdan çıkışa doğru ilerler. Bu yol kritiktir çünkü devrenin çalıştığı hızı sınırlar. Gri ile gösterilen devre boyunca kısa yol, D girişinden Y çıkışına kadardır. Bu, devre boyunca en kısa ve dolayısıyla en hızlı yoldur, çünkü giriş, çıkışa yalnızca tek bir kapıdan geçer.
+
+Bir birleşimsel devrenin yayılma gecikmesi, kritik yoldaki her bir elemandan geçen yayılma gecikmelerinin toplamıdır. Kirlenme gecikmesi, kısa yoldaki her bir elemanın kirlenme gecikmelerinin toplamıdır. Bu gecikmeler Şekil 2.69 gösterilmiş ve aşağıdaki denklemlerle açıklanmıştır:
+
+t<sub>pd</sub> = 2t<sub>pd_AND</sub> + t<sub>pd_OR</sub>
+t<sub>cd</sub> = t<sub>cd_AND</sub>
+
+
 
