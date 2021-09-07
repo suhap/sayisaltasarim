@@ -258,4 +258,91 @@ A2 bir ise ve A3 sıfır ise Y2 DOĞRU'dur, bu nedenle Y2 = A’3 A2
 A1 bir ise ve yüksek öncelikli girişlerden hiçbiri bir değilse Y1 DOĞRUDUR: Y1 = A’3A’2A1 
 A0 ve başka hiçbir giriş bir olmadığında Y0 DOĞRUDUR iddia edildi: Y0 = A’3A’2A’1A0
 
+Şematik, şekil 2.28 de gösterilmiştir. Deneyimli bir tasarımcı, genellikle inceleme yoluyla bir mantık devresi uygulayabilir. Açık bir özellik verildiğinde, kelimeleri denklemlere ve denklemleri kapılara çevirin.
+
+![şekil2.28](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-28.png)
+
+Öncelikli devrede A3 bir ise, çıkışların diğer girişlerin ne olduğunu umursamadığına dikkat edin. Çıktının önemsemediği girdileri tanımlamak için X sembolünü kullanıyoruz. Şekil 2.29, dört-girişli öncelikli devre doğruluk tablosunun önemsemeden çok daha küçük hale geldiğini göstermektedir. Bu doğruluk tablosundan, X’lerin girişlerini göz ardı ederek Boole denklemlerini çarpımların toplamı formunda kolayca okuyabiliriz. 
+
+![şekil2.29](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-29.png)
+
+
+# ÇOK SEViYELi BiRLESiK MANTIK
+Çarpımların toplamı formundaki mantık, iki seviyeli mantık olarak adlandırılır, çünkü bir VEYA kapıları seviyesine bağlı bir AND kapıları seviyesine bağlı değişmez değerlerden oluşur. Tasarımcılar genellikle ikiden fazla mantık kapısı seviyesi olan devreler inşa ederler. Bu çok seviyeli kombinasyonel devreler, iki seviyeli muadillerinden daha az donanım kullanabilir. Kabarcık itme, çok seviyeli devrelerin analizinde ve tasarlanmasında özellikle yararlıdır.
+
+## 2.5.1 Donanım Azaltma
+Bazı mantık işlevleri, iki seviyeli mantık kullanılarak oluşturulduklarında çok büyük miktarda donanım gerektirir. Dikkate değer bir örnek, çoklu değişkenlerin XOR fonksiyonudur. Örneğin, şimdiye kadar incelediğimiz iki seviyeli teknikleri kullanarak üç girişli bir XOR oluşturmayı düşünün.
+
+Tek sayıda giriş TRUE olduğunda bir N-girişli XOR'un bir TRUE çıktı oluşturduğunu hatırlayın. Şekil 2.20, TRUE çıktılar üreten satırlar daire içine alınmış üç girişli bir XOR için doğruluk tablosunu göstermektedir. Doğruluk tablosundan, Y = A'B'C+A'B'C'+AB'C'+ABC deklemini çarpımların toplamı biçiminde bir Boole denklemi okuyoruz. Ne yazık ki, bu denklemi daha az etkiye indirgemenin bir yolu yoktur.
+
+![şekil2.30](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-30.png)
+
+Öte yandan, A ⊕ B ⊕ C = (A ⊕ B) ⊕ C (şüpheniz varsa bunu mükemmel tümevarım ile kendinize kanıtlayın). Bu nedenle, üç girişli XOR, Şekil 2.31'de gösterildiği gibi, iki girişli XOR'un bir kademesinden oluşturulabilir.
+
+![şekil2.31](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-31.png)
+
+Benzer şekilde, sekiz girişli bir XOR, iki seviyeli toplam ürün uygulaması için 128 sekiz girişli AND geçidi ve bir 128 girişli OR geçidi gerektirir. Çok daha iyi bir seçenek, Şekil 2.32'de gösterildiği gibi, iki girişli XOR geçitlerinden oluşan bir ağaç kullanmaktır.
+
+![şekil2.32](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-32.png)
+
+Belirli bir mantık işlevinin en iyi çok düzeyli uygulamasını seçmek basit bir süreç değildir. Dahası, "en iyi" birçok anlama sahiptir: en az kapı, en hızlı, en kısa tasarım süresi, en az maliyet, en az güç tüketimi. Bölüm 5'te, bir teknolojideki "en iyi" devrenin diğerinde mutlaka en iyi olmadığını göreceksiniz. Örneğin, AND'leri ve OR'leri kullanıyoruz, ancak CMOS'ta NAND'ler ve NOR'lar daha verimlidir. Biraz deneyimle, çoğu devre için inceleme yaparak iyi bir çok düzeyli tasarım oluşturabileceğinizi göreceksiniz. Bu kitabın geri kalanında devre örneklerini incelerken bu deneyimin bir kısmını geliştireceksiniz. Öğrenirken, çeşitli tasarım seçeneklerini keşfedin ve değiş tokuşları düşünün. Bilgisayar destekli tasarım (CAD) araçları, olası çok düzeyli tasarımların geniş bir alanında arama yapmak ve mevcut yapı taşları göz önüne alındığında kısıtlamalarınıza en uygun olanı aramak için de mevcuttur.
+
+## 2.5.2 Tersleyici itme
+Bölüm 1.7.6'dan CMOS devrelerinin AND'ler ve OR'ler yerine NAND'ları ve NOR'ları tercih ettiğini hatırlayabilirsiniz. Ancak denklemi NAND'lar ve NOR'lar ile çok düzeyli bir devreden inceleyerek okumak oldukça zor olabilir. Şekil 2.33, işlevi incelemeyle hemen netleşmeyen çok düzeyli bir devreyi göstermektedir. Kabarcık itme, bu devreleri yeniden çizmenin yararlı bir yoludur, böylece kabarcıklar birbirini götürür ve işlev daha kolay belirlenebilir. 
+
+![şekil2.33](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-33.png)
+
+Bölüm 2.3.3'teki ilkelere dayalı olarak, balon itme kuralları aşağıdaki gibidir:
+- Devrenin çıkışından başlayın ve girişlere doğru ilerleyin.
+- Son çıktıdaki kabarcıkları girişlere doğru geri itin, böylelikle (Y’) çıktısının tümleyicisi yerine çıktı cinsinden bir denklem (örneğin, Y) okuyabilirsiniz.
+- Geriye doğru hareket ederek, her bir kapıyı kabarcıklar birbirini götürecek formda çizin. Mevcut geçitte bir giriş balonu varsa, önceki kapıyı bir çıkış balonuyla çizin. Mevcut geçitte bir giriş balonu yoksa, önceki kapıyı bir çıkış balonu olmadan çizin.
+
+Şekil 2.34, Şekil 2.33 balon itme kurallarına göre nasıl yeniden çizileceğini gösterir.  Y çıkışından başlayarak, NAND geçidinin çıkışta ortadan kaldırmak istediğimiz bir balonu vardır. Çıkış balonunu, Şekil 2.34(a) gösterildiği gibi, ters girdilerle bir OR oluşturmak için geri itiyoruz. Sola doğru çalışırken, en sağdaki kapı, orta NAND geçidinin çıkış baloncuğunu iptal eden bir giriş balonuna sahiptir, bu nedenle Şekil 2.34(b) gösterildiği gibi hiçbir değişiklik gerekmez. Orta kapının giriş balonu yoktur, bu nedenle Şekil 2.34(c) gösterildiği gibi en soldaki kapıyı çıkış balonu olmayacak şekilde dönüştürürüz. Şimdi, girişler haricinde devredeki tüm kabarcıklar birbirini götürür, böylece fonksiyon, gerçek veya tamamlayıcı girişlerin AND'leri ve OR'leri açısından incelenerek okunabilir:
+Y = A’B’C + D’
+
+![şekil2.34](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-34.png)
+
+Bu son noktanın vurgulanması için, Şekil 2.35, Şekil 2.34 mantıksal olarak eşdeğer bir devreyi göstermektedir. Dahili düğümlerin işlevleri mavi ile etiketlenmiştir. Serideki kabarcıklar birbirini götürdüğü için, Şekil 2.35 mantıksal olarak eşdeğer devreyi üretmek için orta kapının çıkışındaki ve en sağdaki kapının bir girişindeki kabarcıkları yok sayabiliriz.
+
+![şekil2.35](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-35.png)
+
+Örnek: Çoğu tasarımcı AND ve OR kapıları açısından düşünür, ancak NAND ve NOR kapılarını destekleyen CMOS mantığında Şekil 2.36 devreyi uygulamak istediğinizi varsayalım. Devreyi NAND'lara, NOR'lara ve invertörlere dönüştürmek için kabarcık itme özelliğini kullanın.
+
+![şekil2.36](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-36.png)
+
+Çözüm: Kaba kuvvet çözümü, Şekil 2.37 gösterildiği gibi, her AND geçidini bir NAND ve bir invertörle ve her OR geçidini bir NOR ve bir invertörle değiştirmektir. Bu sekiz kapı gerektirir. Kabarcığın önceki ters çevirme geçidi ile nasıl iptal edilebileceğini vurgulamak için, eviricinin arkadan değil öndeki balonla çizildiğine dikkat edin.
+
+![şekil2.37](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-37.png)
+
+Daha iyi bir çözüm için, Şekil 2.38(a) gösterildiği gibi, kabarcıkların işlevi değiştirmeden bir geçidin çıkışına ve sonraki geçidin girişine eklenebileceğini gözlemleyin. Nihai AND, Şekil 2.38(b) gösterildiği gibi bir NAND ve bir invertöre dönüştürülür. Bu çözüm yalnızca beş kapı gerektirir.
+
+![şekil2.38](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-38.png)
+
+## 2.6.1 illegal X Degeri
+X sembolü, devre düğümünün bilinmeyen veya geçersiz bir değere sahip olduğunu gösterir. Bu genellikle aynı anda hem 0 hem de 1'e sürülüyorsa olur. Şekil 2.39, Y düğümünün hem YÜKSEK hem de DÜŞÜK sürüldüğü bir durumu gösterir. Çekişme adı verilen bu durum bir hata olarak değerlendirilir ve kaçınılması gerekir. Çekişmeli bir düğümdeki gerçek voltaj, YÜKSEK ve DÜŞÜK süren kapıların göreceli güçlerine bağlı olarak 0 ile VDD arasında bir yerde olabilir. Çoğu zaman, ama her zaman değil, yasak bölgededir. Çatışma ayrıca savaş kapıları arasında büyük miktarda güç akmasına neden olarak devrenin ısınmasına ve muhtemelen hasar görmesine neden olabilir.
+
+![şekil2.39](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-39.png)
+
+X değerleri ayrıca bazen devre simülatörleri tarafından başlatılmamış bir değeri belirtmek için kullanılır. Örneğin, bir girdinin değerini belirtmeyi unutursanız, simülatör sizi soruna karşı uyarmak için bunun bir X olduğunu varsayabilir.
+
+Bölüm 2.4'te belirtildiği gibi, dijital tasarımcılar, doğruluk tablolarında "umursamıyorum" değerlerini belirtmek için X sembolünü de kullanırlar. İki anlamı karıştırmamaya dikkat edin. X bir doğruluk tablosunda göründüğünde, doğruluk tablosundaki değişkenin değerinin önemsiz olduğunu gösterir (0 veya 1 olabilir). X bir devrede göründüğünde, devre düğümünün bilinmeyen veya geçersiz bir değeri olduğu anlamına gelir.
+
+## Kayan Z Degeri
+Z sembolü, bir düğümün YÜKSEK veya DÜŞÜK sürülmediğini gösterir. Düğümün yüzen, yüksek empedans veya yüksek Z olduğu söyleniyor. Tipik bir yanılgı, kayan veya yönlendirilmemiş bir düğümün mantık 0 ile aynı olmasıdır. Gerçekte, sistem geçmişine bağlı olarak, yüzen bir düğüm 0 olabilir, 1 olabilir veya arada bir voltajda olabilir. Başka bir devre elemanı, düğümün değeri devre çalışmasıyla ilgili olduğunda düğümü geçerli bir mantık düzeyine sürdüğü sürece, bir yüzer düğüm, devrede bir hata olduğu anlamına gelmez.
+
+Kayan bir düğüm oluşturmanın yaygın bir yolu, bir devre girişine bir voltaj bağlamayı unutmak veya bağlantısız bir girişin 0 değerine sahip bir girişle aynı olduğunu varsaymaktır. Bu hata, kayan giriş rastgele 0'dan 1'e değiştiğinden devrenin düzensiz davranmasına neden olabilir. Nitekim vücuttan statik elektrikle değişimi tetiklemek için devreye dokunmak yeterli olabilir. Sadece öğrencinin parmağını çipin üzerine basılı tuttuğu sürece doğru çalışan devreler gördük.
+
+Şekil 2.40 gösterilen üç durumlu tampon, üç olası çıkış durumuna sahiptir: YÜKSEK (1), DÜŞÜK (0) ve kayan (Z). Üç durumlu tamponun bir A girişi, Y çıkışı ve E'yi etkinleştirmesi vardır. Etkinleştirme TRUE olduğunda, üç durumlu tampon, giriş değerini çıkışa aktararak basit bir tampon görevi görür. Etkinleştirme YANLIŞ olduğunda, çıkışın yüzmesine izin verilir (Z). 
+
+![şekil2.40](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-40.png)
+
+Şekilde 2.40 üç durumlu tampon aktif bir yüksek yetkiye sahiptir. Yani, etkinleştirme YÜKSEK (1) olduğunda, arabellek etkinleştirilir. Şekil 2.41, aktif düşük etkinleştirmeli bir üç durumlu tamponu göstermektedir. Etkinleştirme DÜŞÜK (0) olduğunda, arabellek etkinleştirilir. Giriş teline bir balon koyarak sinyalin düşük aktif olduğunu gösteriyoruz. Genellikle, adı E’ üzerine bir çubuk çizerek veya Eb veya Ebar adından sonra "b" veya "bar" harflerini ekleyerek aktif bir düşük girişi belirtiriz.
+
+![şekil2.41](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-41.png)
+
+Üç durumlu tamponlar genellikle birden fazla çipi bağlayan veri yollarında kullanılır. Örneğin, bir mikroişlemci, bir video denetleyici ve bir Ethernet denetleyicisi, bir kişisel bilgisayardaki bellek sistemiyle iletişim kurmaya ihtiyaç duyabilir. Her yonga, Şekil 2.42 gösterildiği gibi, üç durumlu tamponları kullanarak paylaşılan bir bellek veri yoluna bağlanabilir. Veriyoluna bir değer sürmek için bir seferde yalnızca bir çipin etkinleştirme sinyalini ileri sürmesine izin verilir. Diğer yongalar, bellekle konuşan yonga ile çekişmeye neden olmaması için kayan çıktılar üretmelidir. Herhangi bir çip, herhangi bir zamanda paylaşılan veriyolundaki bilgileri okuyabilir. Bu tür üç durumlu otobüsler bir zamanlar yaygındı. Bununla birlikte, modern bilgisayarlarda, çiplerin paylaşılan bir veri yolu yerine doğrudan birbirine bağlandığı noktadan noktaya bağlantılarla daha yüksek hızlar mümkündür.
+
+![şekil2.42](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-42.png)
+
+# 2.7 Harita Yöntemi ile Sadelestirme(Karnaugh Map Minimization)
 
