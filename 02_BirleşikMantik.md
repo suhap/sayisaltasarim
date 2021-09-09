@@ -530,10 +530,57 @@ tpd ve tcd'yi hesaplamak, bu kitabın kapsamının ötesinde soyutlamanın daha 
 
 Halihazırda listelenen faktörlerin yanı sıra, yayılma ve kirlenme gecikmeleri de bir sinyalin girişten çıkışa geçtiği yol tarafından belirlenir. Şekil 2.68, dört girişli bir mantık devresini göstermektedir. Mavi ile gösterilen kritik yol, A veya B girişinden Y çıkışına giden yoldur. Bu, en uzun ve bu nedenle en yavaş yoldur, çünkü giriş üç kapıdan çıkışa doğru ilerler. Bu yol kritiktir çünkü devrenin çalıştığı hızı sınırlar. Gri ile gösterilen devre boyunca kısa yol, D girişinden Y çıkışına kadardır. Bu, devre boyunca en kısa ve dolayısıyla en hızlı yoldur, çünkü giriş, çıkışa yalnızca tek bir kapıdan geçer.
 
+![şekil2.68](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-68.png)
+
 Bir birleşimsel devrenin yayılma gecikmesi, kritik yoldaki her bir elemandan geçen yayılma gecikmelerinin toplamıdır. Kirlenme gecikmesi, kısa yoldaki her bir elemanın kirlenme gecikmelerinin toplamıdır. Bu gecikmeler Şekil 2.69 gösterilmiş ve aşağıdaki denklemlerle açıklanmıştır:
+
+![şekil2.69](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-69.png)
 
 t<sub>pd</sub> = 2t<sub>pd_AND</sub> + t<sub>pd_OR</sub>
 t<sub>cd</sub> = t<sub>cd_AND</sub>
+
+Örnek 2.15 Ben Bitdiddle'ın, Şekil 2.70 gösterilen devrenin yayılma gecikmesini ve kirlenme gecikmesini bulması gerekir. Veri kitabına göre, her kapının yayılma gecikmesi 100 pikosaniye (ps) ve kirlenme gecikmesi 60 ps'dir.
+
+![şekil2.70](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-70.png)
+
+Çözüm: Ben, kritik yolu ve devre boyunca en kısa yolu bularak başlar. Şekil 2.71 mavi ile vurgulanan kritik yol, A veya B girişinden üç kapıdan Y çıkışına doğrudur. Dolayısıyla, tpd, tek bir geçidin yayılma gecikmesinin üç katı veya 300 ps'dir. 
+
+Şekil 2.72 gri olarak gösterilen en kısa yol, C, D veya E girişinden iki kapıdan Y çıkışına kadardır. En kısa yolda yalnızca iki kapı vardır, bu nedenle tcd 120 ps'dir.
+
+Örnek 2.16 Bölüm 2.8.1'deki Şekil 2.58 gösterilen üç dört girişli çoklayıcı tasarımının en kötü durum zamanlamasını karşılaştırın. Tablo 2.7 , bileşenler için yayılma gecikmelerini listeler. Her tasarım için kritik yol nedir? Zamanlama analizinize göre, neden bir tasarımı diğerine tercih edebilirsiniz?
+
+![şekil2.58](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-58.png)
+
+![şekil2.T7](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/2-T7.png)
+
+Çözüm: Üç tasarım seçeneğinin her biri için kritik yollardan biri Şekil 2.73 ve 2.74 mavi ile vurgulanmıştır. tpd_sy, S girişinden Y çıkışına yayılma gecikmesini belirtir; tpd_dy, D girişinden Y çıkışına yayılma gecikmesini belirtir; tpd, ikisinin en kötüsüdür: max (tpd_sy, tpd_dy).
+
+Şekil 2.73 hem iki seviyeli mantık hem de üç durumlu uygulamalar için kritik yol, kontrol sinyallerinden S birinden Y çıkışına kadardır: tpd = tpd_sy. Bu devreler kontrol açısından kritiktir, çünkü kritik yol kontrol sinyallerinden çıkışa kadardır. Kontrol sinyallerindeki herhangi bir ek gecikme, doğrudan en kötü durum gecikmesine eklenecektir. Şekil 2.73(b) D'den Y'ye gecikme, 125 ps'lik S'den Y'ye gecikme ile karşılaştırıldığında sadece 50 ps'dir.
+
+Şekil 2.74, 2: 1 çoklayıcıların iki aşamasını kullanan 4: 1 çoklayıcının hiyerarşik uygulamasını göstermektedir. Kritik yol, herhangi bir D girişinden çıktıya kadardır. Bu devre veri açısından kritiktir çünkü kritik yol veri girişinden çıkışa kadardır:  tpd = tpd_dy.
+
+Veri girişleri kontrol girişlerinden çok önce gelirse, en kısa kontrolden çıkışa gecikmeli tasarımı tercih ederiz (şekil 2.74). Benzer şekilde, kontrol girişleri veri girişlerinden çok önce gelirse, veriden çıkışa en kısa gecikmeli tasarımı tercih ederiz (Şekil 2.73(b)).
+
+En iyi seçim, yalnızca devredeki kritik yola ve giriş varış sürelerine değil, aynı zamanda parçaların gücüne, maliyetine ve kullanılabilirliğine de bağlıdır.
+
+## Glitches (Tek girisin çoklu çıkısı tetiklemesi)
+Şimdiye kadar, tek bir giriş geçişinin tek bir çıktı geçişine neden olduğu durumu tartıştık. Ancak, tek bir giriş geçişinin birden çok çıkış geçişine neden olması mümkündür. Bunlara aksaklıklar veya tehlikeler denir. Aksaklıklar genellikle sorun yaratmasa da, bunların var olduğunu anlamak ve zamanlama diyagramlarına bakarken onları tanımak önemlidir. Şekil 2.75 arızalı bir devreyi ve devrenin Karnaugh haritasını göstermektedir.
+
+Boole denklemi doğru şekilde küçültülmüştür, ancak A = 0, C = 1 ve B 1'den 0'a geçiş yaptığında ne olduğuna bakalım. Şekil 2.76 bu senaryoyu göstermektedir. Kısa yol (gri olarak gösterilmiştir) iki kapıdan, AND ve OR kapılarından geçer. Kritik yol (mavi ile gösterilmiştir) bir terrsleyici ve iki kapıdan, AND ve OR kapılarından geçer.
+
+B 1'den 0'a geçerken, n2 (kısa yolda), n1'in (kritik yolda) yükselmesinden önce düşer. n1 yükselene kadar, OR geçidinin iki girişi 0'dır ve Y çıkışı 0'a düşer. n1 sonunda yükseldiğinde, Y 1'e döner. Şekil 2.76 zamanlama diyagramında gösterildiği gibi, Y 1'de başlar ve 1'de biter ancak anlık olarak 0'a geçer.
+
+Çıktıya bağlı kalmadan önce yayılma gecikmesinin geçmesini beklediğimiz sürece, hatalar bir sorun değildir, çünkü çıktı sonunda doğru cevaba yerleşir.
+
+İstersek, uygulamaya başka bir kapı ekleyerek bu aksaklıktan kaçınabiliriz. Bu, K-haritası açısından anlaşılması en kolay yoldur. Şekil 2.77, B üzerindeki ABC = 001'den ABC = 011'e bir giriş geçişinin bir asal dolaylı çemberden diğerine nasıl hareket ettiğini gösterir. K-haritasındaki iki temel etkenin sınırını aşan geçiş, olası bir aksaklığı gösterir.
+
+Şekil 2.76 önceki'daki zamanlama diyagramından da gördüğümüz gibi, birincil implikantlardan birini uygulayan devre, diğer birincil implikantın devresi açılmadan önce kapanırsa, bir aksaklık vardır. Bunu düzeltmek için, Şekil 2.78 gösterildiği gibi, bu birincil dolaylı sınırı kapsayan başka bir daire ekliyoruz. Bunu, eklenen terim olan AC'nin fikir birliği veya gereksiz terim olduğu konsensüs teoremi olarak tanıyabilirsiniz.
+
+Şekil 2.79, aksaklığa dayanıklı devreyi göstermektedir. Eklenen AND kapısı mavi ile vurgulanır. Şimdi, A = 0 ve C = 1 olduğunda B üzerindeki bir geçiş, çıkışta bir hataya neden olmaz, çünkü mavi AND geçidi, geçiş boyunca 1 çıktısı verir.
+
+Genel olarak, tek bir değişkendeki bir değişiklik bir K-haritasındaki iki asal çarpım arasındaki sınırı geçtiğinde bir aksaklık meydana gelebilir. Bu sınırları kapatmak için K-haritasına fazlalık çıkarımlar ekleyerek aksaklığı ortadan kaldırabiliriz. Bu, elbette ekstra donanım maliyetiyle gelir.
+
+Bununla birlikte, çoklu girişlerdeki eşzamanlı geçişler de hatalara neden olabilir. Bu aksaklıklar, donanım eklenerek düzeltilemez. İlginç sistemlerin büyük çoğunluğunun çoklu girişler üzerinde eşzamanlı (veya neredeyse eşzamanlı) geçişlere sahip olması nedeniyle, hatalar çoğu devrede hayatın bir gerçeğidir. Bir tür aksaklığı nasıl ortadan kaldıracağımızı göstermiş olsak da, aksaklıkları tartışmanın amacı onları ortadan kaldırmak değil, var olduklarının farkında olmaktır. Bu, özellikle bir simülatör veya osiloskop üzerindeki zamanlama diyagramlarına bakarken önemlidir.
 
 
 
