@@ -68,3 +68,52 @@ SR mandalı, Şekil 3.6'daki sembol ile temsil edilmektedir. Sembolü kullanmak,
 
 Çapraz bağlanmış invertörler gibi, SR mandalı, Q'da depolanan bir bitlik durumu olan iki durumlu bir elemandır. Bununla birlikte, durum S ve R girişleri aracılığıyla kontrol edilebilir. R ileri sürüldüğünde, durum 0'a sıfırlanır. S ileri sürüldüğünde, durum 1'e ayarlanır. Hiçbiri ileri sürülmediğinde, durum eski değerini korur. Girişlerin tüm geçmişinin tek durum değişkeni Q tarafından açıklanabileceğine dikkat edin.Geçmişte hangi ayarlama ve sıfırlama modeli olursa olsun, SR mandalının gelecekteki davranışını tahmin etmek için gereken tek şey bunun en yakın zamanda olup olmadığıdır. ayarlayın veya sıfırlayın.
 
+## 3.2.2 D Latch
+SR mandalı gariptir çünkü hem S hem de R aynı anda öne sürüldüğünde garip davranır. Dahası, S ve R girişleri ne ve ne zaman meselelerini birleştirir. Girdilerden birini ileri sürmek sadece durumun ne olması gerektiğini değil, aynı zamanda ne zaman değişmesi gerektiğini de belirler. Bu sorular ne, ne zaman ayrıldığında devrelerin tasarlanması kolaylaşır. Şekil 3.7(a) ortadaki mandal bu sorunları çözer. İki girişi vardır. Veri girişi D, bir sonraki durumun ne olması gerektiğini kontrol eder. Saat girişi, CLK, durumun ne zaman değişmesi gerektiğini kontrol eder.
+
+Yine, Şekil 3.7 (b) 'de verilen doğruluk tablosunu yazarak mandalı analiz ediyoruz. Kolaylık sağlamak için önce D, S ve R dahili düğümlerini ele alıyoruz. CLK = 0 ise, D'nin değerine bakılmaksızın hem S hem de R YANLIŞ'tır. CLK = 1 ise, D'nin değerine bağlı olarak bir AND geçidi DOĞRU ve diğeri YANLIŞ üretecektir. S ve R verildiğinde, Q ve Q’ Şekil 3.5 kullanılarak belirlenir. CLK = 0 olduğunda, Q'nun eski değeri olan Qprev'i hatırladığını gözlemleyin. CLK = 1 olduğunda, Q = D. Her durumda, mantıksal göründüğü gibi Q’, Q tamamlayıcısıdır. D mandalı, eşzamanlı olarak ileri sürülen R ve S girişlerinin garip durumunu önler.
+
+Hepsini bir araya getirdiğimizde, verilerin mandaldan ne zaman aktığını saatin kontrol ettiğini görüyoruz. CLK = 1 olduğunda, mandal şeffaftır. D'deki veriler, sanki mandal sadece bir arabellekmiş gibi Q'ya akar. CLK = 0 olduğunda, mandal donuktur. Yeni verilerin Q'ya akmasını engeller ve Q eski değeri korur. Bu nedenle, D mandalı bazen şeffaf bir mandal veya seviyeye duyarlı bir mandal olarak adlandırılır. D mandalı sembolü Şekil 3.7 (c) 'de verilmiştir.
+
+D mandalı, CLK = 1 iken durumunu sürekli olarak günceller. Bu bölümün ilerleyen kısımlarında, durumu yalnızca belirli bir zamanda güncellemenin faydalı olduğunu göreceğiz. Bir sonraki bölümde açıklanan D flip-flop tam da bunu yapıyor.
+
+![şekil3.7](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-7.png)
+
+## 3.2.3 D FIip-Flop
+Bir D flip-flop, Şekil 3.8(a) gösterildiği gibi, tamamlayıcı saatler tarafından kontrol edilen iki arka arkaya D mandalından oluşturulabilir. İlk mandala, L1, ana olarak adlandırılır. İkinci mandala, L2, köle olarak adlandırılır. Aralarındaki düğüm N1 olarak adlandırılır. D flip-flopu için bir sembol Şekil 3.8(b) verilmiştir. Q’ çıktısına ihtiyaç duyulmadığında, sembol genellikle Şekil 3.8(c) olduğu gibi yoğunlaştırılır.
+
+![şekil3.8](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-8.png)
+
+
+CLK = 0 olduğunda, ana mandal şeffaftır ve ikincil kilit donuktur. Bu nedenle, D'deki değer ne olursa olsun N1'e yayılır. CLK = 1 olduğunda, master donuklaşır ve slave şeffaf hale gelir. N1'deki değer Q'ya yayılır, ancak N1, D'den kesilir. Bu nedenle, saat 0'dan 1'e yükselmeden hemen önce D'de olan değer, saat yükseldikten hemen sonra Q'ya kopyalanır. Diğer tüm zamanlarda, Q eski değerini korur, çünkü D ile Q arasındaki yolu her zaman kapatan donuk bir mandal vardır.
+
+Başka bir deyişle, bir D flip-flopu, saatin yükselen kenarında D'yi Q'ya kopyalar ve diğer tüm zamanlarda durumunu hatırlar. Bu tanımı ezberleyene kadar yeniden okuyun; Yeni başlayan dijital tasarımcıların en yaygın sorunlarından biri, bir flip-flop un ne yaptığını unutmaktır. Saatin yükselen kenarı, kısalık için genellikle sadece saat kenarı olarak adlandırılır. D girişi, yeni durumun ne olacağını belirtir. Saat kenarı, durumun ne zaman güncellenmesi gerektiğini gösterir.
+
+Bir D flip-flop aynı zamanda bir master-slave flip-flop, bir edge tetiklemeli flip-flop veya bir pozitif kenar-tetiklemeli flip-flop olarak da bilinir. Sembollerdeki üçgen, kenarla tetiklenen bir saat girişini belirtir. Q’ çıktısı genellikle ihtiyaç duyulmadığında ihmal edilir.
+
+Örnek 3.1 DÖNER FLOP TRANSİSTÖR SAYISI
+Bu bölümde açıklanan D flip-flop'u oluşturmak için kaç transistöre ihtiyaç vardır?
+
+Çözüm: Bir NAND veya NOR geçidi dört transistör kullanır. NOT geçidi iki transistör kullanır. Bir AND geçidi bir NAND ve bir NOT'dan oluşturulur, bu nedenle altı transistör kullanır. SR mandalı iki NOR geçidi veya sekiz transistör kullanır. D mandalı bir SR mandalı, iki AND geçidi ve bir NOT geçidi veya 22 transistör kullanır. D flip-flopu iki D mandalı ve bir NOT geçidi veya 46 transistör kullanır. Bölüm 3.2.7, iletim kapılarını kullanan daha verimli bir CMOS uygulamasını açıklar.
+
+## 3.2.4 Register / Sakslayıcı
+Bir N-bit saklayıcı, ortak bir CLK girişini paylaşan bir N flip-flop bankasıdır, böylece yazmacın tüm bitleri aynı anda güncellenir. Saklayıcılar, çoğu ardışık devrenin temel yapı taşıdır. Şekil 3.9, D3: 0 girişleri ve Q3: 0 çıkışları ile dört bitlik bir yazmaç için şematik ve sembolü göstermektedir. D3: 0 ve Q3: 0'ın her ikisi de 4 bit veri yoludur.
+
+![şekil3.9](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-9.png)
+
+## 3.2.5 Enabled Flip-Flop
+Etkinleştirilmiş bir flip-flop, verilerin saat kenarında yüklü olup olmadığını belirlemek için EN veya ENABLE adlı başka bir giriş ekler. EN DOĞRU olduğunda, etkinleştirilen flip-flop sıradan bir D flip-flopu gibi davranır. EN FALSE olduğunda, etkinleştirilen flip-flop saati yok sayar ve durumunu korur. Etkin flip-floplar, her saat kenarı yerine, her zaman bir flip-flop'a yeni bir değer yüklemek istediğimizde kullanışlıdır.
+
+Şekil 3.10, bir D flip-flop ve ekstra bir kapıdan etkinleştirilmiş bir flip-flop oluşturmanın iki yolunu göstermektedir. Şekil 3.10 (a) 'da, bir giriş çoklayıcı, EN DOĞRU ise D'deki değerin geçip geçmeyeceğini veya EN YANLIŞ ise eski durumu Q'dan geri dönüştürmeyi seçer. Şekil 3.10 (b) 'de saat kapılıdır. EN DOĞRU ise, flip-flopun CLK girişi normal olarak değişir. EN YANLIŞ ise, CLK girişi de YANLIŞ'tır ve flip-flop eski değerini korur. CLK = 1 iken EN'nin değişmemesi gerektiğine dikkat edin, flip flop bir saat arızası görmesin (yanlış bir zamanda geçiş yapın). Genellikle, saat üzerinde mantık yürütmek kötü bir fikirdir. Saat geçitleme, saati geciktirir ve Bölüm 3.5.3'te göreceğimiz gibi zamanlama hatalarına neden olabilir, bu nedenle bunu yalnızca ne yaptığınızı bildiğinizden eminseniz yapın. Etkinleştirilmiş bir flip-flop için sembol Şekil 3.10 (c) 'de verilmiştir.
+
+![şekil3.10](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-10.png)
+
+## Resetlenebilir Flip-Flop
+Sıfırlanabilir bir flip-flop, RESET adı verilen başka bir giriş ekler. SIFIRLA YANLIŞ olduğunda, sıfırlanabilir flip-flop sıradan bir D flip-flopu gibi davranır. SIFIRLA DOĞRU olduğunda, sıfırlanabilir flip-flop D'yi yok sayar ve çıkışı 0'a sıfırlar. Sıfırlanabilir flip-floplar, bilinen bir durumu (yani, 0) ilk kez bir sistemdeki tüm flip-flop'lara zorlamak istediğimizde kullanışlıdır.
+
+Bu tür parmak arası terlikler eşzamanlı veya eşzamansız olarak sıfırlanabilir. Eşzamanlı olarak sıfırlanabilen parmak arası terlikler kendilerini yalnızca CLK'nın yükselen kenarında sıfırlar. Zaman uyumsuz olarak sıfırlanabilen parmak arası terlikler, CLK'dan bağımsız olarak RESET TRUE olur olmaz kendilerini sıfırlar.
+
+Şekil 3.11 (a), sıradan bir D flip-flop ve bir AND geçidinden senkronize olarak sıfırlanabilir bir flip-flopun nasıl oluşturulacağını gösterir. SIFIRLAMA YANLIŞ olduğunda, AND geçidi, flip-flop'un girişine 0'ı zorlar. RESET TRUE olduğunda, AND geçidi D'yi flip-flop'a geçirir. Bu örnekte RESET, aktif bir düşük sinyaldir, yani sıfırlama sinyali 1 değil 0 olduğunda işlevini yerine getirir. Bir invertör ekleyerek devre bunun yerine aktif bir yüksek sıfırlama sinyalini kabul edebilirdi. Şekil 3.11 (b) ve 3.11 (c), aktif yüksek sıfırlamalı sıfırlanabilir flip-flop için sembolleri gösterir.
+
+Tahmin edebileceğiniz gibi, zaman zaman ayarlanabilir parmak arası terlikler de kullanılmaktadır. SET öne sürüldüğünde flip-flop'a bir 1 yüklerler ve onlar da senkronize ve asenkron aromalarda gelirler. Sıfırlanabilir ve ayarlanabilir flip-floplar ayrıca bir etkinleştirme girişine sahip olabilir ve N-bit kayıtları halinde gruplanabilir.
+
