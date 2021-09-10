@@ -115,5 +115,56 @@ Bu tür parmak arası terlikler eşzamanlı veya eşzamansız olarak sıfırlana
 
 Şekil 3.11 (a), sıradan bir D flip-flop ve bir AND geçidinden senkronize olarak sıfırlanabilir bir flip-flopun nasıl oluşturulacağını gösterir. SIFIRLAMA YANLIŞ olduğunda, AND geçidi, flip-flop'un girişine 0'ı zorlar. RESET TRUE olduğunda, AND geçidi D'yi flip-flop'a geçirir. Bu örnekte RESET, aktif bir düşük sinyaldir, yani sıfırlama sinyali 1 değil 0 olduğunda işlevini yerine getirir. Bir invertör ekleyerek devre bunun yerine aktif bir yüksek sıfırlama sinyalini kabul edebilirdi. Şekil 3.11 (b) ve 3.11 (c), aktif yüksek sıfırlamalı sıfırlanabilir flip-flop için sembolleri gösterir.
 
+![şekil3.11](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-11.png)
+
 Tahmin edebileceğiniz gibi, zaman zaman ayarlanabilir parmak arası terlikler de kullanılmaktadır. SET öne sürüldüğünde flip-flop'a bir 1 yüklerler ve onlar da senkronize ve asenkron aromalarda gelirler. Sıfırlanabilir ve ayarlanabilir flip-floplar ayrıca bir etkinleştirme girişine sahip olabilir ve N-bit kayıtları halinde gruplanabilir.
 
+## 3.2.7 Transistör Seviyesinde Latch ve Flip-Flop Tasarımları
+Örnek 3.1, mandalların ve flip-flopların mantık kapılarından yapıldığında çok sayıda transistör gerektirdiğini gösterdi. Ancak bir flip-flop un temel rolü, tıpkı bir anahtar gibi şeffaf veya opak olmaktır. Bölüm 1.7.7'den bir iletim geçidinin bir CMOS anahtarı oluşturmanın etkili bir yolu olduğunu hatırlayın, bu nedenle transistör sayısını azaltmak için iletim kapılarından faydalanabileceğimizi bekleyebiliriz.
+
+Şekil 3.12(a)'da gösterildiği gibi, tek bir iletim kapısından kompakt bir D mandalı oluşturulabilir. CLK = 1 ve CLK = 0 olduğunda, iletim kapısı AÇIK'tır, bu nedenle D, Q'ya akar ve mandal şeffaftır. CLK = 0 ve CLK = 1 olduğunda, iletim kapısı KAPALI, dolayısıyla Q, D'den yalıtılır ve mandal opaktır. Bu mandal iki ana sınırlamadan muzdariptir:
+
+- Kayan çıktı düğümü: Mandal opak olduğunda, Q hiçbir kapı tarafından değerinde tutulmaz. Böylece Q, yüzen veya dinamik bir düğüm olarak adlandırılır. Bir süre sonra gürültü ve şarj sızıntısı Q değerini bozabilir.
+
+- Arabellek yok: Tampon eksikliği, birkaç ticari çipte arızalara neden oldu. D'yi negatif bir voltaja çeken bir gürültü artışı, nMOS transistörünü açarak, CLK = 0 olduğunda bile mandalı şeffaf hale getirebilir. Benzer şekilde, VDD'nin üzerindeki D'deki bir artış, CLK = 0 olduğunda bile pMOS transistörünü açabilir. Ve iletim kapısı simetriktir, bu nedenle Q üzerindeki gürültü D girişini etkilerken geriye doğru sürülebilir. Genel kural, ne iletim kapısının girişinin ne de sıralı devrenin durum düğümünün dış dünyaya maruz kalmaması gerektiğidir. gürültünün muhtemel olduğu yer.
+
+Şekil 3.12(b), modern ticari çiplerde kullanılan daha sağlam bir 12 transistörlü D mandalını göstermektedir. Hala saatli bir iletim kapısı etrafında inşa edilmiştir, ancak giriş ve çıkışı tamponlamak için I1 ve I2 invertörlerini ekler. Mandalın durumu N1 düğümünde tutulur. Evirici I3 ve üç durumlu arabellek, T1, N1'i statik bir düğüme dönüştürmek için geri bildirim sağlar. CLK = 0 iken N1'de az miktarda gürültü oluşursa, T1, N1'i geçerli bir mantık değerine geri götürür.
+
+![şekil3.12](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-12.png)
+
+Şekil 3.13, CLK ve CLK tarafından kontrol edilen iki statik mandaldan yapılmış bir D parmak arası terlik göstermektedir. Bazı yedekli dahili invertörler kaldırılmıştır, bu nedenle flip-flop sadece 20 transistör gerektirir.
+
+![şekil3.13](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-13.png)
+
+## 3.2.8 Tümden inceleme
+Mandallar ve flip-floplar, sıralı devrelerin temel yapı taşlarıdır. Bir D mandalının seviyeye duyarlı olduğunu, oysa bir D flip-flopunun kenarla tetiklendiğini unutmayın. D mandalı, CLK = 1 olduğunda saydamdır ve D girişinin Q çıkışına akmasına izin verir. D flip-flopu, CLK'nın yükselen kenarında D'yi Q'ya kopyalar. Diğer tüm zamanlarda, mandallar ve flip-floplar eski durumlarını korurlar. Saklayıcı ise ortak bir CLK sinyalini paylaşan birkaç D flip-flop'tan oluşan bir bankadır.
+
+Örnek 3.2 : Ben Bitdiddle, Şekil 3.14 gösterilen D ve CLK girişlerini bir D mandalı ve bir D flip-flopuna uygular. Her cihazın Q çıktısını belirlemesine yardımcı olun.
+
+![şekil3.14](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-14.png)
+
+Çözüm: Şekil 3.15, Q'nun giriş değişikliklerine yanıt vermesi için küçük bir gecikme olduğu varsayılarak çıkış dalga biçimlerini gösterir. Oklar, bir çıktı değişikliğinin nedenini gösterir. Q'nun başlangıç değeri bilinmemektedir ve yatay çizgi çiftiyle gösterildiği gibi 0 veya 1 olabilir. İlk önce mandalı düşünün. CLK'nın ilk yükselen kenarında, D = 0, dolayısıyla Q kesinlikle 0 olur. CLK = 1 iken D her değiştiğinde, Q da onu takip eder. CLK = 0 iken D değiştiğinde, dikkate alınmaz. Şimdi flip-flop'u düşünün. CLK'nın her yükselen kenarında D, Q'ya kopyalanır. Diğer tüm zamanlarda, Q durumunu korur.
+
+![şekil3.15](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-15.png)
+
+# 3.3 Senkron Lojik Tasarım
+Genel olarak, sıralı devreler, kombinasyonel olmayan, yani çıkışı sadece akım girişlerine bakılarak belirlenemeyen tüm devreleri içerir. Bazı sıralı devreler sadece tuhaftır. Bu bölüm, bu ilginç devrelerden bazılarını inceleyerek başlar. Daha sonra senkron ardışık devreler kavramını ve dinamik disiplini tanıtır. Kendimizi senkron ardışık devrelere disipline ederek, sıralı sistemleri analiz etmek ve tasarlamak için kolay, sistematik yollar geliştirebiliriz.
+
+Örnek 3.3: Alyssa P. Hacker, Şekil 3.16'da gösterildiği gibi, kendilerini bir döngüye bağlamış üç yanlış yazılmış evirici ile karşılaşır. Üçüncü inverterin çıkışı birinci invertere geri beslenir. Her inverterin 1 ns yayılma gecikmesi vardır. Devrenin ne yaptığını belirleyin
+
+![şekil3.16](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-16.png)
+
+Çözüm: X düğümünün başlangıçta 0 olduğunu varsayalım. Sonra Y = 1, Z = 0 ve dolayısıyla X = 1, bu bizim orijinal varsayımımızla tutarsız. Devrenin kararlı durumu yoktur ve kararsız veya kararsız olduğu söylenir. Şekil 3.17 devrenin davranışını göstermektedir. X 0 zamanında yükselirse, Y 1 ns'de düşecek, Z 2 ns'de yükselecek ve X 3 ns'de tekrar düşecek. Sırayla, Y 4 ns'de yükselecek, Z 5 ns'de düşecek ve X tekrar 6 ns'de yükselecek ve ardından model tekrar edecek. Her düğüm, 6 ns'lik bir periyotla (tekrar süresi) 0 ile 1 arasında salınır. Bu devreye halka osilatör denir.
+
+![şekil3.17](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-17.png)
+
+Halka osilatör periyodu, her bir inverterin yayılma gecikmesine bağlıdır. Bu gecikme, inverterin nasıl üretildiğine, güç kaynağı voltajına ve hatta sıcaklığa bağlıdır. Bu nedenle, halka osilatör periyodunu doğru bir şekilde tahmin etmek zordur. Kısacası, halka osilatör, sıfır girişli ve periyodik olarak değişen bir çıkışlı sıralı bir devredir.
+
+Örnek 3.4: Yarış durumu
+Ben Bitdiddle, daha az kapı kullandığı için Şekil 3.7'dekinden daha iyi olduğunu iddia ettiği yeni bir D mandalı tasarladı. İki girdi (D ve CLK) ve mandalın eski durumu Qprev verilen Q çıktısını bulmak için doğruluk tablosunu yazdı. Bu doğruluk tablosuna dayanarak Boole denklemlerini türetmiştir. Qprev çıktısını Q çıktısını geri besleyerek elde eder. Tasarımı Şekil 3.18'de gösterilmektedir. Mandalı, her kapının gecikmesinden bağımsız olarak doğru çalışıyor mu?
+
+![şekil3.18](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-18.png)
+
+Çözüm: Şekil 3.19, devrenin, belirli kapılar diğerlerinden daha yavaş olduğunda devre dışı kalmasına neden olan bir yarış koşuluna sahip olduğunu göstermektedir. CLK = D = 1 varsayalım. Mandal şeffaftır ve Q = 1 yapmak için D'den geçer. Şimdi, CLK düşer. Mandal, Q = 1'i koruyarak eski değerini hatırlamalıdır. Bununla birlikte, inverterin CLK'dan CLK'ya olan gecikmesinin AND ve OR geçitlerinin gecikmelerine kıyasla oldukça uzun olduğunu varsayalım. O zaman N1 ve Q düğümlerinin her ikisi de CLK yükselmeden önce düşebilir. Böyle bir durumda N2 asla yükselmez ve Q 0'da takılı kalır.
+
+Bu, çıkışların doğrudan girişlere geri beslendiği bir asenkron devre tasarımı örneğidir. Asenkron devreler, devrenin davranışının, mantık kapılarından geçen iki yoldan hangisinin en hızlı olduğuna bağlı olduğu yarış koşullarına sahip oldukları için meşhurdur. Bir devre çalışabilirken, biraz farklı gecikmelere sahip kapılardan yapılmış görünüşte aynı olan bir devre çalışmayabilir. Veya devre, yalnızca gecikmelerin tam olarak doğru olduğu belirli sıcaklıklarda veya voltajlarda çalışabilir. Bu arızaların izini sürmek son derece zordur
