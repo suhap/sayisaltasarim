@@ -167,4 +167,48 @@ Ben Bitdiddle, daha az kapı kullandığı için Şekil 3.7'dekinden daha iyi ol
 
 Çözüm: Şekil 3.19, devrenin, belirli kapılar diğerlerinden daha yavaş olduğunda devre dışı kalmasına neden olan bir yarış koşuluna sahip olduğunu göstermektedir. CLK = D = 1 varsayalım. Mandal şeffaftır ve Q = 1 yapmak için D'den geçer. Şimdi, CLK düşer. Mandal, Q = 1'i koruyarak eski değerini hatırlamalıdır. Bununla birlikte, inverterin CLK'dan CLK'ya olan gecikmesinin AND ve OR geçitlerinin gecikmelerine kıyasla oldukça uzun olduğunu varsayalım. O zaman N1 ve Q düğümlerinin her ikisi de CLK yükselmeden önce düşebilir. Böyle bir durumda N2 asla yükselmez ve Q 0'da takılı kalır.
 
+![şekil3.19](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-19.png)
+
 Bu, çıkışların doğrudan girişlere geri beslendiği bir asenkron devre tasarımı örneğidir. Asenkron devreler, devrenin davranışının, mantık kapılarından geçen iki yoldan hangisinin en hızlı olduğuna bağlı olduğu yarış koşullarına sahip oldukları için meşhurdur. Bir devre çalışabilirken, biraz farklı gecikmelere sahip kapılardan yapılmış görünüşte aynı olan bir devre çalışmayabilir. Veya devre, yalnızca gecikmelerin tam olarak doğru olduğu belirli sıcaklıklarda veya voltajlarda çalışabilir. Bu arızaların izini sürmek son derece zordur
+
+## 3.3.2 Senkron Ardısık Devreler
+Önceki iki örnek, çıkışların doğrudan girişlere geri beslendiği, döngüsel yollar adı verilen döngüler içerir. Kombinasyon devrelerinden ziyade sıralı devrelerdir. Kombinasyonel mantığın döngüsel yolları ve yarışları yoktur. Girişler birleşimsel mantığa uygulanırsa, çıkışlar her zaman bir yayılma gecikmesi içinde doğru değere oturacaktır. Bununla birlikte, döngüsel yollara sahip sıralı devreler, istenmeyen yarışlara veya kararsız davranışlara sahip olabilir. Bu tür devreleri problemler için analiz etmek zaman alıcıdır ve birçok zeki insan hata yapmıştır.
+
+Bu sorunlardan kaçınmak için tasarımcılar, yolun herhangi bir yerine kayıtlar ekleyerek döngüsel yolları kırarlar. Bu, devreyi bir kombinasyonel mantık ve kayıtlar koleksiyonuna dönüştürür. Kayıtlar, yalnızca saat kenarında değişen sistemin durumunu içerir, bu nedenle durumun saatle senkronize olduğunu söylüyoruz. Saat, tüm kayıtlara girişler bir sonraki saat kenarından önce yerleşmek üzere yeterince yavaşsa, tüm yarışlar elenir. Geri besleme yolundaki her zaman yazmaçları kullanma disiplinini benimsemek, bizi bir senkron sıralı devrenin resmi tanımına götürür.
+
+Bir devrenin giriş ve çıkış terminalleri ve işlevsel ve zamanlama özellikleri ile tanımlandığını hatırlayın. Sıralı bir devrenin sonlu ayrık durumları {S0, S1,…, Sk−1} vardır. Bir senkron ardışık devre, yükselen kenarları durum geçişlerinin meydana geldiği bir dizi zamanı gösteren bir saat girişine sahiptir. Sistemin o andaki durumunu, bir sonraki saat kenarında gireceği durumdan ayırt etmek için genellikle mevcut durum ve sonraki durum terimlerini kullanırız. İşlevsel belirtim, bir sonraki durumu ve mevcut durum ve giriş değerlerinin olası her bir kombinasyonu için her bir çıkışın değerini ayrıntılarıyla belirtir. Zamanlama belirtimi, saatin yükselen kenarından çıkış değişene kadar geçen süre için bir üst sınır, tpcq ve bir alt sınırdan, tccq ve ayrıca girişlerin ne zaman olduğunu gösteren kurulum ve tutma süreleri, tsetup ve thold'dan oluşur. saatin yükselen kenarına göre sabit olmalıdır.
+
+Senkron ardışık devre kompozisyonunun kuralları bize, bir devrenin, birbirine bağlı devre elemanlarından oluşuyorsa, senkron ardışık bir devre olduğunu öğretir.
+
+- Her devre elemanı ya bir kayıt ya da birleşimsel devredir.
+- En az bir devre elemanı bir kayıttır
+ - Tüm kayıtlar aynı saat sinyalini alır
+- Her döngüsel yol en az bir kayıt içerir.
+
+Senkron olmayan sıralı devrelere asenkron denir.
+
+Bir flip-flop, en basit senkron ardışık devredir. Bir girişi, D, bir saati, CLK, bir çıkışı, Q ve iki durumu, {0, 1} vardır. Bir flip-flop için işlevsel belirtim, Şekil 3.20'de gösterildiği gibi, sonraki durumun D olması ve Q çıktısının mevcut durum olmasıdır.
+
+![şekil3.20](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-20.png)
+
+Sıklıkla mevcut durum değişkenini S ve sonraki durum değişkenini S' olarak adlandırırız. Bu durumda, S'den sonraki asal bir sonraki durumu belirtir, tersine çevirmeyi değil. Sıralı devrelerin zamanlaması Bölüm 3.5'te analiz edilecektir.
+
+Senkron ardışık devrelerin diğer iki yaygın türü, sonlu durum makineleri ve boru hatları olarak adlandırılır. Bunlar bu bölümde daha sonra ele alınacaktır.
+
+Örnek 3.5 SENKRON SIRALI DEVRELER
+Şekil 3.21'deki devrelerden hangileri senkron ardışıl devrelerdir?
+
+![şekil3.21](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-21.png)
+
+Çözüm: Devre (a) birleşimseldir, sıralı değildir, çünkü kaydı yoktur. (b) geri beslemesi olmayan basit bir ardışık devredir. (c) ne birleşimsel devre ne de senkron ardışık devredir, çünkü ne yazmaç ne de birleşimsel devre olan bir mandalı vardır. (d) ve (e) senkron ardışık mantıktır; bunlar, Bölüm 3.4'te tartışılan iki sonlu durumlu makine biçimidir. (f) ne birleşimsel ne de senkron ardışık değildir, çünkü birleşimsel mantığın çıkışından aynı mantığın girişine kadar döngüsel bir yola sahiptir, ancak yolda kayıt yoktur. (g) Kısım 3.6'da inceleyeceğimiz bir ardışık düzen şeklinde senkron ardışık mantıktır. (h) kesinlikle senkron ardışık devre değildir, çünkü ikinci kayıt birinciden farklı bir saat sinyali alır, iki invertör gecikmesi tarafından geciktirilir.
+
+## 3. 3. 3 Senkron ve Asenkron Devreler
+Teoride asenkron tasarım, senkronize tasarımdan daha geneldir, çünkü sistemin zamanlaması saatli kayıtlarla sınırlı değildir. Analog devreler herhangi bir voltajı kullanabildikleri için analog devrelerin dijital devrelerden daha genel olması gibi, asenkron devreler de her türlü geri beslemeyi kullanabildikleri için senkron devrelerden daha geneldir. Bununla birlikte, dijital devrelerin analog devrelerden daha kolay olması gibi, senkron devrelerin tasarımı ve kullanımının asenkron devrelerden daha kolay olduğu kanıtlanmıştır. Asenkron devreler üzerinde onlarca yıllık araştırmalara rağmen, neredeyse tüm dijital sistemler esasen senkronizedir.
+
+Elbette, farklı saatlere sahip sistemler arasında iletişim kurarken veya rastgele zamanlarda girişler alırken, sürekli voltajların gerçek dünyası ile iletişim kurarken analog devrelerin gerekli olması gibi, zaman uyumsuz devreler bazen gereklidir. Ayrıca, asenkron devrelerdeki araştırmalar, bazıları senkron devreleri de geliştirebilecek ilginç bilgiler üretmeye devam ediyor.
+
+# 3.4 Sonlu Durum Makinaları
+Şekilde 3.22 gösterilen senkron sıralı devreler sonlu durum makineleri (FSM'ler) denir. Sonlu durum makinelerinde k yazmaçlı bir devre sonlu sayıdaki (2k) durumlardan birinde olabilir. Bir FSM'nin M girişi, N çıkışı ve k bit durumu bir saat ve isteğe bağlı olarak bir reset (sıfırlama) sinyali alır. FSM, iki kombinasyonel mantık bloğu, bir sonraki durum mantığı ve çıkış mantığı ve durumu depolayan bir yazmaçtan oluşur. Her bir saat kenarında, FSM mevcut  İşlevsel özellikleri ile karakterize edilen iki sonlu durum makinesi sınıfı vardır.  Moore makinelerinde, çıktılar yalnızca makinenin mevcut durumuna bağlıdır. Mealy makinelerinde çıktılar hem mevcut duruma hem de girişlerine bağlıdır. Sonlu durum makineleri, özellikleri verilen eşzamanlı sıralı devreleri tasarlamak için sistematik bir yol sağlar. Bu yöntem, bir örnekle başlayarak bu bölümün geri kalanında açıklanacaktır. 
+
+## 3.4.1 Sonlu Durum Makinaları Örnegi
+
