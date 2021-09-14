@@ -210,5 +210,73 @@ Elbette, farklı saatlere sahip sistemler arasında iletişim kurarken veya rast
 # 3.4 Sonlu Durum Makinaları
 Şekilde 3.22 gösterilen senkron sıralı devreler sonlu durum makineleri (FSM'ler) denir. Sonlu durum makinelerinde k yazmaçlı bir devre sonlu sayıdaki (2k) durumlardan birinde olabilir. Bir FSM'nin M girişi, N çıkışı ve k bit durumu bir saat ve isteğe bağlı olarak bir reset (sıfırlama) sinyali alır. FSM, iki kombinasyonel mantık bloğu, bir sonraki durum mantığı ve çıkış mantığı ve durumu depolayan bir yazmaçtan oluşur. Her bir saat kenarında, FSM mevcut  İşlevsel özellikleri ile karakterize edilen iki sonlu durum makinesi sınıfı vardır.  Moore makinelerinde, çıktılar yalnızca makinenin mevcut durumuna bağlıdır. Mealy makinelerinde çıktılar hem mevcut duruma hem de girişlerine bağlıdır. Sonlu durum makineleri, özellikleri verilen eşzamanlı sıralı devreleri tasarlamak için sistematik bir yol sağlar. Bu yöntem, bir örnekle başlayarak bu bölümün geri kalanında açıklanacaktır. 
 
-## 3.4.1 Sonlu Durum Makinaları Örnegi
+![şekil3.22](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-22.png)
 
+## 3.4.1 Sonlu Durum Makinaları Örnegi
+FSM'lerin tasarımını göstermek için, kampüsteki yoğun bir kavşakta trafik ışığı için bir kontrolör tasarlayalım. Mühendislik öğrencileri, yurtları ile Academic Ave'deki laboratuarlar arasında dolaşırlar. En sevdikleri ders kitaplarında FSM'ler hakkında okumakla meşguller ve nereye gittiklerine bakmıyorlar. Futbolcular atletik alanlar ve Bravado Bulvarı'ndaki yemek salonu arasında koşuşturuyor. Topu ileri geri fırlatıyorlar ve nereye gittiklerine de bakmıyorlar. Bu iki yolun kesişme noktasında çok sayıda ciddi yaralanma meydana geldiğinden Dekan, ölümler olmadan önce bir trafik ışığı takmasını istiyor. 
+
+Ben, sorunu bir FSM ile çözmeye karar verir. Academic Ave. ve Bravado Blvd.'ye sırasıyla TA ve TB olmak üzere iki trafik sensörü kuruyor. Her sensör, öğrenciler mevcutsa DOĞRU, cadde boşsa YANLIŞ gösterir. Ayrıca trafiği kontrol etmek için LA ve LB olmak üzere iki trafik lambası kuruyor. Her ışık, yeşil, sarı veya kırmızı dijital girişleri alır. Dolayısıyla, FSM'sinin TA ve TB olmak üzere iki girişi ve LA ve LB  olmak üzere iki çıkışı vardır. Işıklar ve sensörler Şekil 2.23 gösterilmektedir. Ben, 5 saniyelik periyotlu bir saati vardır. Her saat işaretinde (yükselen kenar), ışıklar trafik sensörlerine göre değişebilir. Ayrıca, Fiziksel Tesis teknisyenlerinin denetleyiciyi açtıklarında bilinen bir başlangıç durumuna getirebilmeleri için bir sıfırlama düğmesi vardır. Şekilde 3.24, durum makinesinin kara kutu görünümünü göstermektedir. 
+
+![şekil3.23](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-23.png)
+
+![şekil3.24](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-24.png)
+
+Ben'in bir sonraki adımı, sistemin tüm olası durumlarını ve bu durumlar arasındaki geçişleri göstermek için Şekil 3.25 gösterilen durum geçiş diyagramını çizmektir. Sistem sıfırlandığında, ışıklar Academic Ave'de yeşil ve Bravado Blvd'de kırmızıdır. Her 5 saniyede bir kontrolör trafik düzenini inceler ve daha sonra ne yapılacağına karar verir. Academic Ave.'de trafik olduğu sürece ışıklar değişmez. Academic Ave.'de artık trafik olmadığında, Academic Ave.'deki ışık kırmızıya ve Bravado Bulvarı'nın ışığı yeşile dönmeden önce 5 saniye boyunca sarıya döner. Benzer şekilde, Bravado Blvd. Bulvarda trafik olduğu sürece ışık yeşil kalır, ardından sarıya ve sonunda kırmızıya döner.
+
+![şekil3.25](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-25.png)
+
+Bir durum geçiş diyagramında, daireler ile temsil eder ve yaylar durumlar arasındaki geçişleri temsil eder. Geçişler saatin yükselen kenarında gerçekleşir; saati diyagram üzerinde gösterme zahmetine girmeyiz, çünkü her zaman eşzamanlı sıralı bir devrede mevcuttur. Dahası, saat basitçe geçişlerin ne zaman gerçekleşmesi gerektiğini kontrol ederken, diyagram hangi geçişlerin gerçekleştiğini gösterir. Dış dünya S0 durumuna işaret eden yay, sistemin, önceki durumdan bağımsız olarak, sıfırlama üzerine bu duruma girmesi gerektiğini belirtir. Bir durumda birden fazla yay varsa, yaylar, hangi giriş tarafından tetiklediğini göstermek için etiketlenir. Örneğin, S0 durumunda iken, TA TRUE ise sistem bu durumda kalacak ve TA FALSE ise S1'e geçecektir. Bir durumdan çıkan tek bir yaya sahipse, bu geçiş her zaman girişlerden bağımsız olarak gerçekleşir. Örneğin, S1 durumunda, sistem her zaman S2'ye geçecektir. Çıkışların belirli bir durumdayken sahip olduğu değer, durumda belirtilir. Örneğin, S2 durumunda, LA kırmızıdır ve LB yeşildir.
+
+Ben, durum geçiş diyagramını bir durum geçiş Tablo 3.1 olarak yeniden yazar; bu, her durum ve giriş için bir sonraki durum olan S'nin ne olması gerektiğini gösterir. Tabloda, sonraki durum belirli bir girdiye bağlı olmadığında, önemsiz semboller (X) kullanıldığına dikkat edin. Ayrıca Reset tablodan çıkarıldığını unutmayın. Bunun yerine, girişlerden bağımsız olarak, sıfırlama sırasında her zaman S0 durumuna giden sıfırlanabilir flip flop kullanıyoruz.
+
+![Tablo3.1](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T1.png)
+
+Durum geçiş diyagramı, {S0, S1, S2, S3} etiketli durumları ve {kırmızı, sarı, yeşil} etiketli çıktıları kullandığından soyuttur. Gerçek bir devre oluşturmak için, durumlara ve çıkışlara ikili kodlamalar atanmalıdır. Ben, Tablo 3.2 ve 3.3 verilen basit kodlamaları seçer. Her durum ve her çıkış iki bit ile kodlanır: S1:0, LA1:0 ve LB1:0. 
+
+![Tablo3.2](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T2.png)
+
+![Tablo3.3](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T3.png)
+
+Ben, Tablo 3.4 gösterildiği gibi bu ikili kodlamaları kullanmak için durum geçiş tablosunu günceller. Revize edilmiş durum geçiş tablosu, bir sonraki durum mantığını belirten bir doğruluk tablosudur. Sonraki durumu, S ′, mevcut durum, S ve girişlerin bir fonksiyonu olarak tanımlar.
+
+![Tablo3.4](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T4.png)
+
+Bu tablodan, bir sonraki durum için Boole denklemlerini çarpımları toplamı biçiminde okumak kolaydır.
+
+S1' = S1'S0 +S1S0'TB' +S1S0'TB
+S0' = S1'S0'TA' +S1S0'TB'
+
+Denklemler, Karnaugh haritaları kullanılarak basitleştirilebilir, ancak genellikle bunu elle yapmak daha kolaydır. Örneğin, S1′ denklemindeki TB ve (TB)’ terimleri açıkça gereksizdir. Böylece S1′, bir XOR işlemine indirgenir. Aşağıdaki, basitleştirilmiş bir sonraki durum denklemlerini verir.
+
+Denklem 3.2
+S1' = S1 ⊕ S0
+S0' = S1'S0'TA' +S1S0'TB'    
+
+Benzer şekilde, Ben her durum için çıktının o durumda ne olması gerektiğini gösteren bir çıktı tablosu (Tablo 3.5) yazar. Yine, çıktılar için Boole denklemlerini okumak ve basitleştirmek kolaydır. Örneğin, LA1'in yalnızca S1'in TRUE olduğu satırlarda TRUE olduğunu gözlemleyin.
+
+![Tablo3.5](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T5.png)
+
+Denklem 3.3
+LA1 = S1
+LA0 = S1'S0
+LB1 = S1'
+LB0 = S1S0
+
+Son olarak Ben, Moore FSM'sini Şekil 3.22(a) şeklinde çiziyor. İlk olarak, Şekil 3.26(a)'da gösterildiği gibi 2 bitlik durum kaydını çizer. Her saat kenarında, durum kaydı, S1:0 durumu olmak için sonraki durumu S1:0 ′ kopyalar. Durum kaydı, başlangıçta FSM'yi başlatmak için senkron veya asenkron bir sıfırlama alır. Ardından, Şekil 3.26(b)'de gösterildiği gibi, mevcut durum ve girdilerden sonraki durumu hesaplayan Denklem 3.2'ye dayalı olarak bir sonraki durum mantığını çizer. Son olarak, Şekil 3.26(c)'de gösterildiği gibi, mevcut durumdan çıktıları hesaplayan Denklem 3.3'e dayalı olarak çıktı mantığını çizer.
+
+![şekil3.26](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-26.png)
+
+Şekil 3.27, bir dizi durumdan geçen trafik ışığı kontrolörünü gösteren bir zamanlama diyagramını göstermektedir. Diyagramda CLK, Reset, TA ve TB girişleri, sonraki S' durumu, S durumu ve LA ve LB çıkışları gösterilmektedir. Oklar nedenselliği gösterir; örneğin, durumu değiştirmek çıktıların değişmesine ve girdilerin değiştirilmesi bir sonraki durumun değişmesine neden olur. Kesikli çizgiler, durum değiştiğinde CLK'nın yükselen kenarlarını gösterir.
+
+![şekil3.27](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-27.png)
+
+Saatin 5 saniyelik bir periyodu vardır, bu nedenle trafik ışıkları en fazla 5 saniyede bir değişir. Sonlu durum makinesi ilk açıldığında, soru işaretleriyle gösterildiği gibi durumu bilinmemektedir. Bu nedenle, bilinen bir duruma getirmek için sistem sıfırlanmalıdır. Bu zamanlama şemasında, eşzamansız olarak sıfırlanabilen iki duraklıların kullanıldığını belirten hemen S0'a sıfırlanır. S0 durumunda, ışık LA yeşil ve ışık LB kırmızıdır.
+
+Bu örnekte trafik hemen Academic Ave'e gelir.Bu nedenle, Bravado Blvd'ye trafik gelse bile denetleyici S0 durumunda kalır ve LA'yı yeşil tutar. ve beklemeye başlar. 15 saniye sonra Academic Ave. üzerindeki trafik tamamen geçer ve TA düşer. Takip eden saat kenarında, kontrolör LA'yı sarıya çevirerek S1 durumuna geçer. 5 saniye sonra kontrolör, LA'nın kırmızıya ve LB'nin yeşile döndüğü S2 durumuna geçer. Denetleyici, Bravado Blvd'deki tüm trafik oluşana kadar S2 durumunda bekler. geçti. Daha sonra LB'yi sarıya çevirerek S3 durumuna geçer. 5 saniye sonra kontrolör S0 durumuna girer ve LB kırmızı ve LA yeşile döner. İşlem tekrarlanır.
+
+## 3.4.2 Durum Kodlama
+Önceki örnekte, durum ve çıktı kodlamaları keyfi olarak seçilmiştir. Farklı bir seçim, farklı bir devre ile sonuçlanabilirdi. Doğal bir soru, en az mantık kapısına veya en kısa yayılma gecikmesine sahip devreyi üreten kodlamanın nasıl belirleneceğidir. Ne yazık ki, durum sayısı fazla olduğunda mümkün olmayan tüm olasılıkları denemek dışında en iyi kodlamayı bulmanın basit bir yolu yoktur. Bununla birlikte, ilgili durumların veya çıktıların bitleri paylaşması için inceleme yoluyla iyi bir kodlama seçmek çoğu zaman mümkündür. Bilgisayar destekli tasarım (CAD) araçları, olası kodlamaları arama ve makul bir kodlama seçme konusunda da iyidir.
+
+Durum kodlamasında önemli bir karar, ikili kodlama ile tek-sıcak kodlama arasındaki seçimdir. Trafik ışığı denetleyicisi örneğinde kullanıldığı gibi ikili kodlamada, her durum bir ikili sayı olarak temsil edilir. K ikili sayıları log2K bitleriyle temsil edilebildiğinden, K durumlu bir sistem yalnızca log2K bit durumlarına ihtiyaç duyar.
+
+Tek sıcak kodlamada, her durum için ayrı bir durum biti kullanılır. Tek-sıcak olarak adlandırılır, çünkü herhangi bir zamanda yalnızca bir bit "sıcak" veya DOĞRUdır. Örneğin, üç durumlu tek-sıcak kodlanmış bir FSM, 001, 010 ve 100 durum kodlamalarına sahip olacaktır. Her bir durum biti bir flip-flop'ta depolanır, bu nedenle onehot kodlama, ikili kodlamadan daha fazla flip-flop gerektirir. Ancak, one-hot kodlama ile sonraki durum ve çıkış mantığı genellikle daha basittir, dolayısıyla daha az geçit gerekir. En iyi kodlama seçimi, belirli FSM'ye bağlıdır.
