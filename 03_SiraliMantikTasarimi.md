@@ -280,3 +280,50 @@ Bu örnekte trafik hemen Academic Ave'e gelir.Bu nedenle, Bravado Blvd'ye trafik
 Durum kodlamasında önemli bir karar, ikili kodlama ile tek-sıcak kodlama arasındaki seçimdir. Trafik ışığı denetleyicisi örneğinde kullanıldığı gibi ikili kodlamada, her durum bir ikili sayı olarak temsil edilir. K ikili sayıları log2K bitleriyle temsil edilebildiğinden, K durumlu bir sistem yalnızca log2K bit durumlarına ihtiyaç duyar.
 
 Tek sıcak kodlamada, her durum için ayrı bir durum biti kullanılır. Tek-sıcak olarak adlandırılır, çünkü herhangi bir zamanda yalnızca bir bit "sıcak" veya DOĞRUdır. Örneğin, üç durumlu tek-sıcak kodlanmış bir FSM, 001, 010 ve 100 durum kodlamalarına sahip olacaktır. Her bir durum biti bir flip-flop'ta depolanır, bu nedenle onehot kodlama, ikili kodlamadan daha fazla flip-flop gerektirir. Ancak, one-hot kodlama ile sonraki durum ve çıkış mantığı genellikle daha basittir, dolayısıyla daha az geçit gerekir. En iyi kodlama seçimi, belirli FSM'ye bağlıdır.
+
+Örnek 3.6 : N'ye bölme sayacının bir çıkışı vardır ve girişi yoktur. Y çıkışı, her N'den bir saat döngüsü için YÜKSEK'tir. Başka bir deyişle, çıkış saatin frekansını N'ye böler. Bir 3'e bölme sayacı için dalga biçimi ve durum geçiş diyagramı Şekil 3.28'de gösterilmektedir. İkili ve tek sıcak durum kodlamalarını kullanarak böyle bir sayaç için devre tasarımları çizin.
+
+![şekil3.28](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-28.png)
+
+Çözüm: Tablo 3.6 ve 3.7, kodlamadan önceki soyut durum geçişini ve çıktı tablolarını gösterir.
+
+![Tablo3.6](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T6.png)
+
+![Tablo3.7](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T7.png)
+
+Tablo 3.8, üç durum için ikili ve tek sıcak kodlamaları karşılaştırır.
+
+![Tablo3.8](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T8.png)
+
+İkili kodlama iki bit durum kullanır. Bu kodlama kullanılarak durum geçiş tablosu Tablo 3.9'da gösterilmiştir. Giriş olmadığını unutmayın; sonraki durum yalnızca mevcut duruma bağlıdır. Çıktı tablosu okuyucuya alıştırma olarak bırakılmıştır. Sonraki durum ve çıktı denklemleri:
+
+![Tablo3.9](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T9.png)
+
+S′1 = S1S0
+S′0 = S1S0   (3.4)
+
+Y = S1S0  (3,5)
+
+Tek sıcak kodlama, üç bit durum kullanır. Bu kodlama için durum geçiş tablosu Tablo 3.10'da gösterilmiş ve çıktı tablosu yine bir alıştırma olarak okuyucuya bırakılmıştır. Sonraki durum ve çıktı denklemleri aşağıdaki gibidir:
+
+![Tablo3.10](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T10.png)
+
+S'2 = S1
+S'1 = S0
+S′0 = S2    (3.6)
+
+Y = S0 (3.7)
+
+Şekil 3.29, bu tasarımların her biri için şemaları göstermektedir. İkili kodlanmış tasarım donanımının, Y ve S0' için aynı geçidi paylaşacak şekilde optimize edilebileceğini unutmayın. Ayrıca, tek-sıcak kodlamanın, makineyi sıfırlama sırasında S0'a başlatmak için hem ayarlanabilir(ler) hem de sıfırlanabilir (r) flip-floplar gerektirdiğini gözlemleyin. En iyi uygulama seçimi, kapıların ve parmak arası terliklerin göreli maliyetine bağlıdır, ancak bu özel örnek için genellikle tek-sıcak tasarım tercih edilir.
+
+![şekil3.29](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-29.png)
+
+İlgili bir kodlama, K durumunun tam olarak biri YANLIŞ olan K bitleri ile temsil edildiği tek-soğuk kodlamadır.
+
+## 3.4.3 Moore and Mealy Machines
+Şimdiye kadar, çıktının yalnızca sistemin durumuna bağlı olduğu Moore makinelerinin örneklerini gösterdik. Bu nedenle, Moore makineleri için durum geçiş diyagramlarında çıktılar daireler içinde etiketlenir. Mealy makinelerinin Moore makinelerine çok benzediğini hatırlayın, ancak çıktılar mevcut duruma olduğu kadar girdilere de bağlı olabilir. Bu nedenle, Mealy makineleri için durum geçiş diyagramlarında, çıktılar daireler yerine yaylar üzerinde etiketlenir. Çıkışları hesaplayan kombinasyonel mantık bloğu, Şekil 3.22(b)'de gösterildiği gibi mevcut durumu ve girişleri kullanır.
+
+![şekil3.22](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-22.png)
+
+
+
