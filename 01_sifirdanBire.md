@@ -122,7 +122,7 @@ Soldan başlayarak, sayıya eşit veya ondan küçük 16'nın en büyük gücüy
 Sağdan çalışarak, sayıyı art arda 16'ya bölün. Kalan her sütuna gider. 333/16 = 20, kalan 13 <sub>10</sub> = D <sub>16</sub> 1 sütununa giriyor. 20/16 = 1, kalan 4 ise 16'lar sütununa giriyor. 1/16 = 0, geriye kalan 1 256'lar sütununa giriyor. Sonuç yine 14D <sub>16</sub>.
 
 # 1.4.4 Byte, Nibble
- 2 <sup>8</sup> = 256 olasılıktan birini temsil eden sekiz tane bite bayt denir. eder. Bilgisayar belleklerinde depolanan nesnelerin boyutu, alışılmış olarak bit yerine bayt olarak ifade edilmektedir. 
+ 2 <sup>8</sup> = 256 olasılıktan birini temsil eden sekiz tane bite bayt denir. Bilgisayar belleklerinde depolanan nesnelerin boyutu, alışılmış olarak bit yerine bayt olarak ifade edilmektedir. 
  
 Dört bitlik veya yarım baytlık bir gruba nibble denir. 2 <sup>4</sup> = 16 olasılıktan birini temsil eder. Onaltılık tabanda bir basamak yarım bayt depolar ve iki basamak ise bir bayt depolar. Sevimli olmasına rağmen Nibble kavramı artık yaygın olarak kullanılan bir birim değildir.
 
