@@ -1,5 +1,5 @@
 # 2.1 Giriş
- Aşağıdaki şekilde gösterilen bir kara kutu olarak gösterilen sayısal elektronik devresi, ayrık değişkenleri işleyen bir sistem olarak düşünülebilir. 
+ Herhangi sayısal elektronik devre, ayrık değişkenleri işleyen bir sistem olarak düşünülebilir. 
 - bir veya daha fazla ayrık değerli giriş terminali
 - bir veya daha fazla ayrık değerli çıkış terminali
 - girdiler ve çıktılar arasındaki ilişkiyi açıklayan işlevsel bir özellik
