@@ -286,7 +286,7 @@ Aşağıdaki şekil diğer ortak iki girişli mantık kapılarını gösterir. X
 
 Çözüm: Aşağıdaki şekil doğruluk tablosunu göstermektedir. Çıkış, yalnızca girişlerden hiçbiri DOĞRU değilse TRUE olur.
 
-![DogrulukT](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/23.PNG)
+![DogrulukT](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/23.png)
 
 # 1.6 Dijital Soyutlamaya Yakından Bakış
 Dijital bir sistem, ayrık değerli değişkenler kullanır. Bununla birlikte, değişkenler bir tel üzerindeki voltaj, bir dişlinin konumu veya bir silindirdeki sıvı seviyesi gibi sürekli fiziksel miktarlarla temsil edilir. Bu nedenle, tasarımcı sürekli değeri ayrık değerle ilişkilendirmek için bir yol seçmelidir.
