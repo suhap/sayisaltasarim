@@ -1,4 +1,5 @@
 # 3.1 Giriş
+Önceki bölümde, çıkışları girişler işlem yapılan andaki durumlarına göre belirlenen birleşik mantık devrelerinin nasıl tasarlanacağı anlatıldı. Tasarlama sürecinde problemi  
 Son bölümde, birleşimsel mantığın nasıl analiz edilip tasarlanacağını gösterdik. Birleşimsel mantığın çıktısı yalnızca mevcut giriş değerlerine bağlıdır. Doğruluk tablosu veya Boole denklemi verildiğinde, gereklilikleri karşılamak için optimize edilmiş bir devre oluşturabiliriz. 
 
 Bu bölümde, sıralı mantığı analiz edip tasarlayacağız. Sıralı mantığın çıktıları hem mevcut hem de önceki girdi değerlerine bağlıdır. Dolayısıyla, sıralı mantık hafızaya sahiptir. Sıralı mantık, önceki belirli girdileri açıkça hatırlayabilir veya önceki girdileri, sistemin durumu adı verilen daha küçük bir bilgi miktarına dömüştürür. Bir dijital sıralı devrenin durumu, devrenin gelecekteki davranışını açıklamak için gerekli geçmişle ilgili tüm bilgileri içeren, durum değişkenleri adı verilen bir bit kümesidir.
