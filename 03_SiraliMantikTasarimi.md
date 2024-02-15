@@ -406,3 +406,56 @@ Her durum bit kombinasyonuna isimler atar: S0, S1:0 = 00 için, S1, S1:0 = 01 i�
 ![Tablo3.22](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T22.png)
 
 ![şekil3.36](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-36.png)
+
+Alyssa, Tablolar 3.21 ve 3.22 kullanarak Şekil 3.36'da gösterilen durum geçiş diyagramını yazar. İnceleme yoluyla, sonlu durum makinesinin, ardından bir giriş değeri olan biri izleyen üçlü bir giriş değeri, A1:0, algıladıktan sonra kapıyı açtığını görebilir. Sonra kapı tekrar kilitlenir. Alyssa bu kodu kapı tuş takımında dener ve kapı açılır!
+
+##3.4.6 FSM İncelemesi
+Sonlu durum makineleri, yazılı bir spesifikasyondan ardışık devrelerin sistemli bir şekilde tasarlanması için güçlü bir yoldur. Bir FSM tasarlamak için aşağıdaki prosedürü kullanın:
+▶ Girişleri ve çıktıları belirleyin.
+▶ Bir durum geçiş diyagramı çizin.
+▶ Bir Moore makinesi için:
+– Bir durum geçiş tablosu yazın.
+– Bir çıktı tablosu yazın.
+▶ Bir Mealy makinesi için:
+– Birleştirilmiş durum geçiş ve çıktı tablosu yazın.
+▶ Durum kodlamalarını seçin—seçiminiz donanım tasarımını etkiler.
+▶ Sonraki durum ve çıktı mantığı için Boolean denklemleri yazın.
+▶ Devre şematik çizimini çizin.
+Bu kitap boyunca karmaşık dijital sistemlerin tasarımında FSM'leri tekrar tekrar kullanacağız.
+
+# 3.5 ARDışIK MANTIĞIN ZAMANLAMASI
+Bir flip-flop'un, saat sinyalinin yükselen kenarında girişi
+
+D'yi çıktıya
+
+Q'ya kopyaladığını hatırlayın. Bu işleme, saat kenarında D'nin örneklenmesi denir. Eğer
+D, saat yükseldiğinde 0 veya 1 olarak sabitse, bu davranış açıkça tanımlanmıştır.
+Peki ya
+
+D, saat yükselirken değişiyorsa ne olur?
+Bu problem, bir fotoğraf makinesinin bir resim çekerken karşılaştığı
+probleme benzer. Bir kurbağanın nilüfer yaprağından göle atladığı anı
+fotoğraflamayı hayal edin. Eğer atlamadan önce fotoğrafı çekerseniz, nilüfer
+yaprağında bir kurbağa görürsünüz. Atlamadan sonra fotoğrafı çekerseniz,
+suda halkalar görürsünüz. Ama tam kurbağa atladığı anda çekerseniz, kurbağanın nilüfer yaprağından suya doğru uzandığı bulanık bir görüntü görebilirsiniz. Bir fotoğraf makinesi, nesnenin keskin bir görüntü elde edilmesi için
+sabit kalmak zorunda olduğu bir diyafram süresi ile karakterize edilir. Benzer şekilde, bir ardışık elemanın, flip-flop'un iyi tanımlanmış bir çıktı üretmesi için girişin sabit kalmak zorunda olduğu saat kenarı etrafında bir diyafram süresi vardır.
+Bir ardışık elemanın diyaframı, sırasıyla saat kenarından önce ve sonra bir kurulum süresi ve bir tutma süresi ile tanımlanır. Tıpkı statik disiplinin bizi yasak bölge dışındaki mantık seviyelerini kullanmaya sınırlaması gibi,
+dinamik disiplin de bizi diyafram süresi dışında değişen sinyalleri kullanmaya sınırlar. Dinamik disipline avantaj sağlayarak,
+zamanı, sinyal seviyelerini ayrık 1'ler ve 0'lar olarak düşündüğümüz gibi, saat döngüleri olarak adlandırılan ayrık birimler cinsinden düşünebiliriz. Bir sinyal, sınırlı bir süre boyunca hızlıca dalgalanıp osile olabilir. Dinamik disiplin altında, sadece son değeriyle ilgileniriz, saat döngüsünün sonunda, sabit bir değere yerleştikten sonra. Bu nedenle, basitçe
+A[n], sinyalin 
+n'inci saat döngüsünün sonundaki değeri olarak yazabiliriz, burada
+n bir tam sayıdır, yerine
+A(t), bazı anlarda
+A'nın değeri olarak, burada
+t herhangi bir gerçek sayıdır.
+
+Saat periyodu, tüm sinyallerin yerleşmesi için yeterince uzun olmalıdır. Bu, sistemin hızı üzerinde bir sınır belirler. Gerçek sistemlerde, saat sinyali tüm flip-floplara tam olarak aynı anda ulaşmaz. Saat kayması olarak adlandırılan bu zaman varyasyonu, gerekli saat periyodunu daha da artırır.
+Bazen, özellikle gerçek dünya ile arayüz oluşturulduğunda, dinamik disiplini tatmin etmek imkansızdır. Örneğin, girişi bir düğmeden gelen bir devreyi düşünün. Bir maymun, saat yükselirken düğmeye basabilir. Bu, flip-flopu 0 ve 1 arasında bir değerde yakaladığı ve iyi bir mantık değerine dönüşmesi için sınırsız bir sü
+
+re alabilecek bir metastabilite fenomenine yol açabilir. Böyle asenkron girişlerin çözümü, çok küçük (ama sıfır olmayan) bir olasılıkla yasal olmayan bir mantık değeri üretebilen bir senkronizatör kullanmaktır.
+Bu bölümün geri kalanında tüm bu fikirleri genişletiyoruz.
+
+## 3.5.1 Dinamik Disiplin
+Şimdiye kadar, ardışık devrelerin fonksiyonel spesifikasyonuna odaklandık. Bir flip-flop veya FSM gibi senkron ardışık bir devrenin, Şekil 3.37'de gösterildiği gibi, bir zamanlama spesifikasyonuna da sahip olduğunu hatırlayın. Saat yükseldiğinde, çıktı (veya çıktılar) saatten-Q'ya kontaminasyon gecikmesi, tccq, sonrasında değişmeye başlayabilir ve kesinlikle saatten-Q'ya yayılma gecikmesi, tpcq, içinde son değere yerleşmelidir. Bunlar, sırasıyla, devreden geçen en hızlı ve en yavaş gecikmeleri temsil eder. Devrenin girişini doğru bir şekilde örneklemesi için, giriş (veya girişler) en azından bir kurulum süresi, tsetup, kadar önce saat yükselme kenarından önce stabilize olmuş olmalı ve en az bir tutma süresi, thold, kadar saat yükselme kenarından sonra sabit kalmalıdır. Kurulum ve tutma sürelerinin toplamı, girişin sabit kalmak zorunda olduğu toplam süre olduğu için, devrenin diyafram süresi olarak adlandırılır.
+
+Dinamik disiplin, bir senkron ardışık devrenin girişlerinin, saat kenarı etrafındaki kurulum ve tutma diyafram süresi boyunca sabit olması gerektiğini belirtir. Bu gerekliliği uygulayarak, flip-flopların değişmeyen sinyalleri örneklediğini garanti ederiz. Yalnızca örneklenme zamanındaki girişlerin son değerleriyle ilgilendiğimiz için, sinyalleri mantık seviyeleri kadar zamanda da ayrık olarak ele alabiliriz.
