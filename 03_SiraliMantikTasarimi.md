@@ -365,3 +365,12 @@ Karmaşık FSM'lerin tasarımı, eğer bu makineler birden fazla etkileşimli da
 
 ![şekil3.31](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-31.png)
 ![şekil3.32](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-32.png)
+
+Örnek 3.8 FAKTÖRLENMEMİŞ VE FAKTÖRLENMİŞ DURUM MAKİNELERİ
+3.4.1 Bölümünden trafik ışığı kontrolörünü, Bravado Bulvarı ışığını yeşil tutan ve seyirciler ile bando, dağınık gruplar halinde futbol maçlarına yürüdükleri süre boyunca geçit moduna alacak şekilde değiştirin. Kontrolör iki yeni giriş alır: P ve R. P'yi en az bir döngü boyunca iddia etmek geçit moduna girer. R'yi en az bir döngü boyunca iddia etmek geçit modundan çıkar. Geçit modundayken, kontrolör, LB yeşil olduğunda normal sırasına devam eder ve sonra LB yeşil iken geçit modu sona erene kadar bu durumda kalır.
+Öncelikle, Şekil 3.33(a)’da gösterildiği gibi tek bir FSM için bir durum geçiş diyagramı çizin. Sonra, Şekil 3.33(b)’de gösterildiği gibi iki etkileşimli FSM için durum geçiş diyagramlarını çizin. Mod FSM'i, parade modundayken M çıktısını iddia eder. Işıklar FSM'i, M ve trafik sensörleri TA ve TB'ye dayanarak ışıkları kontrol eder.
+Çözüm: Şekil 3.34(a) tek FSM tasarımını gösterir. S0'dan S3'e durumlar normal modu işler. S4'ten S7'ye durumlar geçit modunu işler. Diyagramın iki yarısı neredeyse aynıdır, ancak geçit modundayken, FSM Bravado Bulv. üzerinde yeşil ışıkla S6'da kalır. P ve R girişleri, bu iki yarı arasındaki hareketi kontrol eder. FSM karmaşık ve tasarlaması sıkıcıdır. Şekil 3.34(b) faktörlenmiş FSM tasarımını gösterir. Mod FSM'i, ışıkların normal modda mı yoksa geçit modunda mı olduğunu izlemek için iki duruma sahiptir. Işıklar FSM'i, M TRUE olduğu sürece S2'de kalmak üzere modifiye edilmiştir.
+
+![şekil3.33](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-33.png)
+![şekil3.34](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-34.png)
+
