@@ -359,3 +359,9 @@ Moore ve Mealy makinesi şemaları Şekil 3.31'de gösterilmiştir. Her makine i
 ![Tablo3.14](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T14.png)
 ![Tablo3.15](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T15.png)
 ![Tablo3.16](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T16.png)
+
+## 3.4.4 Durum Makinelerini Faktörleme
+Karmaşık FSM'lerin tasarımı, eğer bu makineler birden fazla etkileşimli daha basit durum makinelerine ayrılabilirse genellikle daha kolaydır, böylece bazı makinelerin çıktısı diğerlerinin girişi olur. Bu hiyerarşi ve modülerlik uygulamasına durum makinelerinin faktörleme denir.
+
+![şekil3.31](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-31.png)
+![şekil3.32](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-32.png)
