@@ -326,4 +326,11 @@ Y = S0 (3.7)
 ![şekil3.22](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-22.png)
 
 
-
+Örnek 3.7 MOORE VERSUS MEALY MAKİNELERİ
+Alyssa P. Hacker, FSM beyinli bir evcil robot salyangoza sahiptir. Salyangoz, 1'ler ve 0'lar dizisi içeren bir kağıt şeridi boyunca soldan sağa doğru sürünür. Her saat döngüsünde, salyangoz bir sonraki bite doğru sürünür. Salyangoz, üzerinden süründüğü son iki bit soldan sağa doğru 01 olduğunda gülümser. Salyangozun ne zaman gülümsemesi gerektiğini hesaplayacak FSM'i tasarlayın. Giriş A, salyangozun antenlerinin altındaki bittir. Çıktı Y, salyangoz gülümsediğinde TRUE'dur. Moore ve Mealy durum makinesi tasarımlarını karşılaştırın. Her makine için giriş, durumlar ve çıktıyı gösteren bir zamanlama diyagramı çizin, Alyssa'nın salyangozu 0100110111 dizisi boyunca süründükçe.
+Çözüm: Moore makinesi, Şekil 3.30(a)'da gösterildiği gibi üç durum gerektirir. Durum geçiş diyagramının doğru olduğuna kendinizi ikna edin. Özellikle, giriş 0 olduğunda S2'den S1'e bir yayın neden olduğunu düşünün?
+Karşılaştırıldığında, Mealy makinesi yalnızca iki durum gerektirir, Şekil 3.30(b)’de gösterildiği gibi.
+Her yay A/Y olarak etiketlenmiştir. A, o geçişi sağlayan girişin değeri ve Y, karşılık gelen çıktıdır.
+Tablolar 3.11 ve 3.12, Moore makinesi için durum geçiş ve çıktı tablolarını gösterir. Moore makinesi en az iki bit durum gerektirir. İkili durum kodlaması kullanmayı düşünün: S0 = 00, S1 = 01 ve S2 = 10. Tablolar 3.13 ve 3.14, bu kodlamalarla durum geçiş ve çıktı tablolarını yeniden yazar.
+Bu tablolardan, sonraki durum ve çıktı denklemlerini inceleme yoluyla buluruz.
+Bu denklemlerin basitleştirilmesi, 11 durumunun var olmaması gerçeği kullanılarak yapılır. Dolayısıyla, var olmayan durum için karşılık gelen sonraki durum ve çıktı, umursanmazlar (tabloların içinde gösterilmez). Denklemlerimizi minimize etmek için umursanmazları kullanırız.
