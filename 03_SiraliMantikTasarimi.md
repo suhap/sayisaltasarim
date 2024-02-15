@@ -334,3 +334,22 @@ Her yay A/Y olarak etiketlenmiştir. A, o geçişi sağlayan girişin değeri ve
 Tablolar 3.11 ve 3.12, Moore makinesi için durum geçiş ve çıktı tablolarını gösterir. Moore makinesi en az iki bit durum gerektirir. İkili durum kodlaması kullanmayı düşünün: S0 = 00, S1 = 01 ve S2 = 10. Tablolar 3.13 ve 3.14, bu kodlamalarla durum geçiş ve çıktı tablolarını yeniden yazar.
 Bu tablolardan, sonraki durum ve çıktı denklemlerini inceleme yoluyla buluruz.
 Bu denklemlerin basitleştirilmesi, 11 durumunun var olmaması gerçeği kullanılarak yapılır. Dolayısıyla, var olmayan durum için karşılık gelen sonraki durum ve çıktı, umursanmazlar (tabloların içinde gösterilmez). Denklemlerimizi minimize etmek için umursanmazları kullanırız.
+
+Denklem 3.8
+ S1' = S0A
+ S0' = A'
+
+ Denklem 3.9 
+ Y= S1
+ 
+Tablo 3.15, Mealy makinesi için birleştirilmiş durum geçiş ve çıktı tablosunu gösterir. Mealy makinesi yalnızca bir bit durum gerektirir. İkili durum kodlaması kullanmayı düşünün: S0 = 0 ve S1 = 1. Tablo 3.16, bu kodlamalarla durum geçiş ve çıktı tablosunu yeniden yazar.
+Bu tablolardan, sonraki durum ve çıktı denklemlerini inceleme yoluyla buluruz.
+ 
+ Denklem 3.10
+ S0' = A'
+ Denklem 3.11 
+ Y = S0A
+Moore ve Mealy makinesi şemaları Şekil 3.31'de gösterilmiştir. Her makine için zamanlama diyagramları Şekil 3.32'de gösterilmiştir (135. sayfaya bakınız). İki makine farklı durum dizilerini takip eder. Dahası, Mealy makinesinin çıktısı, durum değişikliğini beklemek yerine girişe yanıt olarak bir döngü daha erken yükselir. Mealy çıktısı bir flip-flop aracılığıyla geciktirilirse, Moore çıktısıyla eşleşir. FSM tasarım stilinizi seçerken, çıktılarınızın ne zaman yanıt vermesini istediğinizi göz önünde bulundurun.
+
+![şekil3.30](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-30.png)
+ 
