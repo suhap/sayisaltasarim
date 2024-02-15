@@ -374,3 +374,35 @@ Karmaşık FSM'lerin tasarımı, eğer bu makineler birden fazla etkileşimli da
 ![şekil3.33](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-33.png)
 ![şekil3.34](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-34.png)
 
+##3.4.5 Bir Şematikten FSM Türetme
+Bir şematikten durum geçiş diyagramını türetme işlemi, neredeyse FSM tasarımının tersi bir süreci izler. Bu işlem, örneğin, eksik belgelenmiş bir projeyi devralırken veya başkasının sistemini tersine mühendislik yaparken gerekli olabilir.
+
+▶ Devreyi inceleyin, girişleri, çıktıları ve durum bitlerini belirtin.
+▶ Sonraki durum ve çıktı denklemlerini yazın.
+▶ Sonraki durum ve çıktı tablolarını oluşturun.
+▶ Erişilemeyen durumları elemek için sonraki durum tablosunu indirgeyin.
+▶ Her geçerli durum bit kombinasyonuna bir isim atayın.
+▶ Sonraki durum ve çıktı tablolarını durum isimleriyle yeniden yazın.
+▶ Durum geçiş diyagramını çizin.
+▶ FSM'in ne yaptığını kelimelerle ifade edin.
+Son adımda, FSM'in genel amacını ve işlevini öz olarak tanımlamaya dikkat edin—durum geçiş diyagramının her geçişini basitçe yeniden ifade etmeyin.
+Örnek 3.9 BİR FSM'İN DEVRESİNDEN TÜRETME
+Alyssa P. Hacker eve geldiğinde, ancak tuş takımı kilidi yeniden bağlanmış ve eski kodu artık çalışmıyor. Üzerine Şekil 3.35'teki devre şemasını gösteren bir kağıt parçası yapıştırılmış. Alyssa, devrenin bir sonlu durum makinesi olabileceğini düşünüyor ve kapıyı açmasına yardımcı olup olmadığını görmek için durum geçiş diyagramını türetmeye karar veriyor.
+
+Çözüm: Alyssa devreyi inceleyerek başlar. Giriş A1:0 ve çıktı Kilidi Açıktır. Durum bitleri zaten Şekil 3.35'te etiketlenmiştir. Bu, çıktının yalnızca durum bitlerine bağlı olduğu için bir Moore makinesidir. Devreden, sonraki durum ve çıktı denklemlerini doğrudan yazar:
+S′1 = S0A1'A0
+S′0 = S1'S0'A1A0
+Unlock = S1
+![şekil3.35](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-35.png)
+Daha sonra, denklemlerden sonraki durum ve çıktı tablolarını, Denklem 3.12 tarafından belirtildiği gibi, öncelikle tablolara 1'leri yerleştirerek ve geri kalan her yere 0 yerleştirerek yazıyor.
+
+Alyssa, kullanılmayan durumları kaldırarak ve umursamazları kullanarak satırları birleştirerek tabloyu indirger. S1:0 = 11 durumu, Tablo 3.17'de olası bir sonraki durum olarak asla listelenmez, bu yüzden bu mevcut durumlu satırlar kaldırılır. Mevcut durum S1:0 = 10 için, sonraki durum her zaman S1:0 = 00'dir, girişlerden bağımsız olarak, bu yüzden girişler için umursamazlar eklenir. İndirgenmiş tablolar Tablo 3.19 ve 3.20'de gösterilir.
+Her durum bit kombinasyonuna isimler atar: S0, S1:0 = 00 için, S1, S1:0 = 01 için ve S2, S1:0 = 10 için. Tablolar 3.21 ve 3.22 durum isimleriyle sonraki durum ve çıktı tablolarını gösterir.
+![Tablo3.17](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T17.png)
+![Tablo3.18](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T18.png)
+![Tablo3.19](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T19.png)
+![Tablo3.20](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T20.png)
+![Tablo3.21](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T21.png)
+![Tablo3.22](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T22.png)
+
+![şekil3.36](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-36.png)
