@@ -353,3 +353,9 @@ Moore ve Mealy makinesi şemaları Şekil 3.31'de gösterilmiştir. Her makine i
 
 ![şekil3.30](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-30.png)
  
+![Tablo3.11](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T11.png)
+![Tablo3.12](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T12.png)
+![Tablo3.13](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T13.png)
+![Tablo3.14](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T14.png)
+![Tablo3.15](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T15.png)
+![Tablo3.16](https://raw.githubusercontent.com/suhap/sayisaltasarim/master/resource/3-T16.png)
