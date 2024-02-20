@@ -1,5 +1,5 @@
 
-#1.1 Mikroişlemci Gelişiminin Önemi
+# 1.1 Mikroişlemci Gelişiminin Önemi
 
 Mikroişlemcilerin keşfi, cep telefonu ve internet gibi günlük hayatımızı kökten değiştiren teknolojilerin ortaya çıkmasını sağlamıştır. Mikroişlemcilerin inanılmaz hızlı gelişimi sayesinde günümüzde kullanılan bir akıllı telefon, otuz yıl önceki bir sunucudan çok daha fazla yeteneğe sahip olabilmektedir. Bu gelişmeler, birçok alanda mevcut cihazların evrim geçirmesine ve yeni cihazların ortaya çıkmasına yol açmıştır. Gelişmiş ve yeni cihazlar, kullanıldıkları alanda köklü değişikliklere yol açmıştır. Örneğin, insansız hava araçlarının ortaya çıkması, orduların savaşma şeklini ve stratejilerini önemli ölçüde değiştirmiştir. Önemli bir ekonomik etkiye sahip olan mikroişlemci satışlarının 2030 yılında 128 milyon dolara çıkması beklenmektedir. Teknik, ekonomik ve sosyal etkilerinin yanı sıra, mikroişlemci mimarisi en karmaşık insan icatlarından biridir.
 
